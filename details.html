@@ -9,6 +9,7 @@
 <body>
     <div class="container">
         <div id="obituary-details"></div>
+        <div id="flower-basket-section"></div>
     </div>
 
     <footer class="footer">
@@ -45,9 +46,49 @@
             }
 
             document.getElementById('obituary-details').innerHTML = obituaryText;
+
+            if (sendFlowerBasket === 'yes') {
+                document.getElementById('flower-basket-section').innerHTML = `
+                    <h2>花籃訂購</h2>
+                    <form id="flower-basket-form">
+                        <label for="basket-type">花籃種類:</label>
+                        <select id="basket-type" name="basket-type">
+                            <option value="basket1">花籃 1 - NT$2000</option>
+                            <option value="basket2">花籃 2 - NT$2500</option>
+                            <option value="basket3">花籃 3 - NT$3000</option>
+                            <option value="basket4">花籃 4 - NT$3500</option>
+                            <option value="basket5">花籃 5 - NT$4000</option>
+                            <option value="basket6">花籃 6 - NT$4500</option>
+                            <option value="basket7">花籃 7 - NT$5000</option>
+                            <option value="basket8">花籃 8 - NT$5500</option>
+                        </select>
+
+                        <label for="payment-method">付款方式:</label>
+                        <select id="payment-method" name="payment-method">
+                            <option value="bank-transfer">銀行匯款</option>
+                            <option value="linepay">Line Pay</option>
+                        </select>
+
+                        <label for="address">收據/發票地址:</label>
+                        <input type="text" id="address" name="address">
+
+                        <button type="submit">訂購花籃</button>
+                    </form>
+                    <p>匯款單請回傳至 Line ID: your_line_id</p>
+                `;
+            }
         });
 
         function calculateAge(birthDate) {
             const birth = new Date(birthDate);
             const today = new Date();
-           
+            let age = today.getFullYear() - birth.getFullYear();
+            const monthDiff = today.getMonth() - birth.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+                age--;
+            }
+            return age;
+        }
+    </script>
+</body>
+</html>
