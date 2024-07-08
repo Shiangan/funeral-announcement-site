@@ -30,7 +30,7 @@ document.getElementById('obituary-form').addEventListener('submit', function(e) 
         if (response.ok) {
             alert('訃聞已提交！');
             document.getElementById('obituary-form').reset();
-            document.getElementById('music-source').src = 'music1.mp3'; // Reset to default music
+            document.getElementById('music-source').src = 'audio/music1.mp3'; // Reset to default music
             document.getElementById('background-music').load();
         } else {
             throw new Error('訃聞提交失敗');
@@ -41,30 +41,6 @@ document.getElementById('obituary-form').addEventListener('submit', function(e) 
 
 document.getElementById('music').addEventListener('change', function() {
     const selectedMusic = document.getElementById('music').value;
-    document.getElementById('music-source').src = selectedMusic;
+    document.getElementById('music-source').src = 'audio/' + selectedMusic;
     document.getElementById('background-music').load();
-});
-
-document.getElementById('memorial-wall-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const username = document.getElementById('username').value;
-    const comment = document.getElementById('comment').value;
-    const photo = document.getElementById('photo').files[0];
-
-    const commentElement = document.createElement('div');
-    commentElement.innerHTML = `<p><strong>${username}</strong>: ${comment}</p>`;
-
-    if (photo) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            img.style.maxWidth = '100%';
-            commentElement.appendChild(img);
-        }
-        reader.readAsDataURL(photo);
-    }
-
-    document.getElementById('memorial-wall').appendChild(commentElement);
 });
