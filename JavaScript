@@ -7,7 +7,9 @@ document.getElementById('obituary-form').addEventListener('submit', function(e) 
     const music = document.getElementById('music').value;
     const wreath = document.getElementById('wreath').value;
     const message = document.getElementById('message').value;
-    const blessing = document.getElementById('blessing').value;
+    const funeralLocation = document.getElementById('funeral-location').value;
+    const hall = document.getElementById('hall').value;
+    const funeralDate = document.getElementById('funeral-date').value;
 
     const data = {
         name: name,
@@ -16,55 +18,32 @@ document.getElementById('obituary-form').addEventListener('submit', function(e) 
         music: music,
         wreath: wreath,
         message: message,
-        blessing: blessing
+        funeralLocation: funeralLocation,
+        hall: hall,
+        funeralDate: funeralDate
     };
 
-    fetch('https://script.google.com/macros/s/YOUR_GOOGLE_SCRIPT_ID/exec', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => {
-        if (response.ok) {
-            alert('訃聞已提交！');
-            document.getElementById('obituary-form').reset();
-            document.getElementById('music-source').src = 'music1.mp3'; // Reset to default music
-            document.getElementById('background-music').load();
-        } else {
-            throw new Error('訃聞提交失敗');
-        }
-    })
-    .catch(error => console.error('Error:', error));
+    localStorage.setItem('obituaryData', JSON.stringify(data));
+
+    window.location.href = 'inner-page.html';
 });
 
-document.getElementById('music').addEventListener('change', function() {
-    const selectedMusic = document.getElementById('music').value;
-    document.getElementById('music-source').src = selectedMusic;
-    document.getElementById('background-music').load();
-});
+document.getElementById('funeral-location').addEventListener('change', function() {
+    const selectedLocation = document.getElementById('funeral-location').value;
+    const hallSelect = document.getElementById('hall');
+    hallSelect.disabled = false;
+    
+    hallSelect.innerHTML = '';
 
-document.getElementById('memorial-wall-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const username = document.getElementById('username').value;
-    const comment = document.getElementById('comment').value;
-    const photo = document.getElementById('photo').files[0];
-
-    const commentElement = document.createElement('div');
-    commentElement.innerHTML = `<p><strong>${username}</strong>: ${comment}</p>`;
-
-    if (photo) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            img.style.maxWidth = '100%';
-            commentElement.appendChild(img);
-        }
-        reader.readAsDataURL(photo);
+    if (selectedLocation === '第二殯儀館') {
+        const option1 = document.createElement('option');
+        option1.value = '至仁一廳';
+        option1.textContent = '至仁一廳';
+        hallSelect.appendChild(option1);
+    } else if (selectedLocation === '新北板橋殯儀館') {
+        const option1 = document.createElement('option');
+        option1.value = '某某廳';
+        option1.textContent = '某某廳';
+        hallSelect.appendChild(option1);
     }
-
-    document.getElementById('memorial-wall').appendChild(commentElement);
 });
