@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>訃聞提交</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>訃聞提交表單</h1>
+        <form id="obituary-form">
+            <label for="name">姓名:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="date">逝世日期:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="style">選擇寫法:</label>
+            <select id="style" name="style" required>
+                <option value="traditional">傳統寫法</option>
+                <option value="chinese">中式寫法</option>
+                <option value="western">西式寫法</option>
+                <option value="japanese">日式寫法</option>
+            </select>
+
+            <label for="music">選擇音樂:</label>
+            <select id="music" name="music" required>
+                <option value="music1.mp3">音樂1</option>
+                <option value="music2.mp3">音樂2</option>
+            </select>
+
+            <label for="wreath">是否致贈花籃:</label>
+            <select id="wreath" name="wreath" required>
+                <option value="yes">是</option>
+                <option value="no">否</option>
+            </select>
+
+            <label for="message">訃聞信息:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <label for="blessing">留言祝福:</label>
+            <textarea id="blessing" name="blessing" required></textarea>
+
+            <button type="submit">生成訃聞</button>
+        </form>
+        <div id="generated-content">
+            <!-- 這裡顯示生成的訃聞內容 -->
+        </div>
+    </div>
+    <footer>
+        <p>2024祥安生命有限公司 版權所有</p>
+    </footer>
+    <audio id="background-music" autoplay loop>
+        <source id="music-source" src="music1.mp3" type="audio/mpeg">
+        您的瀏覽器不支持音頻元素。
+    </audio>
+    <script src="script.js"></script>
+</body>
+</html>
