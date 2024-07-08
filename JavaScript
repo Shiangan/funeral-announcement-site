@@ -1,35 +1,65 @@
-document.getElementById('funeral-location').addEventListener('change', function() {
-    const selectedLocation = this.value;
+document.addEventListener('DOMContentLoaded', function() {
+    const funeralLocation = document.getElementById('funeral-location');
     const hallSelect = document.getElementById('hall');
-    hallSelect.disabled = false;
 
-    // Clear previous options
-    hallSelect.innerHTML = '';
+    funeralLocation.addEventListener('change', function() {
+        const selectedLocation = funeralLocation.value;
+        hallSelect.innerHTML = ''; // 清空選項
 
-    // Populate halls based on selected location
-    if (selectedLocation === '第二殯儀館') {
-        const option1 = document.createElement('option');
-        option1.value = '至仁一廳';
-        option1.textContent = '至仁一廳';
-        hallSelect.appendChild(option1);
+        if (selectedLocation === '第二殯儀館') {
+            hallSelect.innerHTML = `
+                <option value="">請選擇禮廳</option>
+                <option value="禮堂A">禮堂A</option>
+                <option value="禮堂B">禮堂B</option>
+            `;
+        } else if (selectedLocation === '新北板橋殯儀館') {
+            hallSelect.innerHTML = `
+                <option value="">請選擇禮廳</option>
+                <option value="至真1廳">至真1廳</option>
+                <option value="至真2廳">至真2廳</option>
+            `;
+        } else if (selectedLocation === '桃園殯儀館') {
+            hallSelect.innerHTML = `
+                <option value="">請選擇禮廳</option>
+                <option value="大禮堂">大禮堂</option>
+            `;
+        } else if (selectedLocation === '南榮殯儀館') {
+            hallSelect.innerHTML = `
+                <option value="">請選擇禮廳</option>
+                <option value="綠樹廳">綠樹廳</option>
+                <option value="白雲廳">白雲廳</option>
+            `;
+        } else {
+            hallSelect.innerHTML = `<option value="">請先選擇出殯地點</option>`;
+        }
 
-        // Add more halls as needed
-    } else if (selectedLocation === '新北板橋殯儀館') {
-        const option1 = document.createElement('option');
-        option1.value = '某某廳';
-        option1.textContent = '某某廳';
-        hallSelect.appendChild(option1);
+        hallSelect.disabled = hallSelect.options.length <= 1;
+    });
 
-        // Add more halls as needed
-    }
-    // Handle other locations similarly
-});
+    const form = document.getElementById('obituary-form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
 
-document.getElementById('obituary-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+        const style = document.querySelector('input[name="style"]:checked').value;
+        const deceasedName = document.getElementById('deceased-name').value;
+        const deathDate = document.getElementById('death-date').value;
+        const funeralDate = document.getElementById('funeral-date').value;
+        const funeralLocation = document.getElementById('funeral-location').value;
+        const hall = document.getElementById('hall').value;
+        const textStyle = document.getElementById('text-style').value;
+        const sendFlowerBasket = document.getElementById('send-flower-basket').value;
 
-    // 在这里处理表单数据，可以发送到服务器或进行其他操作
+        const params = new URLSearchParams({
+            style,
+            deceasedName,
+            deathDate,
+            funeralDate,
+            funeralLocation,
+            hall,
+            textStyle,
+            sendFlowerBasket
+        }).toString();
 
-    // 提交表单到下一页
-    this.submit();
+        window.location.href = `details.html?${params}`;
+    });
 });
