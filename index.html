@@ -51,22 +51,23 @@
 
             <label for="message">訃聞信息:</label>
             <textarea id="message" name="message" required></textarea>
-
-          <label for="hall">選擇禮廳:</label>
-<select id="hall" name="hall" required disabled>
-    <option value="">請先選擇出殯地點</option>
-</select>
+<label for="funeral-date">出殯日期:</label>
+<input type="date" id="funeral-date" name="funeral-date" required>
 
 <label for="funeral-location">出殯地點:</label>
 <select id="funeral-location" name="funeral-location" required>
+    <option value="">請選擇出殯地點</option>
     <option value="第二殯儀館">第二殯儀館</option>
     <option value="新北板橋殯儀館">第三殯儀館</option>
     <option value="桃園殯儀館">桃園殯儀館</option>
     <option value="南榮殯儀館">基隆殯儀館</option>
 </select>
 
-<label for="funeral-date">出殯日期:</label>
-<input type="date" id="funeral-date" name="funeral-date" required>
+<label for="hall">選擇禮廳:</label>
+<select id="hall" name="hall" required disabled>
+    <option value="">請先選擇出殯地點</option>
+</select>
+
 <button type="submit">生成訃聞</button>
     <footer class="footer">
         <p>2024祥安生命有限公司 版權所有</p>
