@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('obituary-form');
-    const wreathSelect = document.getElementById('wreath');
+    const funeralLocationSelect = document.getElementById('funeral-location');
     const hallSelect = document.getElementById('hall');
 
     // 監聽出殯地點選擇，啟用相應禮廳選項
-    document.getElementById('funeral-location').addEventListener('change', function() {
+    funeralLocationSelect.addEventListener('change', function() {
         const selectedLocation = this.value;
         // 根據選擇的出殯地點啟用相應的禮廳選項
         if (selectedLocation === '第二殯儀館') {
