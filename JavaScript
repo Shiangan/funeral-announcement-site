@@ -1,3 +1,7 @@
+document.getElementById('funeral-date').addEventListener('change', function() {
+    // 在这里可以添加处理日期变化的逻辑，如果需要的话
+});
+
 document.getElementById('funeral-location').addEventListener('change', function() {
     const selectedLocation = this.value;
     const hallSelect = document.getElementById('hall');
