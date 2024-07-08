@@ -51,6 +51,8 @@
 
             <label for="message">訃聞信息:</label>
             <textarea id="message" name="message" required></textarea>
+
+            <form id="obituary-form" action="next_page.html" method="POST">
 <label for="funeral-date">出殯日期:</label>
 <input type="date" id="funeral-date" name="funeral-date" required>
 
@@ -67,6 +69,7 @@
 <select id="hall" name="hall" required disabled>
     <option value="">請先選擇出殯地點</option>
 </select>
+            
 
 <button type="submit">生成訃聞</button>
     <footer class="footer">
