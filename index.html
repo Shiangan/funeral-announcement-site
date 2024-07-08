@@ -19,56 +19,52 @@
     <div class="container">
         <h1>訃聞提交表單</h1>
         <form id="obituary-form">
-            <label for="name">姓名:</label>
-            <input type="text" id="name" name="name" required>
+    <label for="funeral-date">出殯日期:</label>
+    <input type="date" id="funeral-date" name="funeral-date" required>
 
-            <label for="date">逝世日期:</label>
-            <input type="date" id="date" name="date" required>
+    <label for="funeral-location">出殯地點:</label>
+    <select id="funeral-location" name="funeral-location" required>
+        <option value="">請選擇出殯地點</option>
+        <option value="第二殯儀館">第二殯儀館</option>
+        <option value="新北板橋殯儀館">第三殯儀館</option>
+        <option value="桃園殯儀館">桃園殯儀館</option>
+        <option value="南榮殯儀館">基隆殯儀館</option>
+    </select>
 
-            <label for="style">選擇寫法:</label>
-            <select id="style" name="style" required>
-                <option value="traditional">傳統寫法</option>
-                <option value="chinese">中式寫法</option>
-                <option value="western">西式寫法</option>
-                <option value="japanese">日式寫法</option>
-            </select>
+    <label for="hall">選擇禮廳:</label>
+    <select id="hall" name="hall" required>
+        <option value="">請先選擇出殯地點</option>
+    </select>
 
-            <label for="music">選擇音樂:</label>
-            <select id="music" name="music" required>
-                <option value="終章.mp3">音樂1</option>
-                <option value="放心去飛.mp3">音樂2</option>
-                <option value="送予你的歌.mp3">音樂3</option>
-                <option value="music1.mp3">音樂4</option>
-                <option value="music1.mp3">音樂5</option>
-                <option value="music1.mp3">音樂6</option>
-            </select>
+    <button type="submit">生成訃聞</button>
+</form>
 
-            <label for="wreath">是否致贈花籃:</label>
-            <select id="wreath" name="wreath" required>
-                <option value="yes">是</option>
-                <option value="no">否</option>
-            </select>
+<script>
+    document.getElementById('funeral-location').addEventListener('change', function() {
+        const selectedLocation = this.value;
+        const hallSelect = document.getElementById('hall');
+        
+        // Clear previous options
+        hallSelect.innerHTML = '';
 
-            <label for="message">訃聞信息:</label>
-            <textarea id="message" name="message" required></textarea>
+        if (selectedLocation === '第二殯儀館') {
+            const option1 = document.createElement('option');
+            option1.value = '至仁一廳';
+            option1.textContent = '至仁一廳';
+            hallSelect.appendChild(option1);
 
-            <form id="obituary-form" action="next_page.html" method="POST">
-<label for="funeral-date">出殯日期:</label>
-<input type="date" id="funeral-date" name="funeral-date" required>
+            // Add more halls as needed
+        } else if (selectedLocation === '新北板橋殯儀館') {
+            const option1 = document.createElement('option');
+            option1.value = '某某廳';
+            option1.textContent = '某某廳';
+            hallSelect.appendChild(option1);
 
-<label for="funeral-location">出殯地點:</label>
-<select id="funeral-location" name="funeral-location" required>
-    <option value="">請選擇出殯地點</option>
-    <option value="第二殯儀館">第二殯儀館</option>
-    <option value="新北板橋殯儀館">第三殯儀館</option>
-    <option value="桃園殯儀館">桃園殯儀館</option>
-    <option value="南榮殯儀館">基隆殯儀館</option>
-</select>
-
-<label for="hall">選擇禮廳:</label>
-<select id="hall" name="hall" required disabled>
-    <option value="">請先選擇出殯地點</option>
-</select>
+            // Add more halls as needed
+        }
+        // Handle other locations similarly
+    });
+</script>
             
 
 <button type="submit">生成訃聞</button>
