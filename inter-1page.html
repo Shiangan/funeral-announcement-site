@@ -7,50 +7,57 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="header">
+    <header class="header">
         <img src="path/to/your/logo.png" alt="公司Logo">
-    </div>
+    </header>
 
-    <div class="container">
-        <h2>訃聞詳情</h2>
-        <div id="obituary-content"></div>
+    <main class="container">
+        <section class="obituary-details">
+            <h2>訃聞詳情</h2>
+            <div id="obituary-content"></div>
+        </section>
         
-        <!-- 花籃訂購表格 -->
-        <h3>訂購花籃</h3>
-        <form id="flower-basket-form">
-            <label for="basket-type">花籃類型:</label>
-            <input type="text" id="basket-type" name="basket-type" required>
+        <section class="flower-basket">
+            <h3>訂購花籃</h3>
+            <form id="flower-basket-form">
+                <label for="basket-type">花籃類型:</label>
+                <input type="text" id="basket-type" name="basket-type" required>
 
-            <label for="delivery-address">收件地址:</label>
-            <input type="text" id="delivery-address" name="delivery-address">
+                <label for="delivery-address">收件地址:</label>
+                <input type="text" id="delivery-address" name="delivery-address">
 
-            <label for="payment-method">付款方式:</label>
-            <select id="payment-method" name="payment-method" required>
-                <option value="bank-transfer">銀行匯款</option>
-                <option value="linepay">Line Pay</option>
-            </select>
+                <label for="payment-method">付款方式:</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="bank-transfer">銀行匯款</option>
+                    <option value="linepay">Line Pay</option>
+                </select>
 
-            <button type="submit">提交訂單</button>
-        </form>
+                <button type="submit">提交訂單</button>
+            </form>
+        </section>
         
-        <!-- 留言追思區 -->
-        <h3>留言追思</h3>
-        <textarea id="memorial-message" rows="4" cols="50" placeholder="在這裡留下您的追思留言..."></textarea>
-
-        <!-- 照片懷念 -->
-        <h3>照片懷念</h3>
-        <input type="file" id="photo-upload" accept="image/*">
-
-        <!-- 生平介紹 -->
-        <h3>生平介紹</h3>
-        <textarea id="life-story" rows="8" cols="50" placeholder="在這裡分享往生者的生平..."></textarea>
-
-        <!-- 儀式地圖 -->
-        <h3>儀式地圖</h3>
-        <div id="ceremony-map">
-            <!-- 在這裡插入儀式地圖的內容 -->
-        </div>
-    </div>
+        <section class="memorial-message">
+            <h3>留言追思</h3>
+            <textarea id="memorial-message" rows="4" cols="50" placeholder="在這裡留下您的追思留言..."></textarea>
+        </section>
+        
+        <section class="photo-memories">
+            <h3>照片懷念</h3>
+            <input type="file" id="photo-upload" accept="image/*">
+        </section>
+        
+        <section class="life-story">
+            <h3>生平介紹</h3>
+            <textarea id="life-story" rows="8" cols="50" placeholder="在這裡分享往生者的生平..."></textarea>
+        </section>
+        
+        <section class="ceremony-map">
+            <h3>儀式地圖</h3>
+            <div id="ceremony-map">
+                <!-- 在這裡插入儀式地圖的內容 -->
+            </div>
+        </section>
+    </main>
 
     <footer class="footer">
         <p>2024祥安生命有限公司 版權所有</p>
