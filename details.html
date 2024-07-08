@@ -7,58 +7,47 @@
     <link rel="stylesheet" href="details.css">
 </head>
 <body>
-    <div class="header">
-        <img src="path/to/your/logo.png" alt="公司Logo">
+    <div class="container">
+        <div id="obituary-details"></div>
     </div>
 
-    <div class="container">
-        <h1>訃聞詳細信息</h1>
-        <div id="obituary-details"></div>
+    <footer class="footer">
+        <p>2024祥安生命有限公司 版權所有</p>
+        <p>承辦禮儀公司 0938-179-858</p>
+        <p>Line ID: your_line_id</p>
+    </footer>
 
-        <h2>致贈花籃</h2>
-        <form id="wreath-form">
-            <label for="wreath-photo">上傳照片:</label>
-            <input type="file" id="wreath-photo" name="wreath-photo" accept="image/*" required>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const style = urlParams.get('style');
+            const deceasedName = urlParams.get('deceasedName');
+            const deathDate = urlParams.get('deathDate');
+            const funeralDate = urlParams.get('funeralDate');
+            const funeralLocation = urlParams.get('funeralLocation');
+            const hall = urlParams.get('hall');
+            const textStyle = urlParams.get('textStyle');
+            const sendFlowerBasket = urlParams.get('sendFlowerBasket');
 
-            <label for="wreath-options">選擇花籃:</label>
-            <select id="wreath-options" name="wreath-options" required>
-                <option value="1000">花籃1 - NT$1000</option>
-                <option value="2000">花籃2 - NT$2000</option>
-                <option value="3000">花籃3 - NT$3000</option>
-                <option value="4000">花籃4 - NT$4000</option>
-                <option value="5000">花籃5 - NT$5000</option>
-                <option value="6000">花籃6 - NT$6000</option>
-                <option value="7000">花籃7 - NT$7000</option>
-                <option value="8000">花籃8 - NT$8000</option>
-            </select>
+            let obituaryText = '';
+            if (textStyle === 'traditional') {
+                obituaryText = `
+                    <p>我們摯愛的親人${deceasedName}於${deathDate}逝世，享年${calculateAge(deathDate)}</p>
+                    <p>謹擇於${funeralDate}於${funeralLocation} ${hall}舉行告別儀式，敬邀諸位親友蒞臨告別致意。</p>
+                    <p>全體家屬 叩謝</p>
+                `;
+            } else {
+                obituaryText = `
+                    <p>我們摯愛的${deceasedName}於${deathDate}辭世，享年${calculateAge(deathDate)}</p>
+                    <p>謹擇於${funeralDate}於${funeralLocation} ${hall}舉行告別儀式，敬邀諸位親友蒞臨告別致意。</p>
+                    <p>全體家屬 叩謝</p>
+                `;
+            }
 
-            <label for="invoice-address">發票地址:</label>
-            <input type="text" id="invoice-address" name="invoice-address" required>
+            document.getElementById('obituary-details').innerHTML = obituaryText;
+        });
 
-            <button type="submit">提交花籃訂單</button>
-        </form>
-
-        <h2>追思留言區</h2>
-        <form id="message-form">
-            <label for="memorial-photo">上傳照片:</label>
-            <input type="file" id="memorial-photo" name="memorial-photo" accept="image/*">
-
-            <label for="memorial-message">留言:</label>
-            <textarea id="memorial-message" name="memorial-message" required></textarea>
-
-            <button type="submit">提交留言</button>
-        </form>
-
-        <h2>其他信息</h2>
-        <ul>
-            <li><a href="#life-story">生平介紹</a></li>
-            <li><a href="#obituary-text">訃告正文</a></li>
-            <li><a href="#ceremony-map">儀式地圖</a></li>
-            <li><a href="#ceremony-schedule">儀式時程</a></li>
-            <li><a href="#sms-reminder">簡訊提醒</a></li>
-            <li><a href="#message-share">訊息分享</a></li>
-        </ul>
-
-        <h2>聯繫我們</h2>
-        <p>若有問題可隨時聯繫</p>
-        <img src="path/to/your/qrcode.png" alt="聯繫我們 QR Code">
+        function calculateAge(birthDate) {
+            const birth = new Date(birthDate);
+            const today = new Date();
+           
