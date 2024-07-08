@@ -1,6 +1,6 @@
 body {
-    font-family: 'Noto Sans TC', sans-serif;
-    background-color: #f5f5f5;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
     color: #333;
     margin: 0;
     padding: 0;
@@ -8,49 +8,57 @@ body {
 
 .container {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 0 auto;
     padding: 20px;
     background-color: #fff;
-    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-    font-size: 24px;
+.header img {
+    width: 100%;
+    height: auto;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+#obituary-details {
     margin-bottom: 20px;
-    color: #d2a4a4;
 }
 
-label {
+h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+form label {
     display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-input, select, button {
+form input, form select, form button {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
-button {
-    background-color: #d2a4a4;
+form button {
+    background-color: #007bff;
     color: #fff;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #bf8b8b;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
-    margin-top: 20px;
+form button:hover {
+    background-color: #0056b3;
 }
