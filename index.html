@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>公司介紹</title>
-    <link rel="stylesheet" href="style.css">
+    <title>訃聞提交表單</title>
+    <link rel="stylesheet" href="form.css">
 </head>
 <body>
     <div class="header">
@@ -18,7 +18,7 @@
 
     <div class="container">
         <h1>訃聞提交表單</h1>
-        <form id="obituary-form" action="inner-page.html" method="post">
+        <form id="obituary-form">
             <label for="name">姓名:</label>
             <input type="text" id="name" name="name" required>
 
@@ -55,7 +55,7 @@
             <label for="funeral-location">出殯地點:</label>
             <select id="funeral-location" name="funeral-location" required>
                 <option value="第二殯儀館">第二殯儀館</option>
-                <option value="新北板橋殯儀館">第三殯儀館</option>
+                <option value="新北板橋殯儀館">新北板橋殯儀館</option>
                 <option value="桃園殯儀館">桃園殯儀館</option>
                 <option value="南榮殯儀館">基隆殯儀館</option>
             </select>
@@ -75,6 +75,11 @@
     <footer class="footer">
         <p>2024祥安生命有限公司 版權所有</p>
     </footer>
+
+    <audio id="background-music" autoplay loop>
+        <source id="music-source" src="audio/終章.mp3" type="audio/mpeg">
+        您的瀏覽器不支持音頻元素。
+    </audio>
 
     <script src="script.js"></script>
 </body>
