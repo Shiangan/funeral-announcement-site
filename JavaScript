@@ -1,49 +1,50 @@
-document.getElementById('obituary-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById('name').value;
-    const date = document.getElementById('date').value;
-    const style = document.getElementById('style').value;
-    const music = document.getElementById('music').value;
-    const wreath = document.getElementById('wreath').value;
-    const message = document.getElementById('message').value;
-    const funeralLocation = document.getElementById('funeral-location').value;
-    const hall = document.getElementById('hall').value;
-    const funeralDate = document.getElementById('funeral-date').value;
-
-    const data = {
-        name: name,
-        date: date,
-        style: style,
-        music: music,
-        wreath: wreath,
-        message: message,
-        funeralLocation: funeralLocation,
-        hall: hall,
-        funeralDate: funeralDate
-    };
-
-    localStorage.setItem('obituaryData', JSON.stringify(data));
-
-    window.location.href = 'inner-page.html';
-});
-
-document.getElementById('funeral-location').addEventListener('change', function() {
-    const selectedLocation = document.getElementById('funeral-location').value;
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('obituary-form');
+    const wreathSelect = document.getElementById('wreath');
     const hallSelect = document.getElementById('hall');
-    hallSelect.disabled = false;
-    
-    hallSelect.innerHTML = '';
 
-    if (selectedLocation === '第二殯儀館') {
-        const option1 = document.createElement('option');
-        option1.value = '至仁一廳';
-        option1.textContent = '至仁一廳';
-        hallSelect.appendChild(option1);
-    } else if (selectedLocation === '新北板橋殯儀館') {
-        const option1 = document.createElement('option');
-        option1.value = '某某廳';
-        option1.textContent = '某某廳';
-        hallSelect.appendChild(option1);
-    }
+    // 監聽出殯地點選擇，啟用相應禮廳選項
+    document.getElementById('funeral-location').addEventListener('change', function() {
+        const selectedLocation = this.value;
+        // 根據選擇的出殯地點啟用相應的禮廳選項
+        if (selectedLocation === '第二殯儀館') {
+            hallSelect.innerHTML = '<option value="A廳">A廳</option><option value="B廳">B廳</option><option value="C廳">C廳</option>';
+        } else if (selectedLocation === '新北板橋殯儀館') {
+            hallSelect.innerHTML = '<option value="1廳">1廳</option><option value="2廳">2廳</option><option value="3廳">3廳</option>';
+        } else if (selectedLocation === '桃園殯儀館') {
+            hallSelect.innerHTML = '<option value="松柏廳">松柏廳</option><option value="桂花廳">桂花廳</option>';
+        } else if (selectedLocation === '南榮殯儀館') {
+            hallSelect.innerHTML = '<option value="松柏廳">松柏廳</option><option value="桂花廳">桂花廳</option>';
+        } else {
+            hallSelect.innerHTML = '<option value="">請先選擇出殯地點</option>';
+            hallSelect.disabled = true;
+        }
+        hallSelect.disabled = false;
+    });
+
+    // 提交表單處理
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        // 收集表單數據
+        const formData = new FormData(form);
+        const obituaryDetails = document.getElementById('obituary-details');
+
+        // 生成訃聞的展示內容，這裡展示基本的姓名和逝世日期，根據需求添加更多細節
+        const obituaryHTML = `
+            <p>姓名: ${formData.get('name')}</p>
+            <p>逝世日期: ${formData.get('date')}</p>
+            <p>寫法: ${formData.get('style')}</p>
+            <p>音樂: ${formData.get('music')}</p>
+            <p>訃聞信息: ${formData.get('message')}</p>
+            <p>出殯地點: ${formData.get('funeral-location')}</p>
+            <p>禮廳: ${formData.get('hall')}</p>
+            <p>出殯日期: ${formData.get('funeral-date')}</p>
+        `;
+
+        // 將生成的訃聞信息添加到詳細信息頁面
+        obituaryDetails.innerHTML = obituaryHTML;
+
+        // 切換到詳細信息頁面
+        window.location.href = 'details.html';
+    });
 });
