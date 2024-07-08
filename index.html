@@ -3,79 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>訃聞提交表單</title>
-    <link rel="stylesheet" href="form.css">
+    <title>公司介紹</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="header">
         <img src="path/to/your/logo.png" alt="公司Logo">
     </div>
 
-    <!-- 嵌入 YouTube 影片 -->
-    <div class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/_ZbzFF14_lQ?autoplay=1" frameborder="0" allowfullscreen></iframe>
-    </div>
-
     <div class="container">
         <h1>訃聞提交表單</h1>
         <form id="obituary-form">
-    <label for="funeral-date">出殯日期:</label>
-    <input type="date" id="funeral-date" name="funeral-date" required>
+            <label for="funeral-date">出殯日期:</label>
+            <input type="date" id="funeral-date" name="funeral-date" required>
 
-    <label for="funeral-location">出殯地點:</label>
-    <select id="funeral-location" name="funeral-location" required>
-        <option value="">請選擇出殯地點</option>
-        <option value="第二殯儀館">第二殯儀館</option>
-        <option value="新北板橋殯儀館">第三殯儀館</option>
-        <option value="桃園殯儀館">桃園殯儀館</option>
-        <option value="南榮殯儀館">基隆殯儀館</option>
-    </select>
+            <label for="funeral-location">出殯地點:</label>
+            <select id="funeral-location" name="funeral-location" required>
+                <option value="">請選擇出殯地點</option>
+                <option value="第二殯儀館">第二殯儀館</option>
+                <option value="新北板橋殯儀館">第三殯儀館</option>
+                <option value="桃園殯儀館">桃園殯儀館</option>
+                <option value="南榮殯儀館">基隆殯儀館</option>
+            </select>
 
-    <label for="hall">選擇禮廳:</label>
-    <select id="hall" name="hall" required>
-        <option value="">請先選擇出殯地點</option>
-    </select>
+            <label for="hall">選擇禮廳:</label>
+            <select id="hall" name="hall" required disabled>
+                <option value="">請先選擇出殯地點</option>
+            </select>
 
-    <button type="submit">生成訃聞</button>
-</form>
+            <button type="submit">生成訃聞</button>
+        </form>
+    </div>
 
-<script>
-    document.getElementById('funeral-location').addEventListener('change', function() {
-        const selectedLocation = this.value;
-        const hallSelect = document.getElementById('hall');
-        
-        // Clear previous options
-        hallSelect.innerHTML = '';
-
-        if (selectedLocation === '第二殯儀館') {
-            const option1 = document.createElement('option');
-            option1.value = '至仁一廳';
-            option1.textContent = '至仁一廳';
-            hallSelect.appendChild(option1);
-
-            // Add more halls as needed
-        } else if (selectedLocation === '新北板橋殯儀館') {
-            const option1 = document.createElement('option');
-            option1.value = '某某廳';
-            option1.textContent = '某某廳';
-            hallSelect.appendChild(option1);
-
-            // Add more halls as needed
-        }
-        // Handle other locations similarly
-    });
-</script>
-            
-
-<button type="submit">生成訃聞</button>
     <footer class="footer">
         <p>2024祥安生命有限公司 版權所有</p>
     </footer>
-
-    <audio id="background-music" autoplay loop>
-        <source id="music-source" src="audio/終章.mp3" type="audio/mpeg">
-        您的瀏覽器不支持音頻元素。
-    </audio>
 
     <script src="script.js"></script>
 </body>
