@@ -13,7 +13,7 @@
 
     <!-- 嵌入 YouTube 影片 -->
     <div class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/_ZbzFF14_lQ" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <div class="container">
@@ -52,18 +52,18 @@
             <label for="message">訃聞信息:</label>
             <textarea id="message" name="message" required></textarea>
 
-      <label for="funeral-location">出殯地點:</label>
-<select id="funeral-location" name="funeral-location" required>
-    <option value="第二殯儀館">第二殯儀館</option>
-    <option value="新北板橋殯儀館">第三殯儀館</option>
-    <option value="桃園殯儀館">桃園殯儀館</option>
-    <option value="南榮殯儀館">基隆殯儀館</option>
-</select>
+            <label for="funeral-location">出殯地點:</label>
+            <select id="funeral-location" name="funeral-location" required>
+                <option value="第二殯儀館">第二殯儀館</option>
+                <option value="新北板橋殯儀館">第三殯儀館</option>
+                <option value="桃園殯儀館">桃園殯儀館</option>
+                <option value="南榮殯儀館">基隆殯儀館</option>
+            </select>
 
-<label for="hall">選擇禮廳:</label>
-<select id="hall" name="hall" required disabled>
-    <option value="">請先選擇出殯地點</option>
-</select>
+            <label for="hall">選擇禮廳:</label>
+            <select id="hall" name="hall" required disabled>
+                <option value="">請先選擇出殯地點</option>
+            </select>
 
             <label for="funeral-date">出殯日期:</label>
             <input type="date" id="funeral-date" name="funeral-date" required>
@@ -78,6 +78,82 @@
     <footer class="footer">
         <p>2024祥安生命有限公司 版權所有</p>
     </footer>
+
+    <script>
+        document.getElementById('obituary-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('date').value;
+            const style = document.getElementById('style').value;
+            const music = document.getElementById('music').value;
+            const wreath = document.getElementById('wreath').value;
+            const message = document.getElementById('message').value;
+            const blessing = document.getElementById('blessing').value;
+
+            const data = {
+                name: name,
+                date: date,
+                style: style,
+                music: music,
+                wreath: wreath,
+                message: message,
+                blessing: blessing
+            };
+
+            fetch('https://script.google.com/macros/s/YOUR_GOOGLE_SCRIPT_ID/exec', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('訃聞已提交！');
+                    document.getElementById('obituary-form').reset();
+                    document.getElementById('music-source').src = 'audio/music1.mp3'; // Reset to default music
+                    document.getElementById('background-music').load();
+                } else {
+                    throw new Error('訃聞提交失敗');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+        document.getElementById('music').addEventListener('change', function() {
+            const selectedMusic = document.getElementById('music').value;
+            document.getElementById('music-source').src = 'audio/' + selectedMusic;
+            document.getElementById('background-music').load();
+        });
+
+        document.getElementById('funeral-location').addEventListener('change', function() {
+            const selectedLocation = document.getElementById('funeral-location').value;
+            const hallSelect = document.getElementById('hall');
+            hallSelect.disabled = false;
+            
+            // Clear previous options
+            hallSelect.innerHTML = '';
+
+            // Populate halls based on selected location
+            if (selectedLocation === '第二殯儀館') {
+                const option1 = document.createElement('option');
+                option1.value = '至仁一廳';
+                option1.textContent = '至仁一廳';
+                hallSelect.appendChild(option1);
+
+                // Add more halls as needed
+            } else if (selectedLocation === '新北板橋殯儀館') {
+                const option1 = document.createElement('option');
+                option1.value = '某某廳';
+                option1.textContent = '某某廳';
+                hallSelect.appendChild(option1);
+
+                // Add more halls as needed
+            }
+            // Handle other locations similarly
+        });
+    </script>
 
     <audio id="background-music" autoplay loop>
         <source id="music-source" src="audio/終章.mp3" type="audio/mpeg">
