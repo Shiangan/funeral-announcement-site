@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言紀念</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="container">
+        <h1>留言紀念</h1>
+        <form action="submitMemorialMessage" method="post" enctype="multipart/form-data">
+            <label for="name">姓名:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="message">留言:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <label for="photo">照片:</label>
+            <input type="file" id="photo" name="photo" accept="image/*" required>
+
+            <button type="submit">提交留言</button>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <p>2024祥安生命有限公司 版權所有</p>
+        <p>承辦禮儀公司 0938-179-858</p>
+        <p>Line ID: your_line_id</p>
+    </footer>
+</body>
+</html>
