@@ -1,0 +1,15 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const obituaryData = JSON.parse(localStorage.getItem('obituaryData'));
+
+    if (obituaryData) {
+        document.getElementById('obituary-name').textContent = obituaryData.name;
+        document.getElementById('obituary-date').textContent = obituaryData.date;
+        document.getElementById('obituary-style').textContent = obituaryData.style;
+        document.getElementById('obituary-music').textContent = obituaryData.music;
+        document.getElementById('obituary-wreath').textContent = obituaryData.wreath;
+        document.getElementById('obituary-message').textContent = obituaryData.message;
+        document.getElementById('obituary-funeral-location').textContent = obituaryData.funeralLocation;
+        document.getElementById('obituary-hall').textContent = obituaryData.hall;
+        document.getElementById('obituary-funeral-date').textContent = obituaryData.funeralDate;
+    }
+});
