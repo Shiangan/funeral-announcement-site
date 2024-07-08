@@ -1,8 +1,26 @@
-document.getElementById('obituary-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+document.getElementById('funeral-location').addEventListener('change', function() {
+    const selectedLocation = this.value;
+    const hallSelect = document.getElementById('hall');
+    hallSelect.disabled = false;
+    
+    // Clear previous options
+    hallSelect.innerHTML = '';
 
-    // 在这里处理表单数据，可以发送到服务器或进行其他操作
+    // Populate halls based on selected location
+    if (selectedLocation === '第二殯儀館') {
+        const option1 = document.createElement('option');
+        option1.value = '至仁一廳';
+        option1.textContent = '至仁一廳';
+        hallSelect.appendChild(option1);
 
-    // 提交表单到下一页
-    this.submit();
+        // Add more halls as needed
+    } else if (selectedLocation === '新北板橋殯儀館') {
+        const option1 = document.createElement('option');
+        option1.value = '某某廳';
+        option1.textContent = '某某廳';
+        hallSelect.appendChild(option1);
+
+        // Add more halls as needed
+    }
+    // Handle other locations similarly
 });
