@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="details.css">
 </head>
 <body>
+    <div class="header">
+        <img src="path/to/your/logo.png" alt="公司Logo">
+    </div>
+
     <div class="container">
         <div id="obituary-details"></div>
         <div id="flower-basket-section"></div>
@@ -31,17 +35,18 @@
 
             let obituaryText = '';
             const age = calculateAge(deathDate);
+            const ageTerm = getAgeTerm(age);
 
             if (textStyle === 'traditional') {
                 obituaryText = `
-                    <p>我們摯愛的親人${deceasedName}於${deathDate}逝世，享年${age}歲</p>
-                    <p>謹擇於${funeralDate}於${funeralLocation} ${hall}舉行告別儀式，敬邀諸位親友蒞臨告別致意。</p>
+                    <p>我們摯愛的親人 ${deceasedName} 於 ${deathDate} 逝世，${ageTerm} ${age} 歲</p>
+                    <p>謹擇於 ${funeralDate} 於 ${funeralLocation} ${hall} 舉行告別儀式，敬邀諸位親友蒞臨告別致意。</p>
                     <p>全體家屬 叩謝</p>
                 `;
             } else {
                 obituaryText = `
-                    <p>我們摯愛的${deceasedName}於${deathDate}辭世，享年${age}歲</p>
-                    <p>謹擇於${funeralDate}於${funeralLocation} ${hall}舉行告別儀式，敬邀諸位親友蒞臨告別致意。</p>
+                    <p>我們摯愛的 ${deceasedName} 於 ${deathDate} 辭世，${ageTerm} ${age} 歲</p>
+                    <p>謹擇於 ${funeralDate} 於 ${funeralLocation} ${hall} 舉行告別儀式，敬邀諸位親友蒞臨告別致意。</p>
                     <p>全體家屬 叩謝</p>
                 `;
             }
@@ -89,6 +94,20 @@
                 age--;
             }
             return age;
+        }
+
+        function getAgeTerm(age) {
+            if (age < 30) {
+                return '享年';
+            } else if (age < 60) {
+                return '得年';
+            } else if (age < 90) {
+                return '享壽';
+            } else if (age < 100) {
+                return '享耆壽';
+            } else {
+                return '享嵩壽';
+            }
         }
     </script>
 </body>
