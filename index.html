@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>祥安生命有限公司</title>
+    <title>公司介紹</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <video id="video-background" autoplay loop muted>
-        <source src="your-video.mp4" type="video/mp4">
-        您的瀏覽器不支持視頻播放。
-    </video>
-
     <div class="header">
-        <h1>祥安生命有限公司</h1>
+        <img src="path/to/your/logo.png" alt="公司Logo">
+    </div>
+
+    <!-- 嵌入 YouTube 影片 -->
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <div class="container">
         <h1>訃聞提交表單</h1>
         <form id="obituary-form">
-            <label for="name">亡者姓名:</label>
+            <label for="name">姓名:</label>
             <input type="text" id="name" name="name" required>
 
             <label for="date">逝世日期:</label>
@@ -52,8 +52,21 @@
             <label for="message">訃聞信息:</label>
             <textarea id="message" name="message" required></textarea>
 
-            <label for="blessing">留言祝福:</label>
-            <textarea id="blessing" name="blessing" required></textarea>
+      <label for="funeral-location">出殯地點:</label>
+<select id="funeral-location" name="funeral-location" required>
+    <option value="第二殯儀館">第二殯儀館</option>
+    <option value="新北板橋殯儀館">第三殯儀館</option>
+    <option value="桃園殯儀館">桃園殯儀館</option>
+    <option value="南榮殯儀館">基隆殯儀館</option>
+</select>
+
+<label for="hall">選擇禮廳:</label>
+<select id="hall" name="hall" required disabled>
+    <option value="">請先選擇出殯地點</option>
+</select>
+
+            <label for="funeral-date">出殯日期:</label>
+            <input type="date" id="funeral-date" name="funeral-date" required>
 
             <button type="submit">生成訃聞</button>
         </form>
