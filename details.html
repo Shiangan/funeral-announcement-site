@@ -21,7 +21,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
-            const style = urlParams.get('style');
             const deceasedName = urlParams.get('deceasedName');
             const deathDate = urlParams.get('deathDate');
             const funeralDate = urlParams.get('funeralDate');
@@ -31,15 +30,17 @@
             const sendFlowerBasket = urlParams.get('sendFlowerBasket');
 
             let obituaryText = '';
+            const age = calculateAge(deathDate);
+
             if (textStyle === 'traditional') {
                 obituaryText = `
-                    <p>我們摯愛的親人${deceasedName}於${deathDate}逝世，享年${calculateAge(deathDate)}</p>
+                    <p>我們摯愛的親人${deceasedName}於${deathDate}逝世，享年${age}歲</p>
                     <p>謹擇於${funeralDate}於${funeralLocation} ${hall}舉行告別儀式，敬邀諸位親友蒞臨告別致意。</p>
                     <p>全體家屬 叩謝</p>
                 `;
             } else {
                 obituaryText = `
-                    <p>我們摯愛的${deceasedName}於${deathDate}辭世，享年${calculateAge(deathDate)}</p>
+                    <p>我們摯愛的${deceasedName}於${deathDate}辭世，享年${age}歲</p>
                     <p>謹擇於${funeralDate}於${funeralLocation} ${hall}舉行告別儀式，敬邀諸位親友蒞臨告別致意。</p>
                     <p>全體家屬 叩謝</p>
                 `;
@@ -79,8 +80,8 @@
             }
         });
 
-        function calculateAge(birthDate) {
-            const birth = new Date(birthDate);
+        function calculateAge(deathDate) {
+            const birth = new Date(deathDate);
             const today = new Date();
             let age = today.getFullYear() - birth.getFullYear();
             const monthDiff = today.getMonth() - birth.getMonth();
