@@ -56,6 +56,10 @@ form label {
     font-weight: bold;
 }
 
+<select id="hall" name="hall" required disabled>
+    <option value="">請先選擇出殯地點</option>
+</select>
+
 form input[type="text"],
 form input[type="date"],
 form select,
