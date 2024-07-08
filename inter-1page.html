@@ -3,40 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>逝者姓名的訃聞</title>
-    <link rel="stylesheet" href="style.css">
+    <title>訃聞詳情</title>
+    <link rel="stylesheet" href="inter_page.css">
 </head>
 <body>
-    <header class="header">
-        <img src="path/to/your/logo.png" alt="公司Logo">
-    </header>
+    <div class="container">
+        <img id="photo" src="" alt="亡者照片">
+        <h2 id="invitation-text"></h2>
+        <p id="message"></p>
 
-    <section class="cover-photo">
-        <img src="path/to/obituary/photo.jpg" alt="逝者照片">
-        <div class="cover-overlay">
-            <h1>敬邀參加</h1>
-            <p>親愛的家人和朋友，我們誠摯地邀請您參加逝者姓名的訃聞。</p>
-            <a href="#" class="btn">了解更多</a>
+        <!-- 追思回憶留言板 -->
+        <div class="memorial-board">
+            <h3>追思留言</h3>
+            <form id="memorial-form">
+                <label for="name">姓名:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="message">留言:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <label for="photo">照片上傳:</label>
+                <input type="file" id="photo" name="photo">
+
+                <button type="submit">提交留言</button>
+            </form>
         </div>
-    </section>
 
-    <section class="container">
-        <h2>訃聞詳情</h2>
-        <p><strong>姓名:</strong> <span id="obituary-name"></span></p>
-        <p><strong>逝世日期:</strong> <span id="obituary-date"></span></p>
-        <p><strong>寫法:</strong> <span id="obituary-style"></span></p>
-        <p><strong>音樂:</strong> <span id="obituary-music"></span></p>
-        <p><strong>是否致贈花籃:</strong> <span id="obituary-wreath"></span></p>
-        <p><strong>訃聞信息:</strong> <span id="obituary-message"></span></p>
-        <p><strong>出殯地點:</strong> <span id="obituary-funeral-location"></span></p>
-        <p><strong>禮廳:</strong> <span id="obituary-hall"></span></p>
-        <p><strong>出殯日期:</strong> <span id="obituary-funeral-date"></span></p>
-    </section>
+        <!-- 致贈花籃表單 -->
+        <div class="wreath-form">
+            <h3>致贈花籃</h3>
+            <form id="wreath-form">
+                <label for="recipient">收件人姓名:</label>
+                <input type="text" id="recipient" name="recipient" required>
 
-    <footer class="footer">
-        <p>2024 祥安生命禮儀公司 版權所有</p>
-    </footer>
+                <label for="address">寄送地址:</label>
+                <textarea id="address" name="address" required></textarea>
 
-    <script src="script.js"></script>
+                <label for="invoice">需要發票:</label>
+                <select id="invoice" name="invoice" required>
+                    <option value="yes">是</option>
+                    <option value="no">否</option>
+                </select>
+
+                <label for="payment-method">付款方式:</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="credit-card">信用卡</option>
+                    <option value="line-pay">Line Pay</option>
+                </select>
+
+                <button type="submit">提交訂單</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
