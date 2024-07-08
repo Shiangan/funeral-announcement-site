@@ -3,22 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>公司介紹</title>
+    <title>祥安生命有限公司</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="header">
         <img src="path/to/your/logo.png" alt="公司Logo">
     </div>
-<!-- 嵌入 YouTube 影片 -->
+
+    <!-- 嵌入 YouTube 影片 -->
     <div class="video-container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/_ZbzFF14_lQ?autoplay=1" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <div class="container">
-    <div class="container">
         <h1>訃聞提交表單</h1>
         <form id="obituary-form">
+            <label for="deceased-name">往生者姓名:</label>
+            <input type="text" id="deceased-name" name="deceased-name" required>
+
+            <label for="death-date">逝世日期:</label>
+            <input type="date" id="death-date" name="death-date" required>
+
             <label for="funeral-date">出殯日期:</label>
             <input type="date" id="funeral-date" name="funeral-date" required>
 
@@ -35,6 +41,12 @@
             <select id="hall" name="hall" required disabled>
                 <option value="">請先選擇出殯地點</option>
             </select>
+
+            <label for="text-style">內文風格:</label>
+            <input type="text" id="text-style" name="text-style">
+
+            <label for="send-flower-basket">是否贈送花籃:</label>
+            <input type="checkbox" id="send-flower-basket" name="send-flower-basket">
 
             <button type="submit">生成訃聞</button>
         </form>
