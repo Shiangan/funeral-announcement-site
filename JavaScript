@@ -2,7 +2,7 @@ document.getElementById('funeral-location').addEventListener('change', function(
     const selectedLocation = this.value;
     const hallSelect = document.getElementById('hall');
     hallSelect.disabled = false;
-    
+
     // Clear previous options
     hallSelect.innerHTML = '';
 
@@ -23,4 +23,13 @@ document.getElementById('funeral-location').addEventListener('change', function(
         // Add more halls as needed
     }
     // Handle other locations similarly
+});
+
+document.getElementById('obituary-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // 在这里处理表单数据，可以发送到服务器或进行其他操作
+
+    // 提交表单到下一页
+    this.submit();
 });
