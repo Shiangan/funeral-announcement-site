@@ -1,23 +1,27 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const funeralLocationSelect = document.getElementById('funeral-location');
+document.getElementById('funeral-location').addEventListener('change', function() {
+    const selectedLocation = this.value;
     const hallSelect = document.getElementById('hall');
-
-    // 監聽出殯地點選擇，啟用相應禮廳選項
-    funeralLocationSelect.addEventListener('change', function() {
-        const selectedLocation = this.value;
-        // 根據選擇的出殯地點啟用相應的禮廳選項
-        if (selectedLocation === '第二殯儀館') {
-            hallSelect.innerHTML = '<option value="A廳">A廳</option><option value="B廳">B廳</option><option value="C廳">C廳</option>';
-        } else if (selectedLocation === '新北板橋殯儀館') {
-            hallSelect.innerHTML = '<option value="1廳">1廳</option><option value="2廳">2廳</option><option value="3廳">3廳</option>';
-        } else if (selectedLocation === '桃園殯儀館') {
-            hallSelect.innerHTML = '<option value="松柏廳">松柏廳</option><option value="桂花廳">桂花廳</option>';
-        } else if (selectedLocation === '南榮殯儀館') {
-            hallSelect.innerHTML = '<option value="松柏廳">松柏廳</option><option value="桂花廳">桂花廳</option>';
-        } else {
-            hallSelect.innerHTML = '<option value="">請先選擇出殯地點</option>';
-            hallSelect.disabled = true;
-        }
-        hallSelect.disabled = false;
-    });
+    
+    // 先清空之前的选项
+    hallSelect.innerHTML = '';
+    
+    if (selectedLocation === '第二殯儀館') {
+        const option1 = document.createElement('option');
+        option1.value = '至仁一廳';
+        option1.textContent = '至仁一廳';
+        hallSelect.appendChild(option1);
+        
+        // 添加更多选项
+    } else if (selectedLocation === '新北板橋殯儀館') {
+        const option1 = document.createElement('option');
+        option1.value = '某某廳';
+        option1.textContent = '某某廳';
+        hallSelect.appendChild(option1);
+        
+        // 添加更多选项
+    }
+    // 根据其他地点添加更多的选项
+    
+    // 启用选择框
+    hallSelect.disabled = false;
 });
