@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('obituary-form');
     const funeralLocationSelect = document.getElementById('funeral-location');
     const hallSelect = document.getElementById('hall');
 
@@ -20,31 +19,5 @@ document.addEventListener('DOMContentLoaded', function() {
             hallSelect.disabled = true;
         }
         hallSelect.disabled = false;
-    });
-
-    // 提交表單處理
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        // 收集表單數據
-        const formData = new FormData(form);
-        const obituaryDetails = document.getElementById('obituary-details');
-
-        // 生成訃聞的展示內容，這裡展示基本的姓名和逝世日期，根據需求添加更多細節
-        const obituaryHTML = `
-            <p>姓名: ${formData.get('name')}</p>
-            <p>逝世日期: ${formData.get('date')}</p>
-            <p>寫法: ${formData.get('style')}</p>
-            <p>音樂: ${formData.get('music')}</p>
-            <p>訃聞信息: ${formData.get('message')}</p>
-            <p>出殯地點: ${formData.get('funeral-location')}</p>
-            <p>禮廳: ${formData.get('hall')}</p>
-            <p>出殯日期: ${formData.get('funeral-date')}</p>
-        `;
-
-        // 將生成的訃聞信息添加到詳細信息頁面
-        obituaryDetails.innerHTML = obituaryHTML;
-
-        // 切換到詳細信息頁面
-        window.location.href = 'details.html';
     });
 });
