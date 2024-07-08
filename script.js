@@ -1,46 +1,47 @@
-document.getElementById('obituary-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('obituary-form');
+    const funeralLocation = document.getElementById('funeral-location');
+    const hall = document.getElementById('hall');
+    const flowerBasket = document.getElementById('send-flower-basket');
 
-    const name = document.getElementById('name').value;
-    const date = document.getElementById('date').value;
-    const style = document.getElementById('style').value;
-    const music = document.getElementById('music').value;
-    const wreath = document.getElementById('wreath').value;
-    const message = document.getElementById('message').value;
-    const blessing = document.getElementById('blessing').value;
-
-    const data = {
-        name: name,
-        date: date,
-        style: style,
-        music: music,
-        wreath: wreath,
-        message: message,
-        blessing: blessing
-    };
-
-    fetch('https://script.google.com/macros/s/YOUR_GOOGLE_SCRIPT_ID/exec', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => {
-        if (response.ok) {
-            alert('訃聞已提交！');
-            document.getElementById('obituary-form').reset();
-            document.getElementById('music-source').src = 'audio/music1.mp3'; // Reset to default music
-            document.getElementById('background-music').load();
-        } else {
-            throw new Error('訃聞提交失敗');
+    funeralLocation.addEventListener('change', function() {
+        const location = this.value;
+        hall.disabled = !location;
+        if (location) {
+            hall.innerHTML = '';
+            const halls = getHalls(location);
+            halls.forEach(h => {
+                const option = document.createElement('option');
+                option.value = h;
+                option.textContent = h;
+                hall.appendChild(option);
+            });
         }
-    })
-    .catch(error => console.error('Error:', error));
-});
+    });
 
-document.getElementById('music').addEventListener('change', function() {
-    const selectedMusic = document.getElementById('music').value;
-    document.getElementById('music-source').src = 'audio/' + selectedMusic;
-    document.getElementById('background-music').load();
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const data = {
+            deceasedName: formData.get('deceased-name'),
+            deathDate: formData.get('death-date'),
+            funeralDate: formData.get('funeral-date'),
+            funeralLocation: formData.get('funeral-location'),
+            hall: formData.get('hall'),
+            textStyle: formData.get('text-style'),
+            sendFlowerBasket: formData.get('send-flower-basket')
+        };
+        const params = new URLSearchParams(data).toString();
+        window.location.href = `details.html?${params}`;
+    });
+
+    function getHalls(location) {
+        const halls = {
+            "第二殯儀館": ["至真1廳", "至真2廳", "至真3廳"],
+            "新北板橋殯儀館": ["至善1廳", "至善2廳", "至善3廳"],
+            "桃園殯儀館": ["桃園1廳", "桃園2廳", "桃園3廳"],
+            "南榮殯儀館": ["基隆1廳", "基隆2廳", "基隆3廳"]
+        };
+        return halls[location] || [];
+    }
 });
