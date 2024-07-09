@@ -103,4 +103,94 @@ button:hover {
 .cover-photo img {
     width: 100%;
     height: auto;
-    transition
+   : transform 0.3s ease-in-out;
+}
+
+.cover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.cover-photo:hover .cover-overlay {
+    opacity: 1;
+}
+
+.cover-photo:hover img {
+    transform: scale(1.1);
+}
+
+.details-section {
+    background-color: #fff5f8;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.details-section h2 {
+    color: #d63384;
+}
+
+.memorial-board {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #ffe6ea;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.memorial-board h3 {
+    color: #d63384;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.memorial-board form {
+    display: flex;
+    flex-direction: column;
+}
+
+.memorial-board label {
+    margin-bottom: 10px;
+}
+
+.memorial-board textarea {
+    height: 100px;
+}
+
+.memorial-board button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #d63384;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.memorial-board button:hover {
+    background-color: #b2226e;
+}
+
+#messages-container {
+    margin-top: 20px;
+}
+
+#messages-container div {
+    background-color: #ffe6ea;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
