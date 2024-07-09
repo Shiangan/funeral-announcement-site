@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('obituary-form');
     const funeralLocation = document.getElementById('funeral-location');
     const hall = document.getElementById('hall');
-    const flowerBasket = document.getElementById('send-flower-basket');
 
     funeralLocation.addEventListener('change', function() {
         const location = this.value;
@@ -21,18 +20,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
+
         const formData = new FormData(form);
         const data = {
             deceasedName: formData.get('deceased-name'),
+            birthDate: formData.get('birth-date'),
             deathDate: formData.get('death-date'),
             funeralDate: formData.get('funeral-date'),
             funeralLocation: formData.get('funeral-location'),
             hall: formData.get('hall'),
             textStyle: formData.get('text-style'),
-            sendFlowerBasket: formData.get('send-flower-basket')
+            sendFlowerBasket: formData.get('send-flower-basket'),
+            music: formData.get('music')
         };
-        const params = new URLSearchParams(data).toString();
-        window.location.href = `details.html?${params}`;
+
+        // Upload photo if present
+        const photo = formData.get('photo-upload');
+        if (photo && photo.size > 0) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                data.photo = e.target.result;
+                const params = new URLSearchParams(data).toString();
+                window.location.href = `details.html?${params}`;
+            };
+            reader.readAsDataURL(photo);
+        } else {
+            const params = new URLSearchParams(data).toString();
+            window.location.href = `details.html?${params}`;
+        }
     });
 
     function getHalls(location) {
