@@ -1,30 +1,73 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    width: 90%;
     max-width: 800px;
-    margin: 20px auto;
-    background-color: white;
+    margin: 0 auto;
     padding: 20px;
+    background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.deceased-photo {
+.header img {
     width: 100%;
-    max-width: 200px;
-    margin: 0 auto;
-    display: block;
+    height: auto;
 }
 
-footer.footer {
+.photo-container {
     text-align: center;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.photo-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+}
+
+form {
     margin-top: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input, form select, form button {
+    width: 100%;
     padding: 10px;
-    background-color: #333;
-    color: white;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
