@@ -46,4 +46,80 @@
                 `;
             } else {
                 obituaryText = `
-                    <p>我們摯愛的${deceasedName}於${deathDate}辭世
+                    <p>我們摯愛的${deceasedName}於${deathDate}辭世                    ，${ageTerm}${age}歲</p>
+                    <p>謹擇於${funeralDate}於${funeralLocation} ${hall}舉行告別儀式，敬邀諸位親友蒞臨告別致意。</p>
+                    <p>全體家屬 叩謝</p>
+                `;
+            }
+
+            if (photoUrl) {
+                obituaryText = `<img src="${photoUrl}" alt="往生者照片" class="deceased-photo">` + obituaryText;
+            }
+
+            document.getElementById('obituary-details').innerHTML = obituaryText;
+
+            if (sendFlowerBasket === 'yes') {
+                document.getElementById('flower-basket-section').innerHTML = `
+                    <h2>花籃訂購</h2>
+                    <form id="flower-basket-form">
+                        <label for="basket-type">花籃種類:</label>
+                        <select id="basket-type" name="basket-type">
+                            <option value="basket1">花籃 1 - NT$2000</option>
+                            <option value="basket2">花籃 2 - NT$2500</option>
+                            <option value="basket3">花籃 3 - NT$3000</option>
+                            <option value="basket4">花籃 4 - NT$3500</option>
+                            <option value="basket5">花籃 5 - NT$4000</option>
+                            <option value="basket6年">花籃 6 - NT$4500</option>
+                            <option value="basket7">花籃 7 - NT$5000</option>
+                            <option value="basket8">花籃 8 - NT$5500</option>
+                        </select>
+
+                        <label for="payment-method">付款方式:</label>
+                        <select id="payment-method" name="payment-method">
+                            <option value="bank-transfer">銀行匯款</option>
+                            <option value="linepay">Line Pay</option>
+                        </select>
+
+                        <label for="address">收據/發票地址:</label>
+                        <input type="text" id="address" name="address">
+
+                        <button type="submit">訂購花籃</button>
+                    </form>
+                    <p>匯款單請回傳至 Line ID: your_line_id</p>
+                `;
+            }
+
+            if (musicUrl) {
+                const audioElement = document.getElementById('background-music');
+                audioElement.src = musicUrl;
+                audioElement.play();
+            }
+        });
+
+        function calculateAge(birthDate, deathDate) {
+            const birth = new Date(birthDate);
+            const death = new Date(deathDate);
+            let age = death.getFullYear() - birth.getFullYear();
+            const monthDiff = death.getMonth() - birth.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && death.getDate() < birth.getDate())) {
+                age--;
+            }
+            return age;
+        }
+
+        function getAgeTerm(age) {
+            if (age < 30) {
+                return '享年';
+            } else if (age < 60) {
+                return '得年';
+            } else if (age < 90) {
+                return '享壽';
+            } else if (age < 100) {
+                return '享耆壽';
+            } else {
+                return '享嵩壽';
+            }
+        }
+    </script>
+</body>
+</html>
