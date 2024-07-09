@@ -3,47 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>祥安生命有限公司</title>
-    <link rel="stylesheet" href="style.css">
+    <title>訃聞詳細信息</title>
+    <link rel="stylesheet" href="details.css">
 </head>
 <body>
-    <header class="header">
-        <div class="logo">
-            <img src="path/to/your/logo.png" alt="公司Logo">
-        </div>
-        <nav class="navbar">
-            <ul>
-                <li><a href="#">首頁</a></li>
-                <li><a href="#">訃聞提交</a></li>
-                <li><a href="#">服務項目</a></li>
-                <li><a href="#">關於我們</a></li>
-                <li><a href="#">聯絡我們</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main class="main-content">
-        <div class="container">
-            <section class="photo-memories">
-                <h3>照片懷念</h3>
-                <div class="photo-container">
-                    <img src="path/to/photo.jpg" alt="照片">
-                    <div class="watermark">敬邀您</div>
-                </div>
-            </section>
-
-            <!-- 其他內容部分 -->
-        </div>
-    </main>
+    <div class="container">
+        <div id="obituary-details"></div>
+        <div id="flower-basket-section"></div>
+    </div>
 
     <footer class="footer">
-        <div class="contact-info">
-            <p>24小時聯絡電話 ☎️ 0938-179-858</p>
-            <p>Line ID: your_line_id</p>
-        </div>
-        <p>2024 祥安生命有限公司 版權所有</p>
+        <p>2024祥安生命有限公司 版權所有</p>
+        <p>承辦禮儀公司 0938-179-858</p>
+        <p>Line ID: your_line_id</p>
     </footer>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <audio id="background-music" loop></audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const deceasedName = urlParams.get('deceasedName');
+            const birthDate = urlParams.get('birthDate');
+            const deathDate = urlParams.get('deathDate');
+            const funeralDate = urlParams.get('funeralDate');
+            const funeralLocation = urlParams.get('funeralLocation');
+            const hall = urlParams.get('hall');
+            const textStyle = urlParams.get('textStyle');
+            const sendFlowerBasket = urlParams.get('sendFlowerBasket');
+            const musicUrl = urlParams.get('music');
+            const photoUrl = urlParams.get('photo');
+
+            const age = calculateAge(birthDate, deathDate);
+            const ageTerm = getAgeTerm(age);
+
+            let obituaryText = '';
+            if (textStyle === 'traditional') {
+                obituaryText = `
+                    <p>我們摯愛的親人${deceasedName}於${deathDate}逝世，${ageTerm}${age}歲</p>
+                    <p>謹擇於${funeralDate}於${funeralLocation} ${hall}舉行告別儀式，敬邀諸位親友蒞臨告別致意。</p>
+                    <p>全體家屬 叩謝</p>
+                `;
+            } else {
+                obituaryText = `
+                    <p>我們摯愛的${deceasedName}於${deathDate}辭世
