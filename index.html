@@ -22,6 +22,12 @@
             <label for="deceased-name">往生者姓名:</label>
             <input type="text" id="deceased-name" name="deceased-name" required>
 
+            <label for="gender">性別:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">男</option>
+                <option value="female">女</option>
+            </select>
+
             <label for="birth-date">出生日期:</label>
             <input type="date" id="birth-date" name="birth-date" required>
 
@@ -51,31 +57,34 @@
                 <option value="modern">現代</option>
             </select>
 
+            <label for="music">選擇背景音樂:</label>
+            <select id="music" name="music">
+                <option value="music1.mp3">音樂 1</option>
+                <option value="music2.mp3">音樂 2</option>
+            </select>
+
+            <label for="photo">上傳往生者照片:</label>
+            <input type="file" id="photo" name="photo" accept="image/*">
+
             <label for="send-flower-basket">為求會場統一及美觀，請問是否由公司統一製作花籃，給予無限祝福:</label>
             <select id="send-flower-basket" name="send-flower-basket">
                 <option value="yes">是</option>
                 <option value="no">否</option>
             </select>
 
-            <label for="photo-upload">上傳往生者照片:</label>
-            <input type="file" id="photo-upload" name="photo-upload" accept="image/*" required>
-
-            <label for="music-choice">選擇背景音樂:</label>
-            <div class="music-options">
-                <button type="button" data-music-url="music1.mp3">音樂1</button>
-                <button type="button" data-music-url="music2.mp3">音樂2</button>
-            </div>
-            <audio id="audio-preview" hidden controls></audio>
-
             <button type="submit">生成訃聞</button>
         </form>
     </div>
 
     <footer class="footer">
-        <p>2024祥安生命有限公司 版權所有</p>
-        <p>承辦禮儀公司 0938-179-858</p>
-        <p>Line ID: your_line_id</p>
+        <p>2024 祥安生命有限公司 版權所有</p>
+        <p>24小時聯絡電話 ☎️0938-179-858</p>
     </footer>
+
+    <div class="floating-icons">
+        <a href="https://line.me/ti/p/your_line_id" target="_blank"><img src="line.png" alt="Line"></a>
+        <a href="https://www.facebook.com/your_facebook_page" target="_blank"><img src="facebook.png" alt="Facebook"></a>
+    </div>
 
     <script src="script.js"></script>
 </body>
