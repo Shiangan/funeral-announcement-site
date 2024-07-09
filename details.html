@@ -13,9 +13,8 @@
     </div>
 
     <footer class="footer">
-        <p>2024祥安生命有限公司 版權所有</p>
-        <p>承辦禮儀公司 0938-179-858</p>
-        <p>Line ID: your_line_id</p>
+        <p>2024 祥安生命有限公司 版權所有</p>
+        <p>24小時聯絡電話 ☎️0938-179-858</p>
     </footer>
 
     <audio id="background-music" loop></audio>
@@ -24,6 +23,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
             const deceasedName = urlParams.get('deceasedName');
+            const gender = urlParams.get('gender');
             const birthDate = urlParams.get('birthDate');
             const deathDate = urlParams.get('deathDate');
             const funeralDate = urlParams.get('funeralDate');
@@ -31,22 +31,23 @@
             const hall = urlParams.get('hall');
             const textStyle = urlParams.get('textStyle');
             const sendFlowerBasket = urlParams.get('sendFlowerBasket');
+            const photoUrl = urlParams.get('photoUrl');
             const musicUrl = urlParams.get('music');
-            const photoUrl = urlParams.get('photo');
 
             const age = calculateAge(birthDate, deathDate);
-            const ageTerm = getAgeTerm(age);
+            const ageTerm = getAgeTerm(age, gender);
 
             let obituaryText = '';
+
             if (textStyle === 'traditional') {
                 obituaryText = `
-                    <p>我們摯愛的親人${deceasedName}於${deathDate}逝世，${ageTerm}${age}歲</p>
+                    <p>我們摯愛的${deceasedName}於${deathDate}逝世，${ageTerm}${age}歲</p>
                     <p>謹擇於${funeralDate}於${funeralLocation} ${hall}舉行告別儀式，敬邀諸位親友蒞臨告別致意。</p>
                     <p>全體家屬 叩謝</p>
                 `;
             } else {
                 obituaryText = `
-                    <p>我們摯愛的${deceasedName}於${deathDate}辭世                    ，${ageTerm}${age}歲</p>
+                    <p>我們摯愛的${deceasedName}於${deathDate}辭世，${ageTerm}${age}歲</p>
                     <p>謹擇於${funeralDate}於${funeralLocation} ${hall}舉行告別儀式，敬邀諸位親友蒞臨告別致意。</p>
                     <p>全體家屬 叩謝</p>
                 `;
@@ -84,15 +85,15 @@
                         <input type="text" id="address" name="address">
 
                         <button type="submit">訂購花籃</button>
-                    </form>
-                    <p>匯款單請回傳至 Line ID: your_line_id</p>
+                    </form>                    <p>匯款單請回傳至 Line ID: your_line_id</p>
                 `;
             }
 
+            // Play background music
+            const backgroundMusic = document.getElementById('background-music');
             if (musicUrl) {
-                const audioElement = document.getElementById('background-music');
-                audioElement.src = musicUrl;
-                audioElement.play();
+                backgroundMusic.src = musicUrl;
+                backgroundMusic.play();
             }
         });
 
@@ -107,18 +108,20 @@
             return age;
         }
 
-        function getAgeTerm(age) {
+        function getAgeTerm(age, gender) {
+            let term = '';
             if (age < 30) {
-                return '得年';
+                term = '得年';
             } else if (age < 60) {
-                return '享年';
+                term = '享年';
             } else if (age < 90) {
-                return '享壽';
+                term = '享壽';
             } else if (age < 100) {
-                return '享耆壽';
+                term = '享耆壽';
             } else {
-                return '享嵩壽';
+                term = '享嵩壽';
             }
+            return term;
         }
     </script>
 </body>
