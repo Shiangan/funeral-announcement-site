@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('obituary-form');
-
     form.addEventListener('submit', function(event) {
         event.preventDefault();
         const formData = new FormData(form);
-        const queryParams = new URLSearchParams(formData).toString();
-        window.location.href = `details.html?${queryParams}`;
+        const urlParams = new URLSearchParams(formData).toString();
+        window.location.href = `details.html?${urlParams}`;
     });
+});
 
     const locationSelect = document.getElementById('funeral-location');
     const hallSelect = document.getElementById('hall');
