@@ -43,4 +43,36 @@ document.addEventListener('DOMContentLoaded', function() {
     const funeralLocation = urlParams.get('funeralLocation');
     const hall = urlParams.get('hall');
     const textStyle = urlParams.get('textStyle');
-    const sendFlowerBasket = urlParams.get
+        const sendFlowerBasket = urlParams.get('sendFlowerBasket');
+
+    if (deceasedName && birthDate && deathDate && funeralDate && funeralLocation && hall && textStyle) {
+        document.getElementById('obituary-details').innerHTML = `
+            <h2>${deceasedName} 訃聞</h2>
+            <p>出生日期: ${birthDate}</p>
+            <p>逝世日期: ${deathDate}</p>
+            <p>出殯日期: ${funeralDate}</p>
+            <p>出殯地點: ${funeralLocation} ${hall}</p>
+            <p>文本樣式: ${textStyle === 'traditional' ? '傳統' : '現代'}</p>
+            <p>致贈花籃: ${sendFlowerBasket === 'yes' ? '是' : '否'}</p>
+        `;
+    }
+
+    const messagesContainer = document.getElementById('messages-container');
+    const messageInput = document.getElementById('message-input');
+
+    function addMessage() {
+    const message = messageInput.value;
+        if (message.trim() !== '') {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+            messageElement.textContent = message;
+            messagesContainer.appendChild(messageElement);
+            messageInput.value = '';
+        }
+    }
+
+    document.querySelector('.memorial-board form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        addMessage();
+    });
+});
