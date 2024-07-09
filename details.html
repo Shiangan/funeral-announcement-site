@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>訃聞詳情 - 祥安生命有限公司</title>
+    <title>訃聞詳情</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,37 +12,49 @@
             <img src="path/to/your/logo.png" alt="公司Logo">
         </div>
     </header>
-    <main class="main-content">
-        <div class="container">
+    
+    <main class="container">
+        <section class="intro-section">
             <div class="cover-photo">
-                <img src="path/to/deceased/photo.jpg" alt="逝者照片">
+                <img id="deceasedPhoto" src="" alt="逝者照片">
                 <div class="cover-overlay">
-                    <p>敬邀您</p>
+                    <h2>敬邀您</h2>
+                    <p>點選一下進入頁面</p>
                 </div>
             </div>
-            <div id="obituary-details" class="obituary-details"></div>
-            <div id="flower-basket-section" class="flower-basket-section"></div>
-            <div class="memorial-board">
-                <h3>留言板</h3>
-                <form onsubmit="addMessage(); return false;">
-                    <label for="message-input">留言:</label>
-                    <textarea id="message-input" name="message"></textarea>
-                    <button type="submit">提交留言</button>
-                </form>
-                <div id="messages-container" class="messages-container"></div>
+        </section>
+
+        <section id="obituary-details" class="details-section">
+            <!-- 訃聞詳細信息會在這裡顯示 -->
+        </section>
+
+        <section class="memorial-board">
+            <h3>追思留言</h3>
+            <form id="memorial-form">
+                <label for="message">留言內容：</label>
+                <textarea id="message" name="message" required></textarea>
+                <label for="memorialPhoto">上傳照片：</label>
+                <input type="file" id="memorialPhoto" name="memorialPhoto" accept="image/*">
+                <label for="memorialVideo">上傳影片：</label>
+                <input type="file" id="memorialVideo" name="memorialVideo" accept="video/*">
+                <button type="submit">提交留言</button>
+            </form>
+            <div id="messages-container">
+                <!-- 留言會在這裡顯示 -->
             </div>
-        </div>
+        </section>
     </main>
+
     <footer class="footer">
         <div class="contact-info">
             <p>24小時聯絡電話 ☎️ 0938-179-858</p>
+            <a href="https://line.me/ti/p/TuM5y_Of6I" class="line-link">
+                <img src="path/to/line-icon.png" alt="Line圖標">
+            </a>
         </div>
         <p>2024 祥安生命有限公司 版權所有</p>
     </footer>
-    <div class="floating-icons">
-        <a href="https://line.me/ti/p/your_line_id" target="_blank"><img src="path/to/line-icon.png" alt="Line"></a>
-        <a href="tel:0938179858"><img src="path/to/phone-icon.png" alt="Phone"></a>
-    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
