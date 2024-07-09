@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
+
         const formData = new FormData(form);
         const data = {
             deceasedName: formData.get('deceased-name'),
@@ -30,11 +31,23 @@ document.addEventListener('DOMContentLoaded', function() {
             hall: formData.get('hall'),
             textStyle: formData.get('text-style'),
             sendFlowerBasket: formData.get('send-flower-basket'),
-            gender: formData.get('gender'),
-            musicChoice: formData.get('music-choice')
+            music: formData.get('music')
         };
-        const params = new URLSearchParams(data).toString();
-        window.location.href = `details.html?${params}`;
+
+        // Upload photo if present
+        const photo = formData.get('photo-upload');
+        if (photo && photo.size > 0) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                data.photo = e.target.result;
+                const params = new URLSearchParams(data).toString();
+                window.location.href = `details.html?${params}`;
+            };
+            reader.readAsDataURL(photo);
+        } else {
+            const params = new URLSearchParams(data).toString();
+            window.location.href = `details.html?${params}`;
+        }
     });
 
     function getHalls(location) {
