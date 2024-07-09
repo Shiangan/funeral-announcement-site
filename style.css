@@ -237,3 +237,31 @@ body {
 #message-form button:hover {
     background-color: #ff1a53; /* 深粉紅色 */
 }
+
+/* 固定圖標 */
+.fixed-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.fixed-icons img {
+    width: 50px;
+    height: auto;
+    margin-left: 10px;
+}
+
+/* 承辦禮儀公司 */
+.memorial-form label[for="undertaker"] {
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* 日期和時間選項 */
+.memorial-form label[for="birthDate"] {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.mem
