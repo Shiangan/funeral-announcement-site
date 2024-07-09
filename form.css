@@ -1,76 +1,36 @@
 body {
-    font-family: 'Noto Sans TC', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
 
-.header {
-    text-align: center;
-    padding: 20px;
-    background-color: #fff;
-    border-bottom: 1px solid #ddd;
-}
-
 .header img {
-    max-width: 100px;
-}
-
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #d2a4a4;
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-}
-
-input, select, button {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button {
-    background-color: #d2a4a4;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #bf8b8b;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
-    margin-top: 20px;
+    max-width: 200px;
+    display: block;
+    margin: 20px auto;
 }
 
 .video-container {
+    width: 100%;
     max-width: 800px;
     margin: 20px auto;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer.footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
 }
