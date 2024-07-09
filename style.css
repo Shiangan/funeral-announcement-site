@@ -1,189 +1,233 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Noto Sans TC', sans-serif;
-    background-color: #f5e6e8;
-    color: #333;
+    background-color: #f5e6e8; /* 淡粉色背景 */
+    color: #333; /* 黑色字體 */
     margin: 0;
     padding: 0;
 }
 
 .header {
+    background-color: #fff; /* 白色背景 */
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffc0cb;
-    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
-.logo img {
-    height: 50px;
+.logo {
+    margin-left: 20px; /* 調整logo位置 */
 }
 
 .navbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    list-style-type: none;
     display: flex;
 }
 
-.navbar li {
-    margin-left: 20px;
+.navbar ul li {
+    margin-right: 20px;
 }
 
-.navbar a {
+.navbar ul li a {
     text-decoration: none;
-    color: #333;
+    color: #333; /* 黑色字體 */
+    font-weight: bold;
+}
+
+.navbar ul li a:hover {
+    color: #ff3366; /* 淺粉紅色 */
 }
 
 .main-content {
-    padding: 20px;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-top: 80px; /* 避免header擋住內容 */
 }
 
 .video-container {
+    margin: 20px auto;
+    max-width: 100%;
+    text-align: center;
+}
+
+.memorial-form {
+    background-color: #fff; /* 白色背景 */
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.memorial-form h2 {
+    color: #ff3366; /* 淺粉紅色 */
     text-align: center;
     margin-bottom: 20px;
 }
 
-.video-container video {
+.memorial-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.memorial-form input,
+.memorial-form select {
     width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input, select, textarea {
-    margin-bottom: 15px;
     padding: 10px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
-button {
-    padding: 10px 15px;
-    background-color: #ff69b4;
+.memorial-form button {
+    background-color: #ff3366; /* 淺粉紅色按鈕 */
     color: #fff;
     border: none;
-    border-radius: 5px;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
     cursor: pointer;
+    width: 100%;
 }
 
-button:hover {
-    background-color: #ff1493;
+.memorial-form button:hover {
+    background-color: #ff1a53; /* 深粉紅色 */
 }
 
 .footer {
+    background-color: #fff; /* 白色背景 */
+    padding: 10px 20px;
     text-align: center;
-    padding: 20px;
-    background-color: #ffc0cb;
-    position: relative;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.contact-info {
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    margin-bottom: 5px;
 }
 
 .contact-info a {
-    display: inline-block;
-    margin: 0 10px;
-    color: #333;
+    color: #333; /* 黑色字體 */
     text-decoration: none;
 }
 
 .contact-info a:hover {
-    color: #ff1493;
+    color: #ff3366; /* 淺粉紅色 */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .cover-photo {
     position: relative;
-    overflow: hidden;
-    cursor: pointer;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .cover-photo img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    transition: transform 0.3s ease-in-out;
+    border-radius: 8px;
 }
 
 .cover-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.cover-photo:hover .cover-overlay {
-    opacity: 1;
-}
-
-.cover-photo:hover img {
-    transform: scale(1.1);
-}
-
-.details-section {
-    margin: 20px 0;
-}
-
-.memorial-board {
-    margin-top: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
-    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
 }
 
-.memorial-board h3 {
-    color: #333;
-    font-size: 20px;
+.cover-overlay p {
+    font-size: 24px;
+    color: #ff3366; /* 淺粉紅色 */
     margin-bottom: 10px;
 }
 
-.memorial-board form {
-    display: flex;
-    flex-direction: column;
+.details {
+    background-color: #fff; /* 白色背景 */
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.memorial-board label {
+.details h2 {
+    color: #ff3366; /* 淺粉紅色 */
+    margin-bottom: 15px;
+}
+
+.details p {
     margin-bottom: 10px;
 }
 
-.memorial-board textarea {
-    height: 100px;
+.tribute-section {
+    background-color: #fff; /* 白色背景 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.memorial-board button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #ff69b4;
+.tribute-section h2 {
+    color: #ff3366; /* 淺粉紅色 */
+    margin-bottom: 15px;
+}
+
+#messages-container {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#message-form {
+    margin-top: 15px;
+}
+
+#message-input {
+    width: calc(100% - 80px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#message-form button {
+    background-color: #ff3366; /* 淺粉紅色按鈕 */
     color: #fff;
     border: none;
-    cursor: pointer;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
     border-radius: 4px;
-    transition: background-color 0.3s;
+    cursor: pointer;
+    width: 80px;
 }
 
-.memorial-board button:hover {
-    background-color: #ff1493;
+#message-form button:hover {
+    background-color: #ff1a53; /* 深粉紅色 */
 }
