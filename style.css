@@ -1,4 +1,10 @@
-/* Reset styles */
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: #f5e6e8;
+    color: #333;
+    margin: 0;
+    padding: 0
+    /* Reset styles */
 * {
     margin: 0;
     padding: 0;
