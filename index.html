@@ -13,12 +13,12 @@
 
     <!-- 嵌入 YouTube 影片 -->
     <div class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/_ZbzFF14_lQ?autoplay=1" frameborder="0" allowfullscreen></iframe>
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/_ZbzFF14_lQ?autoplay=1" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <div class="container">
         <h1>訃聞提交表單</h1>
-        <form id="obituary-form">
+        <form id="obituary-form" onsubmit="generateObituaryAndRedirect(); return false;">
             <label for="deceased-name">往生者姓名:</label>
             <input type="text" id="deceased-name" name="deceased-name" required>
 
@@ -43,12 +43,18 @@
             </select>
 
             <label for="text-style">內文風格:</label>
-            <input type="text" id="text-style" name="text-style">
+            <select id="text-style" name="text-style">
+                <option value="traditional">傳統</option>
+                <option value="modern">現代</option>
+            </select>
 
             <label for="send-flower-basket">是否贈送花籃:</label>
-            <input type="checkbox" id="send-flower-basket" name="send-flower-basket">
+            <select id="send-flower-basket" name="send-flower-basket">
+                <option value="yes">是</option>
+                <option value="no">否</option>
+            </select>
 
-            <button type="submit">生成訃聞</button>
+            <button type="submit">生成訃聞並查看</button>
         </form>
     </div>
 
