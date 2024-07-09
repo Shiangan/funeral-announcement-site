@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>訃聞詳情 - 祥安生命有限公司</title>
+    <title>亡者詳情</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header class="header">
         <div class="logo">
-            <img src="path/to/your/logo.png" alt="公司Logo">
+            <img src="images/logo.png" alt="公司Logo">
         </div>
         <nav class="navbar">
             <ul>
-                <li><a href="index.html">首頁</a></li>
+                <li><a href="#">首頁</a></li>
+                <li><a href="#">訃聞提交</a></li>
                 <li><a href="#">服務項目</a></li>
                 <li><a href="#">關於我們</a></li>
                 <li><a href="#">聯絡我們</a></li>
@@ -23,42 +26,46 @@
 
     <main class="main-content">
         <div class="container">
-            <div class="cover-photo">
-                <img src="path/to/your/photo.jpg" alt="亡者照片">
-                <div class="cover-overlay">
-                    <h1>敬邀您</h1>
-                    <p>點選一下進入頁面</p>
+            <section class="obituary-section">
+                <div class="cover-photo">
+                    <img src="images/deceased_photo.jpg" alt="亡者照片">
+                    <div class="cover-overlay">
+                        <p>敬邀您</p>
+                        <p>點選一下進入頁面</p>
+                    </div>
                 </div>
-            </div>
 
-            <div id="obituary-details" class="details-section">
-                <!-- 訃聞詳細信息內容將由JavaScript生成 -->
-            </div>
+                <div class="details">
+                    <h2>亡者資訊</h2>
+                    <p>逝者姓名：{{deceasedName}}</p>
+                    <p>歿於（國曆）：{{deathDate}}</p>
+                    <p>歿於（農曆）：{{deathDateLunar}}</p>
+                    <p>地點：{{funeralLocation}}</p>
+                    <p>禮廳：{{hall}}</p>
+                </div>
 
-            <div id="flower-basket-section" class="details-section">
-                <!-- 花籃信息將由JavaScript生成 -->
-            </div>
-
-            <div class="memorial-board">
-                <h3>追思留言區</h3>
-                <form id="memorial-form">
-                    <label for="message">留言：</label>
-                    <textarea id="message" name="message" required></textarea>
-                    <button type="submit">提交留言</button>
-                </form>
-                <div id="messages-container"></div>
-            </div>
+                <div class="tribute-section">
+                    <h2>追思留言</h2>
+                    <div id="messages-container"></div>
+                    <form id="message-form">
+                        <label for="message-input">留言</label>
+                        <textarea id="message-input" name="message" required></textarea>
+                        <button type="submit">發送</button>
+                    </form>
+                </div>
+            </section>
         </div>
     </main>
 
     <footer class="footer">
-        <p>承辦禮儀公司：祥安生命有限公司</p>
         <div class="contact-info">
-            <a href="tel:0938179858">☎️ 0938-179-858</a>
-            <a href="https://line.me/ti/p/TuM5y_Of6I">Line ID</a>
+            <p>24小時聯絡電話 ☎️ 0938-179-858</p>
+            <p><a href="https://line.me/ti/p/TuM5y_Of6I">Line ID: your_line_id</a></p>
         </div>
+        <p>2024 祥安生命有限公司 版權所有</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>
