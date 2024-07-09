@@ -20,10 +20,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
-
         const formData = new FormData(form);
+        const photoFile = formData.get('photo');
+
+        if (photoFile) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                formData.append('photoUrl', e.target.result);
+                submitForm(formData);
+            };
+            reader.readAsDataURL(photoFile);
+        } else {
+            submitForm(formData);
+        }
+    });
+
+    function submitForm(formData) {
         const data = {
             deceasedName: formData.get('deceased-name'),
+            gender: formData.get('gender'),
             birthDate: formData.get('birth-date'),
             deathDate: formData.get('death-date'),
             funeralDate: formData.get('funeral-date'),
@@ -31,24 +46,12 @@ document.addEventListener('DOMContentLoaded', function() {
             hall: formData.get('hall'),
             textStyle: formData.get('text-style'),
             sendFlowerBasket: formData.get('send-flower-basket'),
+            photoUrl: formData.get('photoUrl'),
             music: formData.get('music')
         };
-
-        // Upload photo if present
-        const photo = formData.get('photo-upload');
-        if (photo && photo.size > 0) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                data.photo = e.target.result;
-                const params = new URLSearchParams(data).toString();
-                window.location.href = `details.html?${params}`;
-            };
-            reader.readAsDataURL(photo);
-        } else {
-            const params = new URLSearchParams(data).toString();
-            window.location.href = `details.html?${params}`;
-        }
-    });
+        const params = new URLSearchParams(data).toString();
+        window.location.href = `details.html?${params}`;
+    }
 
     function getHalls(location) {
         const halls = {
