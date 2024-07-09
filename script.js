@@ -49,8 +49,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const messagesContainer = document.getElementById('messages-container');
     const messageInput = document.getElementById('message');
 
-    document.getElementById('memorial-form').addEventListener('submit', function(e) {
-        e.preventDefault();
+        document.getElementById('memorial-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        addMessage();
+    });
+
+    function addMessage() {
         const message = messageInput.value;
         if (message.trim() !== '') {
             const messageElement = document.createElement('div');
@@ -58,12 +62,17 @@ document.addEventListener('DOMContentLoaded', function() {
             messagesContainer.appendChild(messageElement);
             messageInput.value = '';
         }
-    });
+    }
 
     function calculateAge(birthDate, deathDate) {
         const birth = new Date(birthDate);
         const death = new Date(deathDate);
-        return death.getFullYear() - birth.getFullYear();
+        let age = death.getFullYear() - birth.getFullYear();
+        const monthDiff = death.getMonth() - birth.getMonth();
+        if (monthDiff < 0 || (monthDiff === 0 && death.getDate() < birth.getDate())) {
+            age--;
+        }
+        return age;
     }
 
     function getAgeTerm(age) {
