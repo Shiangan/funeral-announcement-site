@@ -11,12 +11,12 @@
 <body>
     <header class="header">
         <div class="logo">
-            <img src="path/to/your/logo.png" alt="公司Logo">
+            <img src="images/logo.png" alt="公司Logo">
         </div>
         <nav class="navbar">
             <ul>
                 <li><a href="#">首頁</a></li>
-                <li><a href="#">生成訃聞</a></li>
+                <li><a href="form.html">訃聞提交</a></li>
                 <li><a href="#">服務項目</a></li>
                 <li><a href="#">關於我們</a></li>
                 <li><a href="#">聯絡我們</a></li>
@@ -25,69 +25,57 @@
     </header>
 
     <main class="main-content">
-        <section class="container">
-            <h2>生成訃聞</h2>
-            <form id="memorial-form" action="details.html" method="GET">
-                <label for="deceasedName">逝者姓名:</label>
-                <input type="text" id="deceasedName" name="deceasedName" required>
-                
-                <label for="gender">性別:</label>
-                <select id="gender" name="gender">
-                    <option value="male">男士</option>
-                    <option value="female">女士</option>
-                </select>
+        <div class="container">
+            <section class="video-container">
+                <video controls>
+                    <source src="videos/memorial_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </section>
 
-                <label for="birthDate">出生日期 (農曆或國曆):</label>
-                <input type="text" id="birthDate" name="birthDate">
-                
-                <label for="deathDate">往生日期 (農曆或國曆):</label>
-                <input type="text" id="deathDate" name="deathDate">
+            <section class="memorial-form">
+                <h2>亡者資訊</h2>
+                <form id="memorial-form">
+                    <label for="deceasedName">逝者姓名</label>
+                    <input type="text" id="deceasedName" name="deceasedName" required>
+                    
+                    <label for="deceasedGender">性別</label>
+                    <select id="deceasedGender" name="deceasedGender">
+                        <option value="male">男士</option>
+                        <option value="female">女士</option>
+                    </select>
 
-                <label for="funeralLocation">地點:</label>
-                <select id="funeralLocation" name="funeralLocation">
-                    <option value="第二殯儀館（台北市辛亥路）">第二殯儀館（台北市辛亥路）</option>
-                    <option value="板橋殯儀館">板橋殯儀館</option>
-                </select>
+                    <label for="deathDate">歿於（國曆）</label>
+                    <input type="date" id="deathDate" name="deathDate" required>
+                    
+                    <label for="deathDateLunar">歿於（農曆）</label>
+                    <input type="text" id="deathDateLunar" name="deathDateLunar">
 
-                <label for="hall">禮廳:</label>
-                <select id="hall" name="hall">
-                    <option value="至忠一廳">至忠一廳</option>
-                    <option value="至忠二廳">至忠二廳</option>
-                    <option value="明道廳">明道廳</option>
-                    <option value="明倫廳">明倫廳</option>
-                </select>
+                    <label for="funeralLocation">地點</label>
+                    <select id="funeralLocation" name="funeralLocation">
+                        <option value="second_funeral_home">第二殯儀館（台北市辛亥路）</option>
+                        <option value="banqiao_funeral_home">板橋殯儀館</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                    
+                    <label for="hall">禮廳</label>
+                    <input type="text" id="hall" name="hall">
 
-                <label for="musicChoice">音樂選擇:</label>
-                <select id="musicChoice" name="musicChoice">
-                    <option value="music1">音樂1</option>
-                    <option value="music2">音樂2</option>
-                    <option value="music3">音樂3</option>
-                </select>
-
-                <label for="sendFlowerBasket">訂購花籃:</label>
-                <input type="checkbox" id="sendFlowerBasket" name="sendFlowerBasket" value="yes">
-
-                <button type="submit">生成訃聞</button>
-            </form>
-        </section>
+                    <button type="submit">提交</button>
+                </form>
+            </section>
+        </div>
     </main>
 
     <footer class="footer">
         <div class="contact-info">
             <p>24小時聯絡電話 ☎️ 0938-179-858</p>
-            <a href="https://line.me/ti/p/TuM5y_Of6I" target="_blank">
-                <img src="path/to/line_icon.png" alt="Line ID">
-            </a>
+            <p><a href="https://line.me/ti/p/TuM5y_Of6I">Line ID: your_line_id</a></p>
         </div>
         <p>2024 祥安生命有限公司 版權所有</p>
     </footer>
 
-    <div class="fixed-icons">
-        <a href="https://line.me/ti/p/TuM5y_Of6I" target="_blank">
-            <img src="path/to/line_icon.png" alt="Line ID">
-        </a>
-    </div>
-
+    <script src="script.js"></script>
 </body>
 
 </html>
