@@ -31,8 +31,8 @@
             const hall = urlParams.get('hall');
             const textStyle = urlParams.get('textStyle');
             const sendFlowerBasket = urlParams.get('sendFlowerBasket');
-            const photoUrl = urlParams.get('photoUrl');
-            const musicUrl = urlParams.get('musicUrl');
+            const musicUrl = urlParams.get('music');
+            const photoUrl = urlParams.get('photo');
 
             const age = calculateAge(birthDate, deathDate);
             const ageTerm = getAgeTerm(age);
@@ -46,18 +46,17 @@
                 `;
             } else {
                 obituaryText = `
-                    <p>我們摯愛的${deceasedName}於${deathDate}辭世，${ageTerm}${age}歲</p>
+                    <p>我們摯愛的${deceasedName}於${deathDate}辭世                    ，${ageTerm}${age}歲</p>
                     <p>謹擇於${funeralDate}於${funeralLocation} ${hall}舉行告別儀式，敬邀諸位親友蒞臨告別致意。</p>
                     <p>全體家屬 叩謝</p>
                 `;
             }
 
-            document.getElementById('obituary-details').innerHTML = obituaryText;
-
             if (photoUrl) {
-                document.getElementById('obituary-details').innerHTML += `                    <img src="${photoUrl}" alt="${deceasedName}的照片" class="deceased-photo">
-                `;
+                obituaryText = `<img src="${photoUrl}" alt="往生者照片" class="deceased-photo">` + obituaryText;
             }
+
+            document.getElementById('obituary-details').innerHTML = obituaryText;
 
             if (sendFlowerBasket === 'yes') {
                 document.getElementById('flower-basket-section').innerHTML = `
@@ -70,7 +69,7 @@
                             <option value="basket3">花籃 3 - NT$3000</option>
                             <option value="basket4">花籃 4 - NT$3500</option>
                             <option value="basket5">花籃 5 - NT$4000</option>
-                            <option value="basket6">花籃 6 - NT$4500</option>
+                            <option value="basket6年">花籃 6 - NT$4500</option>
                             <option value="basket7">花籃 7 - NT$5000</option>
                             <option value="basket8">花籃 8 - NT$5500</option>
                         </select>
@@ -91,9 +90,9 @@
             }
 
             if (musicUrl) {
-                const backgroundMusic = document.getElementById('background-music');
-                backgroundMusic.src = musicUrl;
-                backgroundMusic.play();
+                const audioElement = document.getElementById('background-music');
+                audioElement.src = musicUrl;
+                audioElement.play();
             }
         });
 
@@ -124,4 +123,3 @@
     </script>
 </body>
 </html>
-                   
