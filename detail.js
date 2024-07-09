@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (textStyle === 'traditional') {
         obituaryText = `
-            <p>我們摯愛的${gender === 'male' ? '先生' : '女士'}${deceasedName}於${deathDate}逝世，${ageTerm}${age}歲</p>
+            <p>我們摯愛的${gender === 'male' ? '先生':'女士'}${deceasedName}於${deathDate}逝世，${ageTerm}${age}歲</p>
             <
 
 p>出殯日期: ${funeralDate}</p>
