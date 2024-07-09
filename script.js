@@ -16,17 +16,28 @@ document.addEventListener("DOMContentLoaded", function() {
     updateDetails(funeralDate, funeralLocation, hall);
 });
 
-function updateDetails(date, location, hall) {
-    // 根据日期设置相关文本
-    let message = '';
-    if (location === '第二殯儀館') {
-        message = `尊敬的親朋好友們，本公司即日起公布親愛的XXX於${date}安詳辭世，${hall}等您的到來。`;
-    } else if (location === '新北板橋殯儀館') {
-        message = `親愛的親友們，XXX於${date}靜靜地離開我們，${hall}為您準備了一個溫馨的場地。`;
-    }
-    
-    // 更新页面元素，例如显示照片和消息
-    document.getElementById('photo').setAttribute('src', 'path/to/deceased-photo.jpg'); // 设置亡者照片
-    document.getElementById('invitation-text').textContent = '敬請邀請參加'; // 设置邀请文字
-    document.getElementById('message').textContent = message; // 显示消息内容
+function generateObituaryAndRedirect() {
+    // 獲取表單中的數據
+    var deceasedName = document.getElementById('deceased-name').value;
+    var deathDate = document.getElementById('death-date').value;
+    var funeralDate = document.getElementById('funeral-date').value;
+    var funeralLocation = document.getElementById('funeral-location').value;
+    var textStyle = document.getElementById('text-style').value;
+    var sendFlowerBasket = document.getElementById('send-flower-basket').value;
+
+    // 組合訃聞內容
+    var obituaryTitle = '訃聞標題';
+    var obituaryText = '往生者姓名: ' + deceasedName + '<br>' +
+                       '逝世日期: ' + deathDate + '<br>' +
+                       '出殯日期: ' + funeralDate + '<br>' +
+                       '出殯地點: ' + funeralLocation + '<br>' +
+                       '內文風格: ' + textStyle + '<br>' +
+                       '是否贈送花籃: ' + sendFlowerBasket;
+
+    // 將訃聞內容存儲到 sessionStorage 中，以便在下一頁訪問
+    sessionStorage.setItem('obituaryTitle', obituaryTitle);
+    sessionStorage.setItem('obituaryText', obituaryText);
+
+    // 跳轉到 page1.html 頁面
+    window.location.href = 'page1.html';
 }
