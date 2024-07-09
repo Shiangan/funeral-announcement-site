@@ -1,57 +1,55 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const deceasedName = urlParams.get('deceasedName');
-    const birthDate = urlParams.get('birthDate');
-    const deathDate = urlParams.get('deathDate');
-    const funeralDate = urlParams.get('funeralDate');
-    const funeralLocation = urlParams.get('funeralLocation');
-    const hall = urlParams.get('hall');
-    const textStyle = urlParams.get('textStyle');
-    const sendFlowerBasket = urlParams.get('sendFlowerBasket');
-    const gender = urlParams.get('gender');
-    const musicChoice = urlParams.get('musicChoice');
-
-    const age = calculateAge(birthDate, deathDate);
-    const ageTerm = getAgeTerm(age);
-
-    let obituaryText = '';
-
-    if (textStyle === 'traditional') {
-        obituaryText = `
-            <p>我們摯愛的${gender === 'male' ? '先生':'女士'}${deceasedName}於${deathDate}逝世，${ageTerm}${age}歲</p>
-            <
-
-p>出殯日期: ${funeralDate}</p>
-            <p>出殯地點: ${funeralLocation}</p>
-            <p>禮廳: ${hall}</p>
-        `;
-    } else {
-        obituaryText = `
-            <h2>${deceasedName}</h2>
-            <p>${deathDate}逝世，${ageTerm}${age}歲</p>
-            <p>出殯日期: ${funeralDate}</p>
-            <p>出殯地點: ${funeralLocation}</p>
-            <p>禮廳: ${hall}</p>
-        `;
-    }
-
-    document.getElementById('obituary-details').innerHTML = obituaryText;
-
-    if (sendFlowerBasket === 'yes') {
-        document.getElementById('flower-basket-section').innerHTML = `
-            <h2>花籃</h2>
-            <p>由公司統一製作花籃，給予無限祝福。</p>
-        `;
-    }
-
-    const music = new Audio(`path/to/${musicChoice}.mp3`);
-    music.loop = true;
-    music.play();
-
+    const memorialForm = document.getElementById('memorial-form');
+    const messageForm = document.getElementById('message-form');
     const messagesContainer = document.getElementById('messages-container');
     const messageInput = document.getElementById('message-input');
 
-    window.addMessage = function() {
+    memorialForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        showDetails();
+    });
+
+    messageForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        addMessage();
+    });
+
+    function showDetails() {
+        const formData = new FormData(memorialForm);
+        const deceasedName = formData.get('deceasedName');
+        const deathDate = formData.get('deathDate');
+        const deathDateLunar = formData.get('deathDateLunar');
+        const funeralLocation = formData.get('funeralLocation');
+        const hall = formData.get('hall');
+
+        const details = {
+            deceasedName,
+            deathDate,
+            deathDateLunar,
+            funeralLocation,
+            hall
+        };
+
+        // Replace '{{...}}' placeholders in details.html with actual data
+        const detailsHtml = `
+            <h2>亡者資訊</h2>
+            <p>逝者姓名：${details.deceasedName}</p>
+            <p>歿於（國曆）：${details.deathDate}</p>
+            <p>歿於（農曆）：${details.deathDateLunar}</p>
+            <p>地點：${details.funeralLocation}</p>
+            <p>禮廳：${details.hall}</p>
+        `;
+
+        // Inject details into details.html
+        const detailsContainer = document.querySelector('.details');
+        detailsContainer.innerHTML = detailsHtml;
+
+        // Show tribute section
+        const tributeSection = document.querySelector('.tribute-section');
+        tributeSection.style.display = 'block';
+    }
+
+    function addMessage() {
         const message = messageInput.value;
         if (message.trim() !== '') {
             const messageElement = document.createElement('div');
@@ -59,19 +57,5 @@ p>出殯日期: ${funeralDate}</p>
             messagesContainer.appendChild(messageElement);
             messageInput.value = '';
         }
-    };
-
-    function calculateAge(birthDate, deathDate) {
-        const birth = new Date(birthDate);
-        const death = new Date(deathDate);
-        return death.getFullYear() - birth.getFullYear();
-    }
-
-    function getAgeTerm(age) {
-        if (age < 30) return '得年';
-        if (age < 60) return '享年';
-        if (age < 90) return '享壽';
-        if (age < 100) return '享耆壽';
-        return '享嵩壽';
     }
 });
