@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>公司介紹</title>
+    <title>祥安生命有限公司</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,9 +18,12 @@
 
     <div class="container">
         <h1>訃聞提交表單</h1>
-        <form id="obituary-form" onsubmit="generateObituaryAndRedirect(); return false;">
+        <form id="obituary-form">
             <label for="deceased-name">往生者姓名:</label>
             <input type="text" id="deceased-name" name="deceased-name" required>
+
+            <label for="birth-date">出生日期:</label>
+            <input type="date" id="birth-date" name="birth-date" required>
 
             <label for="death-date">逝世日期:</label>
             <input type="date" id="death-date" name="death-date" required>
@@ -32,9 +35,9 @@
             <select id="funeral-location" name="funeral-location" required>
                 <option value="">請選擇出殯地點</option>
                 <option value="第二殯儀館">第二殯儀館</option>
-                <option value="新北板橋殯儀館">第三殯儀館</option>
+                <option value="新北板橋殯儀館">新北板橋殯儀館</option>
                 <option value="桃園殯儀館">桃園殯儀館</option>
-                <option value="南榮殯儀館">基隆殯儀館</option>
+                <option value="南榮殯儀館">南榮殯儀館</option>
             </select>
 
             <label for="hall">選擇禮廳:</label>
@@ -48,18 +51,30 @@
                 <option value="modern">現代</option>
             </select>
 
-            <label for="send-flower-basket">是否贈送花籃:</label>
+            <label for="send-flower-basket">為求會場統一及美觀，請問是否由公司統一製作花籃，給予無限祝福:</label>
             <select id="send-flower-basket" name="send-flower-basket">
                 <option value="yes">是</option>
                 <option value="no">否</option>
             </select>
 
-            <button type="submit">生成訃聞並查看</button>
+            <label for="photo-upload">上傳往生者照片:</label>
+            <input type="file" id="photo-upload" name="photo-upload" accept="image/*" required>
+
+            <label for="music-choice">選擇背景音樂:</label>
+            <div class="music-options">
+                <button type="button" data-music-url="music1.mp3">音樂1</button>
+                <button type="button" data-music-url="music2.mp3">音樂2</button>
+            </div>
+            <audio id="audio-preview" hidden controls></audio>
+
+            <button type="submit">生成訃聞</button>
         </form>
     </div>
 
     <footer class="footer">
         <p>2024祥安生命有限公司 版權所有</p>
+        <p>承辦禮儀公司 0938-179-858</p>
+        <p>Line ID: your_line_id</p>
     </footer>
 
     <script src="script.js"></script>
