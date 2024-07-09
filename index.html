@@ -20,7 +20,7 @@
         
         <section class="form-section">
             <h1>訃聞提交</h1>
-            <form id="obituary-form">
+            <form id="obituary-form" enctype="multipart/form-data">
                 <label for="deceasedName">逝者姓名：</label>
                 <input type="text" id="deceasedName" name="deceasedName" required>
                 <select id="gender" name="gender" required>
@@ -71,6 +71,9 @@
                     <option value="music1">音樂1</option>
                     <option value="music2">音樂2</option>
                 </select>
+
+                <label for="deceasedPhoto">上傳亡者照片：</label>
+                <input type="file" id="deceasedPhoto" name="deceasedPhoto" accept="image/*" required>
 
                 <button type="submit">提交</button>
             </form>
