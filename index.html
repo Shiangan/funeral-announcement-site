@@ -45,29 +45,31 @@
                         <option value="female">女士</option>
                     </select>
 
-                     <label for="deathDate">出生時間</label>
-                     <input type="date" id="deathDate" name="deathDate" required>
-                        <option value="male">國曆</option>
-                        <option value="female">農曆</option>
-                
+                    <label for="birthDate">出生時間</label>
+                    <input type="date" id="birthDate" name="birthDate" required>
+                    <select id="birthType" name="birthType">
+                        <option value="國曆">國曆</option>
+                        <option value="農曆">農曆</option>
+                    </select>
 
                     <label for="deathDate">往生時間</label>
                     <input type="date" id="deathDate" name="deathDate" required>
-                        <option value="male">國曆</option>
-                        <option value="female">農曆</option>
-                
+                    <select id="deathType" name="deathType">
+                        <option value="國曆">國曆</option>
+                        <option value="農曆">農曆</option>
+                    </select>
                     
-                   <label for="funeralLocation">地點</label>
-                   <select id="funeralLocation" name="funeralLocation" onchange="updateHalls()">
-                   <option value="second_funeral_home">第二殯儀館（台北市辛亥路）</option>
-                   <option value="banqiao_funeral_home">板橋殯儀館</option>
-                   <!-- Add more options as needed -->
-                   </select>
+                    <label for="funeralLocation">地點</label>
+                    <select id="funeralLocation" name="funeralLocation" onchange="updateHalls()">
+                        <option value="second_funeral_home">第二殯儀館（台北市辛亥路）</option>
+                        <option value="banqiao_funeral_home">板橋殯儀館</option>
+                        <!-- Add more options as needed -->
+                    </select>
 
-                   <label for="hall">禮廳</label>
-                   <select id="hall" name="hall">
-                   <!-- Options will be dynamically updated based on selection -->
-                   </select>
+                    <label for="hall">禮廳</label>
+                    <select id="hall" name="hall">
+                        <!-- Options will be dynamically updated based on selection -->
+                    </select>
 
                     <button type="submit">提交</button>
                 </form>
@@ -82,6 +84,12 @@
         </div>
         <p>2024 祥安生命有限公司 版權所有</p>
     </footer>
+
+    <div class="fixed-icons">
+        <a href="https://line.me/ti/p/TuM5y_Of6I" target="_blank">
+            <img src="images/line_icon.png" alt="Line ID">
+        </a>
+    </div>
 
     <script src="script.js"></script>
 </body>
