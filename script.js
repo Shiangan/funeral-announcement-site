@@ -1,62 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('obituary-form');
-    const funeralLocation = document.getElementById('funeral-location');
-    const hall = document.getElementById('hall');
-
-    funeralLocation.addEventListener('change', function() {
-        const location = this.value;
-        hall.disabled = !location;
-        if (location) {
-            hall.innerHTML = '';
-            const halls = getHalls(location);
-            halls.forEach(h => {
-                const option = document.createElement('option');
-                option.value = h;
-                option.textContent = h;
-                hall.appendChild(option);
-            });
-        }
-    });
-
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const formData = new FormData(form);
-        const data = {
-            deceasedName: formData.get('deceased-name'),
-            birthDate: formData.get('birth-date'),
-            deathDate: formData.get('death-date'),
-            funeralDate: formData.get('funeral-date'),
-            funeralLocation: formData.get('funeral-location'),
-            hall: formData.get('hall'),
-            textStyle: formData.get('text-style'),
-            sendFlowerBasket: formData.get('send-flower-basket'),
-            music: formData.get('music')
-        };
-
-        // Upload photo if present
-        const photo = formData.get('photo-upload');
-        if (photo && photo.size > 0) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                data.photo = e.target.result;
-                const params = new URLSearchParams(data).toString();
-                window.location.href = `details.html?${params}`;
-            };
-            reader.readAsDataURL(photo);
-        } else {
-            const params = new URLSearchParams(data).toString();
-            window.location.href = `details.html?${params}`;
-        }
-    });
-
-    function getHalls(location) {
-        const halls = {
-            "第二殯儀館": ["至真1廳", "至真2廳", "至真3廳"],
-            "新北板橋殯儀館": ["至善1廳", "至善2廳", "至善3廳"],
-            "桃園殯儀館": ["桃園1廳", "桃園2廳", "桃園3廳"],
-            "南榮殯儀館": ["基隆1廳", "基隆2廳", "基隆3廳"]
-        };
-        return halls[location] || [];
-    }
+document.addEventListener("DOMContentLoaded", function() {
+    // 等待生成动画结束后显示内容
+    setTimeout(function() {
+        document.querySelector('.intro-animation').style.display = 'none';
+        document.querySelector('#obituary-content').classList.add('show');
+    }, 5000); // 5秒后显示内容
 });
