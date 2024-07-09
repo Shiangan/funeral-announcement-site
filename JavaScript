@@ -1,58 +1,51 @@
-document.getElementById('funeral-location').addEventListener('change', function() {
-    const location = this.value;
-    const hallSelect = document.getElementById('hall');
-    hallSelect.innerHTML = '';
-
-    if (location === '第二殯儀館') {
-        hallSelect.innerHTML = `
-            <option value="A廳">A廳</option>
-            <option value="B廳">B廳</option>
-        `;
-    } else if (location === '新北板橋殯儀館') {
-        hallSelect.innerHTML = `
-            <option value="C廳">C廳</option>
-            <option value="D廳">D廳</option>
-        `;
-    } else if (location === '桃園殯儀館') {
-        hallSelect.innerHTML = `
-            <option value="E廳">E廳</option>
-            <option value="F廳">F廳</option>
-        `;
-    } else if (location === '南榮殯儀館') {
-        hallSelect.innerHTML = `
-            <option value="G廳">G廳</option>
-            <option value="H廳">H廳</option>
-        `;
-    }
-
-    hallSelect.disabled = false;
-});
-
-document.getElementById('preview-music').addEventListener('click', function() {
-    const musicChoice = document.getElementById('music-choice').value;
+document.addEventListener('DOMContentLoaded', function() {
+    const obituaryForm = document.getElementById('obituary-form');
+    const musicButtons = document.querySelectorAll('.music-options button');
     const audioPreview = document.getElementById('audio-preview');
-    if (musicChoice) {
-        audioPreview.src = musicChoice;
-        audioPreview.hidden = false;
-        audioPreview.play();
-    }
-});
+    let selectedMusicUrl = '';
 
-document.getElementById('obituary-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+    musicButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            selectedMusicUrl = this.getAttribute('data-music-url');
+            audioPreview.src = selectedMusicUrl;
+            audioPreview.hidden = false;
+            audioPreview.play();
+        });
+    });
 
-    const formData = new FormData(this);
-    const queryString = new URLSearchParams(formData).toString();
-    const photoFile = document.getElementById('photo-upload').files[0];
-    const musicChoice = document.getElementById('music-choice').value;
+    obituaryForm.addEventListener('submit', function(event) {
+        event.preventDefault();
 
-    // 假設照片會上傳到某個服務器，並且返回一個照片URL
-    // 這裡直接使用FileReader模擬照片上傳的效果
-    const reader = new FileReader();
-    reader.onloadend = function() {
-        const photoUrl = reader.result;
-        const redirectUrl = `details.html?${queryString}&photoUrl=${encodeURIComponent(photoUrl)}&musicUrl=${encodeURIComponent(musicChoice)}`;
-        window.location.href = redirectUrl;
-    };
-    reader.readAsDataURL(photoFile);
+        const formData = new FormData(obituaryForm);
+        const deceasedName = formData.get('deceased-name');
+        const birthDate = formData.get('birth-date');
+        const deathDate = formData.get('death-date');
+        const funeralDate = formData.get('funeral-date');
+        const funeralLocation = formData.get('funeral-location');
+        const hall = formData.get('hall');
+        const textStyle = formData.get('text-style');
+        const sendFlowerBasket = formData.get('send-flower-basket');
+        const photoFile = formData.get('photo-upload');
+
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            const photoUrl = event.target.result;
+
+            const urlParams = new URLSearchParams({
+                deceasedName,
+                birthDate,
+                deathDate,
+                funeralDate,
+                funeralLocation,
+                hall,
+                textStyle,
+                sendFlowerBasket,
+                photoUrl,
+                musicUrl: selectedMusicUrl
+            });
+
+            window.location.href = 'details.html?' + urlParams.toString();
+        };
+        reader.readAsDataURL(photoFile);
+    });
 });
