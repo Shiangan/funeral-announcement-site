@@ -11,31 +11,45 @@
         <img src="path/to/your/logo.png" alt="公司Logo">
     </div>
 
-    <!-- 等待生成动画 -->
-    <div class="intro-animation">
-        <img src="path/to/deceased/photo.jpg" alt="亡者照片">
-        <h2>敬請邀請</h2>
+    <!-- 嵌入 YouTube 影片 -->
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/_ZbzFF14_lQ?autoplay=1" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <!-- 生成的訃聞內容 -->
-    <div id="obituary-content" class="obituary-content">
-        <h1>生平介紹</h1>
-        <p>這裡是亡者的生平介紹...</p>
+    <div class="container">
+        <h1>訃聞提交表單</h1>
+        <form id="obituary-form">
+            <label for="deceased-name">往生者姓名:</label>
+            <input type="text" id="deceased-name" name="deceased-name" required>
 
-        <h1>訃告正文</h1>
-        <p>這裡是訃告正文的內容...</p>
+            <label for="death-date">逝世日期:</label>
+            <input type="date" id="death-date" name="death-date" required>
 
-        <h1>儀式地圖</h1>
-        <p>這裡是儀式地圖的內容...</p>
+            <label for="funeral-date">出殯日期:</label>
+            <input type="date" id="funeral-date" name="funeral-date" required>
 
-        <h1>儀式時程</h1>
-        <p>這裡是儀式時程的內容...</p>
+            <label for="funeral-location">出殯地點:</label>
+            <select id="funeral-location" name="funeral-location" required>
+                <option value="">請選擇出殯地點</option>
+                <option value="第二殯儀館">第二殯儀館</option>
+                <option value="新北板橋殯儀館">第三殯儀館</option>
+                <option value="桃園殯儀館">桃園殯儀館</option>
+                <option value="南榮殯儀館">基隆殯儀館</option>
+            </select>
 
-        <h1>簡訊提醒</h1>
-        <p>這裡是簡訊提醒的內容...</p>
+            <label for="hall">選擇禮廳:</label>
+            <select id="hall" name="hall" required disabled>
+                <option value="">請先選擇出殯地點</option>
+            </select>
 
-        <h1>訊息分享</h1>
-        <p>這裡是訊息分享的內容...</p>
+            <label for="text-style">內文風格:</label>
+            <input type="text" id="text-style" name="text-style">
+
+            <label for="send-flower-basket">是否贈送花籃:</label>
+            <input type="checkbox" id="send-flower-basket" name="send-flower-basket">
+
+            <button type="submit">生成訃聞</button>
+        </form>
     </div>
 
     <footer class="footer">
