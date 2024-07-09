@@ -1,65 +1,58 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const funeralLocation = document.getElementById('funeral-location');
+document.getElementById('funeral-location').addEventListener('change', function() {
+    const location = this.value;
     const hallSelect = document.getElementById('hall');
+    hallSelect.innerHTML = '';
 
-    funeralLocation.addEventListener('change', function() {
-        const selectedLocation = funeralLocation.value;
-        hallSelect.innerHTML = ''; // 清空選項
+    if (location === '第二殯儀館') {
+        hallSelect.innerHTML = `
+            <option value="A廳">A廳</option>
+            <option value="B廳">B廳</option>
+        `;
+    } else if (location === '新北板橋殯儀館') {
+        hallSelect.innerHTML = `
+            <option value="C廳">C廳</option>
+            <option value="D廳">D廳</option>
+        `;
+    } else if (location === '桃園殯儀館') {
+        hallSelect.innerHTML = `
+            <option value="E廳">E廳</option>
+            <option value="F廳">F廳</option>
+        `;
+    } else if (location === '南榮殯儀館') {
+        hallSelect.innerHTML = `
+            <option value="G廳">G廳</option>
+            <option value="H廳">H廳</option>
+        `;
+    }
 
-        if (selectedLocation === '第二殯儀館') {
-            hallSelect.innerHTML = `
-                <option value="">請選擇禮廳</option>
-                <option value="禮堂A">禮堂A</option>
-                <option value="禮堂B">禮堂B</option>
-            `;
-        } else if (selectedLocation === '新北板橋殯儀館') {
-            hallSelect.innerHTML = `
-                <option value="">請選擇禮廳</option>
-                <option value="至真1廳">至真1廳</option>
-                <option value="至真2廳">至真2廳</option>
-            `;
-        } else if (selectedLocation === '桃園殯儀館') {
-            hallSelect.innerHTML = `
-                <option value="">請選擇禮廳</option>
-                <option value="大禮堂">大禮堂</option>
-            `;
-        } else if (selectedLocation === '南榮殯儀館') {
-            hallSelect.innerHTML = `
-                <option value="">請選擇禮廳</option>
-                <option value="綠樹廳">綠樹廳</option>
-                <option value="白雲廳">白雲廳</option>
-            `;
-        } else {
-            hallSelect.innerHTML = `<option value="">請先選擇出殯地點</option>`;
-        }
+    hallSelect.disabled = false;
+});
 
-        hallSelect.disabled = hallSelect.options.length <= 1;
-    });
+document.getElementById('preview-music').addEventListener('click', function() {
+    const musicChoice = document.getElementById('music-choice').value;
+    const audioPreview = document.getElementById('audio-preview');
+    if (musicChoice) {
+        audioPreview.src = musicChoice;
+        audioPreview.hidden = false;
+        audioPreview.play();
+    }
+});
 
-    const form = document.getElementById('obituary-form');
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
+document.getElementById('obituary-form').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-        const style = document.querySelector('input[name="style"]:checked').value;
-        const deceasedName = document.getElementById('deceased-name').value;
-        const deathDate = document.getElementById('death-date').value;
-        const funeralDate = document.getElementById('funeral-date').value;
-        const funeralLocation = document.getElementById('funeral-location').value;
-        const hall = document.getElementById('hall').value;
-        const textStyle = document.getElementById('text-style').value;
-        const sendFlowerBasket = document.getElementById('send-flower-basket').value;
+    const formData = new FormData(this);
+    const queryString = new URLSearchParams(formData).toString();
+    const photoFile = document.getElementById('photo-upload').files[0];
+    const musicChoice = document.getElementById('music-choice').value;
 
-        const params = new URLSearchParams({
-            style,
-            deceasedName,
-            deathDate,
-            funeralDate,
-            funeralLocation,
-            hall,
-            textStyle,
-            sendFlowerBasket
-        }).toString();
-
-        window.location.href = `details.html?${params}`;
-    });
+    // 假設照片會上傳到某個服務器，並且返回一個照片URL
+    // 這裡直接使用FileReader模擬照片上傳的效果
+    const reader = new FileReader();
+    reader.onloadend = function() {
+        const photoUrl = reader.result;
+        const redirectUrl = `details.html?${queryString}&photoUrl=${encodeURIComponent(photoUrl)}&musicUrl=${encodeURIComponent(musicChoice)}`;
+        window.location.href = redirectUrl;
+    };
+    reader.readAsDataURL(photoFile);
 });
