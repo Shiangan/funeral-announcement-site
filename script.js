@@ -12,30 +12,21 @@ document.addEventListener("DOMContentLoaded", function() {
         // 获取表单选择的值
         const style = document.getElementById('style').value;
         const date = document.getElementById('date').value;
-
-        // 根据选择更新生成的内容
-        const deathInfo = document.getElementById('death-info');
-        if (style === 'chinese') {
-            // 中式寫法
-            if (date) {
-                const deathDate = new Date(date);
-                const year = deathDate.getFullYear();
-                const month = deathDate.getMonth() + 1;
-                const day = deathDate.getDate();
-                const gender = document.querySelector('input[name="gender"]:checked').value;
-
-                if (gender === 'male') {
-                    deathInfo.textContent = `${year}年${month}月${day}日，男生寫壽終正寢。`;
-                } else if (gender === 'female') {
-                    deathInfo.textContent = `${year}年${month}月${day}日，女生寫壽終內寢。`;
-                }
-            }
-        } else {
-            // 其他寫法
-            deathInfo.textContent = '其他寫法的內容...';
-        }
-
-        // 显示生成的内容
-        document.getElementById('obituary-content').classList.add('show');
-    });
+// 根据日期和选择的内容更新内页信息
+    updateDetails(funeralDate, funeralLocation, hall);
 });
+
+function updateDetails(date, location, hall) {
+    // 根据日期设置相关文本
+    let message = '';
+    if (location === '第二殯儀館') {
+        message = `尊敬的親朋好友們，本公司即日起公布親愛的XXX於${date}安詳辭世，${hall}等您的到來。`;
+    } else if (location === '新北板橋殯儀館') {
+        message = `親愛的親友們，XXX於${date}靜靜地離開我們，${hall}為您準備了一個溫馨的場地。`;
+    }
+    
+    // 更新页面元素，例如显示照片和消息
+    document.getElementById('photo').setAttribute('src', 'path/to/deceased-photo.jpg'); // 设置亡者照片
+    document.getElementById('invitation-text').textContent = '敬請邀請參加'; // 设置邀请文字
+    document.getElementById('message').textContent = message; // 显示消息内容
+}
