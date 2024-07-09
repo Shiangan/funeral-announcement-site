@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>訃聞詳情</title>
+    <title>訃聞詳情 - 祥安生命有限公司</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,48 +11,52 @@
         <div class="logo">
             <img src="path/to/your/logo.png" alt="公司Logo">
         </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="#">服務項目</a></li>
+                <li><a href="#">關於我們</a></li>
+                <li><a href="#">聯絡我們</a></li>
+            </ul>
+        </nav>
     </header>
-    
-    <main class="container">
-        <section class="intro-section">
+
+    <main class="main-content">
+        <div class="container">
             <div class="cover-photo">
-                <img id="deceasedPhoto" src="" alt="逝者照片">
+                <img src="path/to/your/photo.jpg" alt="亡者照片">
                 <div class="cover-overlay">
-                    <h2>敬邀您</h2>
+                    <h1>敬邀您</h1>
                     <p>點選一下進入頁面</p>
                 </div>
             </div>
-        </section>
 
-        <section id="obituary-details" class="details-section">
-            <!-- 訃聞詳細信息會在這裡顯示 -->
-        </section>
-
-        <section class="memorial-board">
-            <h3>追思留言</h3>
-            <form id="memorial-form">
-                <label for="message">留言內容：</label>
-                <textarea id="message" name="message" required></textarea>
-                <label for="memorialPhoto">上傳照片：</label>
-                <input type="file" id="memorialPhoto" name="memorialPhoto" accept="image/*">
-                <label for="memorialVideo">上傳影片：</label>
-                <input type="file" id="memorialVideo" name="memorialVideo" accept="video/*">
-                <button type="submit">提交留言</button>
-            </form>
-            <div id="messages-container">
-                <!-- 留言會在這裡顯示 -->
+            <div id="obituary-details" class="details-section">
+                <!-- 訃聞詳細信息內容將由JavaScript生成 -->
             </div>
-        </section>
+
+            <div id="flower-basket-section" class="details-section">
+                <!-- 花籃信息將由JavaScript生成 -->
+            </div>
+
+            <div class="memorial-board">
+                <h3>追思留言區</h3>
+                <form id="memorial-form">
+                    <label for="message">留言：</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit">提交留言</button>
+                </form>
+                <div id="messages-container"></div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
+        <p>承辦禮儀公司：祥安生命有限公司</p>
         <div class="contact-info">
-            <p>24小時聯絡電話 ☎️ 0938-179-858</p>
-            <a href="https://line.me/ti/p/TuM5y_Of6I" class="line-link">
-                <img src="path/to/line-icon.png" alt="Line圖標">
-            </a>
+            <a href="tel:0938179858">☎️ 0938-179-858</a>
+            <a href="https://line.me/ti/p/TuM5y_Of6I">Line ID</a>
         </div>
-        <p>2024 祥安生命有限公司 版權所有</p>
     </footer>
 
     <script src="script.js"></script>
