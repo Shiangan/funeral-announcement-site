@@ -1,10 +1,4 @@
-body {
-    font-family: 'Noto Sans TC', sans-serif;
-    background-color: #f5e6e8;
-    color: #333;
-    margin: 0;
-    padding: 0
-    /* Reset styles */
+/* 重置样式 */
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +8,7 @@ body {
 body {
     font-family: 'Noto Sans TC', sans-serif;
     background-color: #f5e6e8; /* 淡粉色背景 */
-    color: #333; /* 黑色字體 */
+    color: #333; /* 黑色字体 */
     margin: 0;
     padding: 0;
 }
@@ -31,7 +25,7 @@ body {
 }
 
 .logo {
-    margin-left: 20px; /* 調整logo位置 */
+    margin-left: 20px; /* 调整logo位置 */
 }
 
 .navbar ul {
@@ -45,16 +39,16 @@ body {
 
 .navbar ul li a {
     text-decoration: none;
-    color: #333; /* 黑色字體 */
+    color: #333; /* 黑色字体 */
     font-weight: bold;
 }
 
 .navbar ul li a:hover {
-    color: #ff3366; /* 淺粉紅色 */
+    color: #ff3366; /* 淡粉红色 */
 }
 
 .main-content {
-    padding-top: 80px; /* 避免header擋住內容 */
+    padding-top: 80px; /* 避免header挡住内容 */
 }
 
 .video-container {
@@ -73,7 +67,7 @@ body {
 }
 
 .memorial-form h2 {
-    color: #ff3366; /* 淺粉紅色 */
+    color: #ff3366; /* 淡粉红色 */
     text-align: center;
     margin-bottom: 20px;
 }
@@ -93,7 +87,7 @@ body {
 }
 
 .memorial-form button {
-    background-color: #ff3366; /* 淺粉紅色按鈕 */
+    background-color: #ff3366; /* 淡粉红色按钮 */
     color: #fff;
     border: none;
     padding: 12px 20px;
@@ -107,7 +101,7 @@ body {
 }
 
 .memorial-form button:hover {
-    background-color: #ff1a53; /* 深粉紅色 */
+    background-color: #ff1a53; /* 深粉红色 */
 }
 
 .footer {
@@ -128,12 +122,12 @@ body {
 }
 
 .contact-info a {
-    color: #333; /* 黑色字體 */
+    color: #333; /* 黑色字体 */
     text-decoration: none;
 }
 
 .contact-info a:hover {
-    color: #ff3366; /* 淺粉紅色 */
+    color: #ff3366; /* 淡粉红色 */
 }
 
 .container {
@@ -142,103 +136,6 @@ body {
     padding: 0 20px;
 }
 
-.cover-photo {
-    position: relative;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.cover-photo img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.cover-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 8px;
-    display: none;
-}
-
-.cover-overlay p {
-    font-size: 24px;
-    color: #ff3366; /* 淺粉紅色 */
-    margin-bottom: 10px;
-}
-
-.details {
-    background-color: #fff; /* 白色背景 */
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.details h2 {
-    color: #ff3366; /* 淺粉紅色 */
-    margin-bottom: 15px;
-}
-
-.details p {
-    margin-bottom: 10px;
-}
-
-.tribute-section {
-    background-color: #fff; /* 白色背景 */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.tribute-section h2 {
-    color: #ff3366; /* 淺粉紅色 */
-    margin-bottom: 15px;
-}
-
-#messages-container {
-    margin-top: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-#message-form {
-    margin-top: 15px;
-}
-
-#message-input {
-    width: calc(100% - 80px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-#message-form button {
-    background-color: #ff3366; /* 淺粉紅色按鈕 */
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 80px;
-}
-
-#message-form button:hover {
-    background-color: #ff1a53; /* 深粉紅色 */
-}
-
-/* 固定圖標 */
 .fixed-icons {
     position: fixed;
     bottom: 20px;
@@ -251,17 +148,3 @@ body {
     height: auto;
     margin-left: 10px;
 }
-
-/* 承辦禮儀公司 */
-.memorial-form label[for="undertaker"] {
-    display: block;
-    margin-bottom: 8px;
-}
-
-/* 日期和時間選項 */
-.memorial-form label[for="birthDate"] {
-    display: block;
-    margin-bottom: 8px;
-}
-
-.mem
