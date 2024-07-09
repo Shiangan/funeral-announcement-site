@@ -39,7 +39,9 @@ label {
 
 input[type="text"],
 input[type="date"],
-select {
+select,
+input[type="file"],
+textarea {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
@@ -91,3 +93,14 @@ button:hover {
     width: 50px;
     height: auto;
 }
+
+.cover-photo {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.cover-photo img {
+    width: 100%;
+    height: auto;
+    transition
