@@ -1,40 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('obituary-form');
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const formData = new FormData(form);
-        const urlParams = new URLSearchParams(formData).toString();
-        window.location.href = `details.html?${urlParams}`;
-    });
-});
-
-    const locationSelect = document.getElementById('funeral-location');
-    const hallSelect = document.getElementById('hall');
-
-    locationSelect.addEventListener('change', function() {
-        const selectedLocation = locationSelect.value;
-        hallSelect.innerHTML = '<option value="">請選擇</option>';
-
-        if (selectedLocation) {
-            hallSelect.disabled = false;
-            if (selectedLocation === '第二殯儀館') {
-                hallSelect.innerHTML += '<option value="至真1廳">至真1廳</option>';
-                hallSelect.innerHTML += '<option value="至真2廳">至真2廳</option>';
-            } else if (selectedLocation === '新北板橋殯儀館') {
-                hallSelect.innerHTML += '<option value="至真3廳">至真3廳</option>';
-                hallSelect.innerHTML += '<option value="至真4廳">至真4廳</option>';
-            } else if (selectedLocation === '桃園殯儀館') {
-                hallSelect.innerHTML += '<option value="至真5廳">至真5廳</option>';
-                hallSelect.innerHTML += '<option value="至真6廳">至真6廳</option>';
-            } else if (selectedLocation === '南榮殯儀館') {
-                hallSelect.innerHTML += '<option value="至真7廳">至真7廳</option>';
-                hallSelect.innerHTML += '<option value="至真8廳">至真8廳</option>';
-            }
-        } else {
-            hallSelect.disabled = true;
-        }
-    });
-
     const urlParams = new URLSearchParams(window.location.search);
     const deceasedName = urlParams.get('deceasedName');
     const birthDate = urlParams.get('birthDate');
@@ -43,36 +7,70 @@ document.addEventListener('DOMContentLoaded', function() {
     const funeralLocation = urlParams.get('funeralLocation');
     const hall = urlParams.get('hall');
     const textStyle = urlParams.get('textStyle');
-        const sendFlowerBasket = urlParams.get('sendFlowerBasket');
+    const sendFlowerBasket = urlParams.get('sendFlowerBasket');
+    const gender = urlParams.get('gender');
+    const musicChoice = urlParams.get('musicChoice');
 
-    if (deceasedName && birthDate && deathDate && funeralDate && funeralLocation && hall && textStyle) {
-        document.getElementById('obituary-details').innerHTML = `
-            <h2>${deceasedName} 訃聞</h2>
-            <p>出生日期: ${birthDate}</p>
-            <p>逝世日期: ${deathDate}</p>
+    const age = calculateAge(birthDate, deathDate);
+    const ageTerm = getAgeTerm(age);
+
+    let obituaryText = '';
+
+    if (textStyle === 'traditional') {
+        obituaryText = `
+            <p>我們摯愛的${gender === 'male' ? '先生' : '女士'}${deceasedName}於${deathDate}逝世，${ageTerm}${age}歲</p>
             <p>出殯日期: ${funeralDate}</p>
-            <p>出殯地點: ${funeralLocation} ${hall}</p>
-            <p>文本樣式: ${textStyle === 'traditional' ? '傳統' : '現代'}</p>
-            <p>致贈花籃: ${sendFlowerBasket === 'yes' ? '是' : '否'}</p>
+            <p>出殯地點: ${funeralLocation}</p>
+            <p>禮廳: ${hall}</p>
+        `;
+    } else {
+        obituaryText = `
+            <h2>${deceasedName}</h2>
+            <p>${deathDate}逝世，${ageTerm}${age}歲</p>
+            <p>出殯日期: ${funeralDate}</p>
+            <p>出殯地點: ${funeralLocation}</p>
+            <p>禮廳: ${hall}</p>
         `;
     }
 
-    const messagesContainer = document.getElementById('messages-container');
-    const messageInput = document.getElementById('message-input');
+    document.getElementById('obituary-details').innerHTML = obituaryText;
 
-    function addMessage() {
-    const message = messageInput.value;
+    if (sendFlowerBasket === 'yes') {
+        document.getElementById('flower-basket-section').innerHTML = `
+            <h2>花籃</h2>
+            <p>由公司統一製作花籃，給予無限祝福。</p>
+        `;
+    }
+
+    const music = new Audio(`path/to/${musicChoice}.mp3`);
+    music.loop = true;
+    music.play();
+
+    const messagesContainer = document.getElementById('messages-container');
+    const messageInput = document.getElementById('message');
+
+    document.getElementById('memorial-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const message = messageInput.value;
         if (message.trim() !== '') {
             const messageElement = document.createElement('div');
-            messageElement.classList.add('message');
             messageElement.textContent = message;
             messagesContainer.appendChild(messageElement);
             messageInput.value = '';
         }
+    });
+
+    function calculateAge(birthDate, deathDate) {
+        const birth = new Date(birthDate);
+        const death = new Date(deathDate);
+        return death.getFullYear() - birth.getFullYear();
     }
 
-    document.querySelector('.memorial-board form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        addMessage();
-    });
+    function getAgeTerm(age) {
+        if (age < 30) return '得年';
+        if (age < 60) return '享年';
+        if (age < 90) return '享壽';
+        if (age < 100) return '享耆壽';
+        return '享嵩壽';
+    }
 });
