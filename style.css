@@ -111,6 +111,7 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
+    z-index: 1000;
 }
 
 .contact-info {
@@ -134,6 +135,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    padding-bottom: 80px; /* 增加底部填充，避免footer遮住内容 */
 }
 
 .fixed-icons {
