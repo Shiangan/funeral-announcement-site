@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>祥安生命有限公司</title>
+    <title>公司介紹</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,69 +11,35 @@
         <img src="path/to/your/logo.png" alt="公司Logo">
     </div>
 
-    <!-- 嵌入 YouTube 影片 -->
-    <div class="video-container">
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/_ZbzFF14_lQ?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    <!-- 等待生成动画 -->
+    <div class="intro-animation">
+        <img src="path/to/deceased/photo.jpg" alt="亡者照片">
+        <h2>敬請邀請</h2>
     </div>
 
-    <div class="container">
-        <h1>訃聞提交表單</h1>
-        <form id="obituary-form">
-            <label for="deceased-name">往生者姓名:</label>
-            <input type="text" id="deceased-name" name="deceased-name" required>
+    <!-- 生成的訃聞內容 -->
+    <div id="obituary-content" class="obituary-content">
+        <h1>生平介紹</h1>
+        <p>這裡是亡者的生平介紹...</p>
 
-            <label for="birth-date">出生日期:</label>
-            <input type="date" id="birth-date" name="birth-date" required>
+        <h1>訃告正文</h1>
+        <p>這裡是訃告正文的內容...</p>
 
-            <label for="death-date">逝世日期:</label>
-            <input type="date" id="death-date" name="death-date" required>
+        <h1>儀式地圖</h1>
+        <p>這裡是儀式地圖的內容...</p>
 
-            <label for="funeral-date">出殯日期:</label>
-            <input type="date" id="funeral-date" name="funeral-date" required>
+        <h1>儀式時程</h1>
+        <p>這裡是儀式時程的內容...</p>
 
-            <label for="funeral-location">出殯地點:</label>
-            <select id="funeral-location" name="funeral-location" required>
-                <option value="">請選擇出殯地點</option>
-                <option value="第二殯儀館">第二殯儀館</option>
-                <option value="新北板橋殯儀館">新北板橋殯儀館</option>
-                <option value="桃園殯儀館">桃園殯儀館</option>
-                <option value="南榮殯儀館">南榮殯儀館</option>
-            </select>
+        <h1>簡訊提醒</h1>
+        <p>這裡是簡訊提醒的內容...</p>
 
-            <label for="hall">選擇禮廳:</label>
-            <select id="hall" name="hall" required disabled>
-                <option value="">請先選擇出殯地點</option>
-            </select>
-
-            <label for="text-style">內文風格:</label>
-            <select id="text-style" name="text-style">
-                <option value="traditional">傳統</option>
-                <option value="modern">現代</option>
-            </select>
-
-            <label for="send-flower-basket">為求會場統一及美觀，請問是否由公司統一製作花籃，給予無限祝福:</label>
-            <select id="send-flower-basket" name="send-flower-basket">
-                <option value="yes">是</option>
-                <option value="no">否</option>
-            </select>
-
-            <label for="music">選擇背景音樂:</label>
-            <select id="music" name="music">
-                <option value="">無音樂</option>
-                <option value="music1.mp3">音樂1</option>
-                <option value="music2.mp3">音樂2</option>
-            </select>
-
-            <label for="photo-upload">上傳往生者照片:</label>
-            <input type="file" id="photo-upload" name="photo-upload" accept="image/*">
-
-            <button type="submit">生成訃聞</button>
-        </form>
+        <h1>訊息分享</h1>
+        <p>這裡是訊息分享的內容...</p>
     </div>
 
     <footer class="footer">
         <p>2024祥安生命有限公司 版權所有</p>
-        <p>承辦禮儀公司 0938-179-858</p>
     </footer>
 
     <script src="script.js"></script>
