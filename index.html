@@ -7,89 +7,95 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header">
-        <div class="logo">
-            <img src="logo.png" alt="公司Logo">
-        </div>
-        <nav class="navbar">
-            <ul>
-                <li><a href="#">首頁</a></li>
-                <li><a href="form.html">訃聞提交</a></li>
-                <li><a href="#">服務項目</a></li>
-                <li><a href="#">關於我們</a></li>
-                <li><a href="#">聯絡我們</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="header">
+        <img src="logo.png" alt="公司Logo" class="logo">
+    </div>
 
-    <main class="main-content">
-        <div class="container">
-            <section class="video-container">
-                <video controls>
-                    <source src="videos/memorial_video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </section>
+    <div class="video-container">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/_ZbzFF14_lQ?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    </div>
 
-            <section class="memorial-form">
-                <h2>亡者資訊</h2>
-                <form id="memorial-form">
-                    <label for="deceasedName">逝者姓名</label>
-                    <input type="text" id="deceasedName" name="deceasedName" required>
-                    
-                    <label for="deceasedGender">性別</label>
-                    <select id="deceasedGender" name="deceasedGender">
-                        <option value="male">男士</option>
-                        <option value="female">女士</option>
-                    </select>
+    <div class="container">
+        <h1>訃聞提交表單</h1>
+        <form id="obituary-form">
+            <label for="deceased-name">往生者姓名:</label>
+            <input type="text" id="deceased-name" name="deceased-name" required>
 
-                    <label for="birthDate">出生時間</label>
-                    <input type="date" id="birthDate" name="birthDate" required>
-                    <select id="birthType" name="birthType">
-                        <option value="國曆">國曆</option>
-                        <option value="農曆">農曆</option>
-                    </select>
+            <label for="gender">性別:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">男生</option>
+                <option value="female">女生</option>
+            </select>
 
-                    <label for="deathDate">往生時間</label>
-                    <input type="date" id="deathDate" name="deathDate" required>
-                    <select id="deathType" name="deathType">
-                        <option value="國曆">國曆</option>
-                        <option value="農曆">農曆</option>
-                    </select>
-                    
-                    <label for="funeralLocation">地點</label>
-                    <select id="funeralLocation" name="funeralLocation" onchange="updateHalls()">
-                        <option value="second_funeral_home">第二殯儀館（台北市辛亥路）</option>
-                        <option value="banqiao_funeral_home">板橋殯儀館</option>
-                        <!-- Add more options as needed -->
-                    </select>
+            <label for="birth-date">出生日期:</label>
+            <input type="date" id="birth-date" name="birth-date" required>
 
-                    <label for="hall">禮廳</label>
-                    <select id="hall" name="hall">
-                        <!-- Options will be dynamically updated based on selection -->
-                    </select>
+            <label for="death-date">逝世日期:</label>
+            <input type="date" id="death-date" name="death-date" required>
 
-                    <button type="submit">提交</button>
-                </form>
-            </section>
-        </div>
-    </main>
+            <label for="place-name">牌位安靈地點:</label>
+            <input type="text" id="place-name" name="place-name" required>
+
+            <label for="funeral-date">出殯日期:</label>
+            <input type="date" id="funeral-date" name="funeral-date" required>
+
+            <label for="funeral-location">出殯地點:</label>
+            <select id="funeral-location" name="funeral-location" required>
+                <option value="">請選擇出殯地點</option>
+                <option value="第二殯儀館">第二殯儀館</option>
+                <option value="新北板橋殯儀館">新北板橋殯儀館</option>
+                <option value="桃園殯儀館">桃園殯儀館</option>
+                <option value="南榮殯儀館">南榮殯儀館</option>
+            </select>
+
+            <label for="hall">選擇禮廳:</label>
+            <select id="hall" name="hall" required disabled>
+                <option value="">請先選擇出殯地點</option>
+            </select>
+
+            <label for="text-style">內文風格:</label>
+            <select id="text-style" name="text-style">
+                <option value="traditional">傳統</option>
+                <option value="modern">現代</option>
+            </select>
+
+            <label for="send-flower-basket">為求會場統一及美觀，請問是否由公司統一製作花籃，給予無限祝福:</label>
+            <select id="send-flower-basket" name="send-flower-basket">
+                <option value="yes">是</option>
+                <option value="no">否</option>
+            </select>
+
+            <a href="https://line.me/ti/p/TuM5y_Of6I" target="_blank">Line 連結</a>
+
+            <label for="music-choice">選擇背景音樂:</label>
+            <select id="music-choice" name="music-choice">
+                <option value="music1">音樂1</option>
+                <option value="music2">音樂2</option>
+            </select>
+
+            <button type="submit">生成訃聞</button>
+        </form>
+    </div>
+
+    <div id="memorial-message" class="memorial-message" style="display:none;">
+        <p>謹致諸位親友：</p>
+        <p>我們摯愛的   先生，日前安詳辭世。</p>
+        <p>衷心感謝諸位親友的慰問與陪伴，讓我們在這段期間，即使悲慟哀傷，也深感親友們的溫暖。</p>
+        <p>治喪期間，因時間有限，我們選擇採用電子追思訊息，邀請您參與  的人生畢業典禮。</p>
+        <p>無論您親臨會場與我們一同緬懷，抑或不克前來，全體家屬均深深感謝您的關懷！</p>
+        <p><a href="https://qr2.123life.com.tw/cht/index.php?code=list&flag=detail&co=1&ids=2&article_id=73436">電子追思訊息連結</a></p>
+        <p>祥安-王明元</p>
+        <p><a href="https://line.me/ti/p/TuM5y_Of6I">Line 連結</a></p>
+    </div>
 
     <footer class="footer">
-        <div class="contact-info">
-            <p>24小時聯絡電話 📞0938-179-858</p>
-            <p><a href="https://line.me/ti/p/TuM5y_Of6I">Line ID: your_line_id</a></p>
-        </div>
         <p>2024 祥安生命有限公司 版權所有</p>
+        <p>24小時聯絡電話 ☎️0938-179-858</p>
     </footer>
 
-    <div class="fixed-icons">
-        <a href="https://line.me/ti/p/TuM5y_Of6I" target="_blank">
-            <img src="IMG_4177.webp/line.png" alt="Line ID">
-        </a>
-        <a href="https://www.facebook.com/shianganlife?mibextid=LQQJ4d" target="_blank">
-            <img src="facebook.png" alt="Facebook">
-        </a>
+    <div class="floating-icons">
+        <a href="https://line.me/ti/p/TuM5y_Of6I"><img src="line-icon.png" alt="Line"></a>
+        <a href="https://www.facebook.com/shianganlife?mibextid=LQQJ4d"><img src="facebook-icon.png" alt="Facebook"></a>
     </div>
 
     <script src="script.js"></script>
