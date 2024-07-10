@@ -91,4 +91,90 @@ body {
 .memorial-form button {
     background-color: #ff3366; /* 淡粉红色按钮 */
     color: #fff;
+        border: none;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.memorial-form button:hover {
+    background-color: #ff1a53; /* 深粉红色 */
+}
+
+.footer {
+    background-color: #fff; /* 白色背景 */
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.contact-info {
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    margin-bottom: 5px;
+}
+
+.contact-info a {
+    color: #333; /* 黑色字体 */
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: #ff3366; /* 淡粉红色 */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.fixed-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.fixed-icons img {
+    width: 50px;
+    height: auto;
+    margin-left: 10px;
+}
+
+.memorial-message {
+    background-color: #fff; /* 白色背景 */
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.memorial-message p {
+    margin-bottom: 10px;
+}
+
+.floating-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.floating-icons img {
+    width: 50px;
+    height: auto;
+    margin-left: 10px;
+}
    
