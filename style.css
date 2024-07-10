@@ -26,6 +26,8 @@ body {
 
 .logo {
     margin-left: 20px; /* 调整logo位置 */
+    max-width: 150px; /* 设置logo最大宽度 */
+    height: auto; /* 保持高度自动 */
 }
 
 .navbar ul {
@@ -89,64 +91,4 @@ body {
 .memorial-form button {
     background-color: #ff3366; /* 淡粉红色按钮 */
     color: #fff;
-    border: none;
-    padding: 12px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-}
-
-.memorial-form button:hover {
-    background-color: #ff1a53; /* 深粉红色 */
-}
-
-.footer {
-    background-color: #fff; /* 白色背景 */
-    padding: 10px 20px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-.contact-info {
-    margin-bottom: 10px;
-}
-
-.contact-info p {
-    margin-bottom: 5px;
-}
-
-.contact-info a {
-    color: #333; /* 黑色字体 */
-    text-decoration: none;
-}
-
-.contact-info a:hover {
-    color: #ff3366; /* 淡粉红色 */
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    padding-bottom: 80px; /* 增加底部填充，避免footer遮住内容 */
-}
-
-.fixed-icons {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-.fixed-icons img {
-    width: 50px;
-    height: auto;
-    margin-left: 10px;
-}
+   
