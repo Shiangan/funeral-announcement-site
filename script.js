@@ -1,42 +1,32 @@
-function updateHalls() {
-    const funeralLocation = document.getElementById("funeralLocation").value;
-    const hallSelect = document.getElementById("hall");
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('obituary-form');
+    const memorialMessage = document.getElementById('memorial-message');
+    const hallSelect = document.getElementById('hall');
+    const funeralLocationSelect = document.getElementById('funeral-location');
 
-    hallSelect.innerHTML = ""; // 清空现有选项
+    // 更新選擇禮廳的選項
+    funeralLocationSelect.addEventListener('change', function () {
+        const location = this.value;
+        hallSelect.innerHTML = ''; // 清空禮廳選項
+        hallSelect.disabled = false; // 启用禮廳選項
 
-    if (funeralLocation === "second_funeral_home") {
-        const options = [
-            { value: "hall1", text: "禮廳1" },
-            { value: "hall2", text: "禮廳2" }
-            // 添加更多选项
-        ];
-        options.forEach(option => {
-            const opt = document.createElement("option");
-            opt.value = option.value;
-            opt.text = option.text;
-            hallSelect.appendChild(opt);
-        });
-        hallSelect.disabled = false;
-    } else if (funeralLocation === "banqiao_funeral_home") {
-                const options = [
-            { value: "hall3", text: "禮廳3" },
-            { value: "hall4", text: "禮廳4" }
-            // 添加更多选项
-        ];
-        options.forEach(option => {
-            const opt = document.createElement("option");
-            opt.value = option.value;
-            opt.text = option.text;
-            hallSelect.appendChild(opt);
-        });
-        hallSelect.disabled = false;
-    } else {
-        const defaultOption = document.createElement("option");
-        defaultOption.value = "";
-        defaultOption.text = "請先選擇出殯地點";
-        hallSelect.appendChild(defaultOption);
-        hallSelect.disabled = true;
-    }
-}
+        if (location === '第二殯儀館') {
+            hallSelect.innerHTML = '<option value="1號廳">1號廳</option><option value="2號廳">2號廳</option>';
+        } else if (location === '新北板橋殯儀館') {
+            hallSelect.innerHTML = '<option value="A廳">A廳</option><option value="B廳">B廳</option>';
+        } else if (location === '桃園殯儀館') {
+            hallSelect.innerHTML = '<option value="桃A廳">桃A廳</option><option value="桃B廳">桃B廳</option>';
+        } else if (location === '南榮殯儀館') {
+            hallSelect.innerHTML = '<option value="南A廳">南A廳</option><option value="南B廳">南B廳</option>';
+        } else {
+            hallSelect.disabled = true; // 没有有效的出殯地點时禁用禮廳選項
+        }
+    });
 
-document.getElementById("funeralLocation").addEventListener("change", updateHalls);
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // 阻止表單提交
+
+        // 显示訃聞信息
+        memorialMessage.style.display = 'block';
+    });
+});
