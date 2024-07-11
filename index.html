@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>祥安生命禮儀公司 - 訃聞內頁</title>
+    <title>祥安生命禮儀公司 - 訃聞生成</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,30 +22,51 @@
 
     <main class="main-content">
         <div class="container">
-            <section class="obituary-details">
-                <h2>逝者姓名</h2>
-                <p>出生日期：YYYY-MM-DD</p>
-                <p>死亡日期：YYYY-MM-DD</p>
-                <p>出殯日期：YYYY-MM-DD</p>
-                <!-- 其他相關訃聞內容 -->
-            </section>
+            <form id="obituary-form" class="memorial-form">
+                <h2>生成訃聞</h2>
+                <label for="deceased-name">逝者姓名：</label>
+                <input type="text" id="deceased-name" name="deceased-name" required>
 
-            <section class="order-management">
-                <h2>訂單管理</h2>
-                <table class="order-table">
-                    <thead>
-                        <tr>
-                            <th>訂單編號</th>
-                            <th>姓名</th>
-                            <th>日期</th>
-                            <th>狀態</th>
-                        </tr>
-                    </thead>
-                    <tbody id="order-list">
-                        <!-- JavaScript生成訂單列表 -->
-                    </tbody>
-                </table>
-            </section>
+                <label for="gender">性別：</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">男</option>
+                    <option value="female">女</option>
+                </select>
+
+                <label for="birth-date">出生日期：</label>
+                <input type="date" id="birth-date" name="birth-date" required>
+
+                <label for="death-date">死亡日期：</label>
+                <input type="date" id="death-date" name="death-date" required>
+
+                <label for="death-time">死亡時間：</label>
+                <input type="text" id="death-time" name="death-time" required placeholder="例如：上午7時">
+
+                <label for="place-name">牌位安靈地點：</label>
+                <input type="text" id="place-name" name="place-name" required>
+
+                <label for="funeral-date">出殯日期：</label>
+                <input type="date" id="funeral-date" name="funeral-date" required>
+
+                <label for="funeral-location">出殯地點：</label>
+                <select id="funeral-location" name="funeral-location" required>
+                    <option value="第二殯儀館">第二殯儀館</option>
+                    <option value="新北板橋殯儀館">新北板橋殯儀館</option>
+                    <option value="桃園殯儀館">桃園殯儀館</option>
+                    <option value="南榮殯儀館">南榮殯儀館</option>
+                </select>
+
+                <label for="hall">禮廳：</label>
+                <input type="text" id="hall" name="hall" required>
+
+                <label for="text-style">內文風格：</label>
+                <select id="text-style" name="text-style" required>
+                    <option value="traditional">傳統</option>
+                    <option value="modern">現代</option>
+                </select>
+
+                <button type="submit">生成訃聞</button>
+            </form>
         </div>
     </main>
 
