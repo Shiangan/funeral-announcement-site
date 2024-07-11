@@ -1,4 +1,4 @@
-/* 重置样式 */
+/* Reset and Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -6,120 +6,135 @@
 }
 
 body {
-    font-family: 'Noto Sans TC', sans-serif;
-    background-color: #f5e6e8; /* 淡粉色背景 */
-    color: #333; /* 黑色字体 */
-    margin: 0;
-    padding: 0;
-}
-
-.header {
-    background-color: #fff; /* 白色背景 */
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center; /* 调整到中间 */
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-}
-
-.logo {
-    height: 50px; /* 调整logo大小 */
-}
-
-.main-content {
-    padding-top: 80px; /* 避免header挡住内容 */
-}
-
-.video-container {
-    margin: 20px auto;
-    max-width: 100%;
-    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #495057;
 }
 
 .container {
-    max-width: 600px;
-    margin: 20px auto;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 20px;
-    background-color: #fff; /* 白色背景 */
+}
+
+/* Header */
+.header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px 0;
+}
+
+.logo {
+    height: 50px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.navbar ul li a:hover {
+    color: #0056b3;
+}
+
+/* Main Content */
+.main-content {
+    padding: 20px 0;
+}
+
+.obituary-details {
+    background-color: #ffffff;
+    padding: 30px;
+    margin-bottom: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.container h1 {
-    color: #ff3366; /* 淡粉红色 */
-    text-align: center;
+.obituary-details h2 {
+    color: #343a40;
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
-.container label {
-    display: block;
-    margin-bottom: 8px;
+.obituary-details p {
+    margin-bottom: 10px;
 }
 
-.container input,
-.container select {
+.order-management {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.order-management h2 {
+    color: #343a40;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.order-table {
     width: 100%;
+    border-collapse: collapse;
+}
+
+.order-table th, .order-table td {
     padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
 }
 
-.container button {
-    background-color: #ff3366; /* 淡粉红色按钮 */
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
+.order-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #343a40;
 }
 
-.container button:hover {
-    background-color: #ff1a53; /* 深粉红色 */
+.order-table tbody tr:hover {
+    background-color: #f2f2f2;
 }
 
+/* Footer */
 .footer {
-    background-color: #fff; /* 白色背景 */
-    padding: 10px 20px;
+    background-color: #343a40;
+    color: #ffffff;
     text-align: center;
+    padding: 20px;
     position: fixed;
     bottom: 0;
     width: 100%;
 }
 
+/* Fixed Icons */
 .fixed-icons {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 1000;
 }
 
-.fixed-icons img {
-    width: 50px;
-    height: auto;
+.fixed-icons a {
     margin-left: 10px;
 }
 
-.contact-info {
-    margin-bottom: 10px;
+.fixed-icons img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
 }
 
-.contact-info p {
-    margin-bottom: 5px;
-}
-
-.contact-info a {
-    color: #333; /* 黑色字体 */
-    text-decoration: none;
-}
-
-.contact-info a:hover {
-    color: #ff3366; /* 淡粉红色 */
+.fixed-icons img:hover {
+    transform: scale(1.1);
 }
