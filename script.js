@@ -1,32 +1,44 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('obituary-form');
-    const memorialMessage = document.getElementById('memorial-message');
-    const hallSelect = document.getElementById('hall');
-    const funeralLocationSelect = document.getElementById('funeral-location');
+document.addEventListener("DOMContentLoaded", function() {
+    const funeralLocationSelect = document.getElementById("funeral-location");
+    const hallSelect = document.getElementById("hall");
 
-    // 更新選擇禮廳的選項
-    funeralLocationSelect.addEventListener('change', function () {
-        const location = this.value;
-        hallSelect.innerHTML = ''; // 清空禮廳選項
-        hallSelect.disabled = false; // 启用禮廳選項
+    funeralLocationSelect.addEventListener("change", function() {
+        const selectedLocation = this.value;
+        hallSelect.innerHTML = ""; // 清空之前的選項
 
-        if (location === '第二殯儀館') {
-            hallSelect.innerHTML = '<option value="1號廳">1號廳</option><option value="2號廳">2號廳</option>';
-        } else if (location === '新北板橋殯儀館') {
-            hallSelect.innerHTML = '<option value="A廳">A廳</option><option value="B廳">B廳</option>';
-        } else if (location === '桃園殯儀館') {
-            hallSelect.innerHTML = '<option value="桃A廳">桃A廳</option><option value="桃B廳">桃B廳</option>';
-        } else if (location === '南榮殯儀館') {
-            hallSelect.innerHTML = '<option value="南A廳">南A廳</option><option value="南B廳">南B廳</option>';
-        } else {
-            hallSelect.disabled = true; // 没有有效的出殯地點时禁用禮廳選項
+        if (selectedLocation === "第二殯儀館") {
+            hallSelect.innerHTML = `
+                <option value="禮廳1">禮廳1</option>
+                <option value="禮廳2">禮廳2</option>
+                <option value="禮廳3">禮廳3</option>
+            `;
+        } else if (selectedLocation === "新北板橋殯儀館") {
+            hallSelect.innerHTML = `
+                <option value="禮廳A">禮廳A</option>
+                <option value="禮廳B">禮廳B</option>
+                <option value="禮廳C">禮廳C</option>
+            `;
+        } else if (selectedLocation === "桃園殯儀館") {
+            hallSelect.innerHTML = `
+                <option value="禮廳X">禮廳X</option>
+                <option value="禮廳Y">禮廳Y</option>
+                <option value="禮廳Z">禮廳Z</option>
+            `;
+        } else if (selectedLocation === "南榮殯儀館") {
+            hallSelect.innerHTML = `
+                <option value="禮廳1">禮廳1</option>
+                <option value="禮廳2">禮廳2</option>
+                <option value="禮廳3">禮廳3</option>
+            `;
         }
     });
 
-    form.addEventListener('submit', function (event) {
-        event.preventDefault(); // 阻止表單提交
-
-        // 显示訃聞信息
-        memorialMessage.style.display = 'block';
+    // 表单提交处理
+    const form = document.getElementById("obituary-form");
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const data = new FormData(form);
+        console.log("表单数据:", Object.fromEntries(data.entries()));
+        alert("訃聞已生成！");
     });
 });
