@@ -1,19 +1,66 @@
-// 假設這裡是從後端動態獲取的訂單數據
-const orders = [
-    { id: 1, name: '張三', date: '2024-07-15', status: '已完成' },
-    { id: 2, name: '李四', date: '2024-07-16', status: '處理中' }
-];
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('obituary-form');
+    const shareLineButton = document.getElementById('share-line');
+    const shareFacebookButton = document.getElementById('share-facebook');
+    const shareSmsButton = document.getElementById('share-sms');
+    const submitTributeButton = document.getElementById('submit-tribute');
+    const tributeList = document.getElementById('tribute-list');
 
-// 生成訂單列表
-const orderList = document.getElementById('order-list');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        generateObituary();
+    });
 
-orders.forEach(order => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-        <td>${order.id}</td>
-        <td>${order.name}</td>
-        <td>${order.date}</td>
-        <td>${order.status}</td>
-    `;
-    orderList.appendChild(row);
+    shareLineButton.addEventListener('click', () => {
+        const url = window.location.href;
+        window.open(`https://line.me/R/msg/text/?${encodeURIComponent(url)}`);
+    });
+
+    shareFacebookButton.addEventListener('click', () => {
+        const url = window.location.href;
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`);
+    });
+
+    shareSmsButton.addEventListener('click', () => {
+        const url = window.location.href;
+        window.open(`sms:?body=${encodeURIComponent(url)}`);
+    });
+
+    submitTributeButton.addEventListener('click', () => {
+        const message = document.getElementById('tribute-message').value;
+        if (message.trim() !== '') {
+            const tributeItem = document.createElement('p');
+            tributeItem.textContent = message;
+            tributeList.appendChild(tributeItem);
+            document.getElementById('tribute-message').value = '';
+        }
+    });
 });
+
+function generateObituary() {
+    const deceasedName = document.getElementById('deceased-name').value;
+    const gender = document.getElementById('gender').value;
+    const birthDate = document.getElementById('birth-date').value;
+    const deathDate = document.getElementById('death-date').value;
+    const deathTime = document.getElementById('death-time').value;
+    const placeName = document.getElementById('place-name').value;
+    const funeralDate = document.getElementById('funeral-date').value;
+    const funeralLocation = document.getElementById('funeral-location').value;
+    const hall = document.getElementById('hall').value;
+    const textStyle = document.getElementById('text-style').value;
+
+    localStorage.setItem('obituaryData', JSON.stringify({
+        deceasedName,
+        gender,
+        birthDate,
+        deathDate,
+        deathTime,
+        placeName,
+        funeralDate,
+        funeralLocation,
+        hall,
+        textStyle
+    }));
+
+    window.location.href = 'obituary.html';
+}
