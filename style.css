@@ -1,109 +1,94 @@
-/* Reset and Global Styles */
-* {
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f8f8;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-        line-height: 1.6;
-    background-color: #f7f7f7;
-    color: #333;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
 }
 
 .header {
-    background-color: #333;
+    background-color: #444;
     color: #fff;
-    padding: 20px 0;
-    text-align: center;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.header .logo {
-    max-width: 150px;
+.logo {
+    height: 50px;
 }
 
 .navbar ul {
     list-style: none;
+    padding: 0;
     display: flex;
-    justify-content: center;
+    gap: 1rem;
 }
 
-.navbar ul li {
-    margin: 0 15px;
-}
-
-.navbar ul li a {
+.navbar a {
     color: #fff;
     text-decoration: none;
 }
 
 .main-content {
+    padding: 2rem;
     background-color: #fff;
-    padding: 20px;
+    margin: 2rem auto;
+    max-width: 600px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .memorial-form {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
-.memorial-form h2 {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
+label {
+    font-weight: bold;
 }
 
-.memorial-form label {
-    margin-bottom: 5px;
-}
-
-.memorial-form input, .memorial-form select, .memorial-form textarea, .memorial-form button {
-    padding: 10px;
-    margin-bottom: 20px;
+input, select, textarea, button {
+    padding: 0.5rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    width: 100%;
+    border-radius: 4px;
 }
 
-.memorial-form button {
-    background-color: #333;
+button {
+    background-color: #444;
     color: #fff;
-    cursor: pointer;
     border: none;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
-.memorial-form button:hover {
+button:hover {
     background-color: #555;
 }
 
 .footer {
-    background-color: #333;
+    background-color: #444;
     color: #fff;
+    padding: 1rem;
     text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
 
 .fixed-icons {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 1rem;
+    right: 1rem;
     display: flex;
     flex-direction: column;
-}
-
-.fixed-icons a {
-    margin-bottom: 10px;
+    gap: 0.5rem;
 }
 
 .fixed-icons img {
@@ -111,32 +96,23 @@ body {
     height: 40px;
 }
 
-.obituary-details, .share-options, .tributes, .order-flowers {
-    margin-bottom: 40px;
+.obituary-details {
+    margin-top: 1rem;
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
 }
 
-.obituary-details h2, .share-options h2, .tributes h2, .order-flowers h2 {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
+.tributes {
+    margin-top: 2rem;
 }
 
-.share-buttons button {
-    padding: 10px 20px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #333;
-    color: #fff;
-    transition: background-color 0.3s ease;
+.share-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
 }
 
-.share-buttons button:hover {
-    background-color: #555;
-}
-
-.tributes textarea {
-    width: 100%;
-    height: 100px;
-    resize: none;
+.flower-info {
+    display: none;
+    margin-top: 2rem;
 }
