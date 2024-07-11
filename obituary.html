@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>訃聞</title>
+    <title>祥安生命禮儀公司 - 訃聞</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
-        <img src="images/logo.png" alt="公司Logo" class="logo">
+        <img src="logo.png" alt="公司Logo" class="logo">
         <nav class="navbar">
             <ul>
-                <li><a href="index.html">首頁</a></li>
+                <li><a href="#">首頁</a></li>
                 <li><a href="#">服務項目</a></li>
                 <li><a href="#">聯絡我們</a></li>
             </ul>
@@ -19,36 +19,34 @@
     </header>
 
     <main class="main-content">
-        <div class="container">
-            <div class="obituary-details">
-                <h2>訃聞</h2>
-                <p id="obituary-name"></p>
-                <p id="obituary-birth-date"></p>
-                <p id="obituary-death-date"></p>
-                <p id="obituary-death-time"></p>
-                <p id="obituary-place-name"></p>
-                <p id="obituary-funeral-date"></p>
-                <p id="obituary-funeral-location"></p>
-                <p id="obituary-hall"></p>
+        <div class="container obituary-details">
+            <h2>訃聞</h2>
+            <div class="obituary-photo">
+                <img id="obituary-photo" src="" alt="逝者照片">
             </div>
+            <p id="obituary-name"></p>
+            <p id="obituary-birth-date"></p>
+            <p id="obituary-death-date"></p>
+            <p id="obituary-death-time"></p>
+            <p id="obituary-place-name"></p>
+            <p id="obituary-funeral-date"></p>
+            <p id="obituary-funeral-location"></p>
+            <p id="obituary-hall"></p>
 
-            <div class="share-options">
-                <h2>分享訃聞</h2>
-                <div class="share-buttons">
-                    <button id="share-line">分享到 Line</button>
-                    <button id="share-facebook">分享到 Facebook</button>
-                    <button id="share-sms">通過短信分享</button>
-                </div>
+            <div class="share-buttons">
+                <button id="share-line">分享到Line</button>
+                <button id="share-facebook">分享到Facebook</button>
+                <button id="share-sms">分享簡訊</button>
             </div>
 
             <div class="tributes">
-                <h2>追思留言</h2>
-                <textarea id="tribute-message" placeholder="寫下您的追思留言"></textarea>
+                <h3>追思留言</h3>
+                <textarea id="tribute-message" rows="3" placeholder="留下您的追思"></textarea>
                 <button id="submit-tribute">提交留言</button>
                 <div id="tribute-list"></div>
             </div>
 
-            <form class="flower-info memorial-form">
+            <div class="flower-info memorial-form">
                 <h2>訂購花籃</h2>
                 <label for="flower-style">花籃樣式：</label>
                 <select id="flower-style" name="flower-style" required>
@@ -67,7 +65,7 @@
                 <input type="text" id="contact-name" name="contact-name" required>
 
                 <button type="submit">提交訂單</button>
-            </form>
+            </div>
         </div>
     </main>
 
@@ -81,10 +79,66 @@
     </footer>
 
     <div class="fixed-icons">
-        <a href="https://line.me/ti/p/TuM5y_Of6I"><img src="images/line.png" alt="Line"></a>
-        <a href="tel:0938-179-858"><img src="images/phone.png" alt="電話"></a>
+        <a href="https://line.me/ti/p/TuM5y_Of6I"><img src="line.png" alt="Line"></a>
+        <a href="tel:0938-179-858"><img src="phone.png" alt="電話"></a>
     </div>
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 从本地存储获取訃聞数据
+            const obituaryData = JSON.parse(localStorage.getItem('obituaryData'));
+            if (obituaryData) {
+                document.getElementById('obituary-name').textContent = `逝者姓名：${obituaryData.name}`;
+                document.getElementById('obituary-birth-date').textContent = `出生日期：${obituaryData.birthDate}`;
+                document.getElementById('obituary-death-date').textContent = `死亡日期：${obituaryData.deathDate}`;
+                document.getElementById('obituary-death-time').textContent = `死亡時間：${obituaryData.deathTime}`;
+                document.getElementById('obituary-place-name').textContent = `牌位安靈地點：${obituaryData.placeName}`;
+                document.getElementById('obituary-funeral-date').textContent = `出殯日期：${obituaryData.funeralDate}`;
+                document.getElementById('obituary-funeral-location').textContent = `出殯地點：${obituaryData.funeralLocation}`;
+                document.getElementById('obituary-hall').textContent = `禮廳：${obituaryData.hall}`;
+                document.getElementById('obituary-photo').src = obituaryData.photo;
+            }
+
+            // 分享功能示例，需要根据实际情况进行实现
+            document.getElementById('share-line').addEventListener('click', () => {
+                alert('分享到Line');
+            });
+
+            document.getElementById('share-facebook').addEventListener('click', () => {
+                alert('分享到Facebook');
+            });
+
+            document.getElementById('share-sms').addEventListener('click', () => {
+                alert('分享簡訊');
+            });
+
+            // 提交追思留言
+            document.getElementById('submit-tribute').addEventListener('click', () => {
+                const message = document.getElementById('tribute-message').value;
+                // 实现提交追思留言的逻辑，例如存储到数据库或显示在页面上
+                const tributeList = document.getElementById('tribute-list');
+                const newTribute = document.createElement('div');
+                newTribute.textContent = message;
+                tributeList.appendChild(newTribute);
+                document.getElementById('tribute-message').value = ''; // 清空输入框
+            });
+
+            // 提交花籃訂單
+            const flowerForm = document.querySelector('.flower-info form');
+            flowerForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const formData = new FormData(flowerForm);
+                const orderDetails = {
+                    flowerStyle: formData.get('flower-style'),
+                    invoice: formData.get('invoice'),
+                    contactName: formData.get('contact-name')
+                };
+                // 实现提交花籃訂單的逻辑，例如存储到数据库或其他处理
+                console.log(orderDetails);
+                flowerForm.reset(); // 清空表单
+            });
+        });
+    </script>
 </body>
 </html>
