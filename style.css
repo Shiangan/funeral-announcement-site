@@ -1,205 +1,68 @@
-/* Reset CSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Global Styles */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f5f5f5;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-}
-
-.header .logo {
-    max-width: 150px;
-}
-
-.navbar ul {
-    list-style-type: none;
+    margin: 0;
     padding: 0;
-    text-align: center;
+    background: linear-gradient(to bottom, #ffebcd, #ff6347);
+    color: #333;
 }
 
-.navbar ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-.navbar ul li a {
+header {
+    background: #444;
     color: #fff;
-    text-decoration: none;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 2rem;
 }
 
-.main-content {
-    padding: 20px;
-    background-color: #fff;
-    margin-top: 20px;
+section {
+    padding: 1rem;
+    margin: 1rem 0;
+    background: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.memorial-form {
-    margin-bottom: 20px;
+h2, h3 {
+    margin-top: 0;
+    color: #444;
 }
 
-.memorial-form label {
-    display: block;
-    margin-bottom: 5px;
+form {
+    display: flex;
+    flex-direction: column;
 }
 
-.memorial-form input[type="text"],
-.memorial-form input[type="date"],
-.memorial-form select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
+label {
+    margin: 0.5rem 0 0.2rem;
+}
+
+input, textarea, select {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-.memorial-form button {
-    background-color: #333;
-    color: #fff;
+button {
+    padding: 0.5rem;
     border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.memorial-form button:hover {
-    background-color: #555;
-}
-
-.footer {
-    background-color: #333;
+    background: #444;
     color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: relative;
-    margin-top: 20px;
-}
-
-.fixed-icons {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-}
-
-.fixed-icons a {
-    display: inline-block;
-    margin-left: 10px;
-}
-
-.fixed-icons img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid #333;
-    padding: 5px;
-    background-color: #fff;
-    transition: transform 0.3s ease;
-}
-
-.fixed-icons img:hover {
-    transform: scale(1.2);
-}
-
-.obituary-details {
-    background-color: #fff;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.obituary-details h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.obituary-photo {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.obituary-photo img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.tributes {
-    margin-top: 20px;
-}
-
-.tributes h3 {
-    margin-bottom: 10px;
-}
-
-.tributes textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
     border-radius: 4px;
-    resize: vertical;
-}
-
-.tributes button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
     cursor: pointer;
-    border-radius: 4px;
 }
 
-.tributes button:hover {
-    background-color: #555;
+button:hover {
+    background: #666;
 }
 
-.flower-info {
-    margin-top: 20px;
+#flower-order {
+    background: #fff3e0;
+    border: 1px solid #ffd700;
 }
 
-.flower-info label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.flower-info input[type="text"],
-.flower-info select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.flower-info button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.flower-info button:hover {
-    background-color: #555;
+#total-price {
+    font-weight: bold;
+    color: #d9534f;
 }
