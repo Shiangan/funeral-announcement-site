@@ -7,134 +7,136 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    background-color: #f8f9fa;
-    color: #495057;
+        line-height: 1.6;
+    background-color: #f7f7f7;
+    color: #333;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px;
 }
 
-/* Header */
 .header {
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    padding: 10px 0;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
 }
 
-.logo {
-    height: 50px;
+.header .logo {
+    max-width: 150px;
 }
 
 .navbar ul {
-    list-style-type: none;
-    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
 }
 
 .navbar ul li {
-    display: inline-block;
-    margin-right: 20px;
+    margin: 0 15px;
 }
 
 .navbar ul li a {
+    color: #fff;
     text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
 }
 
-.navbar ul li a:hover {
-    color: #0056b3;
-}
-
-/* Main Content */
 .main-content {
-    padding: 20px 0;
-}
-
-.obituary-details {
-    background-color: #ffffff;
-    padding: 30px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.obituary-details h2 {
-    color: #343a40;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.obituary-details p {
-    margin-bottom: 10px;
-}
-
-.order-management {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.order-management h2 {
-    color: #343a40;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.order-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.order-table th, .order-table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #dee2e6;
-}
-
-.order-table th {
-    background-color: #f8f9fa;
-    font-weight: bold;
-    color: #343a40;
-}
-
-.order-table tbody tr:hover {
-    background-color: #f2f2f2;
-}
-
-/* Footer */
-.footer {
-    background-color: #343a40;
-    color: #ffffff;
-    text-align: center;
+    background-color: #fff;
     padding: 20px;
-    position: fixed;
-    bottom: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.memorial-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.memorial-form h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.memorial-form label {
+    margin-bottom: 5px;
+}
+
+.memorial-form input, .memorial-form select, .memorial-form textarea, .memorial-form button {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
     width: 100%;
 }
 
-/* Fixed Icons */
+.memorial-form button {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.memorial-form button:hover {
+    background-color: #555;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
 .fixed-icons {
     position: fixed;
     bottom: 20px;
     right: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .fixed-icons a {
-    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 .fixed-icons img {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
 }
 
-.fixed-icons img:hover {
-    transform: scale(1.1);
+.obituary-details, .share-options, .tributes, .order-flowers {
+    margin-bottom: 40px;
+}
+
+.obituary-details h2, .share-options h2, .tributes h2, .order-flowers h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.share-buttons button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.share-buttons button:hover {
+    background-color: #555;
+}
+
+.tributes textarea {
+    width: 100%;
+    height: 100px;
+    resize: none;
 }
