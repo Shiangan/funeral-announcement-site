@@ -8,16 +8,14 @@
 </head>
 <body>
     <header class="header">
-        <div class="container">
-            <img src="logo.png" alt="公司Logo" class="logo">
-            <nav class="navbar">
-                <ul>
-                    <li><a href="#">首頁</a></li>
-                    <li><a href="#">服務項目</a></li>
-                    <li><a href="#">聯絡我們</a></li>
-                </ul>
-            </nav>
-        </div>
+        <img src="images/logo.png" alt="公司Logo" class="logo">
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="#">服務項目</a></li>
+                <li><a href="#">聯絡我們</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main class="main-content">
@@ -57,7 +55,7 @@
                 </select>
 
                 <label for="hall">禮廳：</label>
-                <input type="text" id="hall" name="hall" required>
+                <select id="hall" name="hall" required></select>
 
                 <label for="text-style">內文風格：</label>
                 <select id="text-style" name="text-style" required>
@@ -71,19 +69,17 @@
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <div class="contact-info">
-                <p>若有任何問題，請聯絡我們：</p>
-                <p><a href="https://line.me/ti/p/TuM5y_Of6I">Line連結</a></p>
-                <p><a href="tel:0938-179-858">電話連結</a></p>
-            </div>
+        <div class="contact-info">
+            <p>若有任何問題，請聯絡我們：</p>
+            <p><a href="https://line.me/ti/p/TuM5y_Of6I">Line連結</a></p>
+            <p><a href="tel:0938-179-858">電話連結</a></p>
         </div>
         <p>&copy; 2024 祥安生命有限公司 版權所有</p>
     </footer>
 
     <div class="fixed-icons">
-        <a href="https://line.me/ti/p/TuM5y_Of6I"><img src="line.png" alt="Line"></a>
-        <a href="tel:0938-179-858"><img src="phone.png" alt="電話"></a>
+        <a href="https://line.me/ti/p/TuM5y_Of6I"><img src="images/line.png" alt="Line"></a>
+        <a href="tel:0938-179-858"><img src="images/phone.png" alt="電話"></a>
     </div>
 
     <script src="script.js"></script>
