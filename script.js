@@ -1,66 +1,75 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const obituaryForm = document.getElementById('obituary-form');
-    const hallSelect = document.getElementById('hall');
-    const funeralLocationSelect = document.getElementById('funeral-location');
-
-    // 更新禮廳選項
-    const updateHallOptions = (location) => {
-        const halls = {
-            "第二殯儀館": ["禮廳1", "禮廳2", "禮廳3"],
-            "新北板橋殯儀館": ["禮廳A", "禮廳B"],
-            "桃園殯儀館": ["禮廳X", "禮廳Y", "禮廳Z"],
-            "南榮殯儀館": ["禮廳M", "禮廳N"]
-        };
-
-        hallSelect.innerHTML = "";
-        if (halls[location]) {
-            halls[location].forEach(hall => {
-                const option = document.createElement('option');
-                option.value = hall;
-                option.textContent = hall;
-                hallSelect.appendChild(option);
-            });
-        }
-    };
-
-    // 初次加載時更新禮廳選項
-    updateHallOptions(funeralLocationSelect.value);
-
-    // 當出殯地點改變時更新禮廳選項
-    funeralLocationSelect.addEventListener('change', (event) => {
-        updateHallOptions(event.target.value);
-    });
-
-    if (obituaryForm) {
-        obituaryForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const formData = new FormData(obituaryForm);
-            const photo = formData.get('photo');
-
-            // 读取照片数据
-            const reader = new FileReader();
-            reader.onload = () => {
-                const obituaryData = {
-                    name: formData.get('deceased-name'),
-                    gender: formData.get('gender'),
-                    birthDate: formData.get('birth-date'),
-                    deathDate: formData.get('death-date'),
-                    deathTime: formData.get('death-time'),
-                    placeName: formData.get('place-name'),
-                    funeralDate: formData.get('funeral-date'),
-                    funeralLocation: formData.get('funeral-location'),
-                    hall: formData.get('hall'),
-                    textStyle: formData.get('text-style'),
-                    photo: reader.result // 照片的Base64数据
-                };
-
-                // 将数据存储到本地存储
-                localStorage.setItem('obituaryData', JSON.stringify(obituaryData));
-
-                // 跳转到訃聞页面
-                window.location.href = 'obituary.html';
-            };
-            reader.readAsDataURL(photo);
-        });
-    }
+document.getElementById('deceased-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const birthDateType = document.getElementById('birth-date-type').value;
+    const birthDate = document.getElementById('birth-date').value;
+    const deathDateType = document.getElementById('death-date-type').value;
+    const deathDate = document.getElementById('death-date').value;
+    const ageType = document.getElementById('age-type').value;
+    const age = document.getElementById('age').value;
+    const funeralDate = document.getElementById('funeral-date').value;
+    const funeralLocation = document.getElementById('funeral-location').value;
+    const lifeStory = document.getElementById('life-story').value;
+    
+    const obituaryText = `
+        我們摯愛的親人 ${name} 於 ${deathDateType} ${deathDate} 安詳離世，享${ageType} ${age} 歲，
+        距生於 ${birthDateType} ${birth Date}。出殯儀式將於 ${funeralDate} 在 ${funeralLocation} 舉行。
+        ${lifeStory ? '生平介紹：' + lifeStory : ''}
+    `;
+    
+    document.getElementById('obituary-text').innerText = obituaryText;
+    document.getElementById('deceased-info').style.display = 'none';
+    document.getElementById('obituary').style.display = 'block';
+    document.getElementById('tributes').style.display = 'block';
+    document.getElementById('flower-order').style.display = 'block';
 });
+
+document.getElementById('tribute-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('tribute-name').value;
+    const message = document.getElementById('tribute-message').value;
+
+    const tributeEntry = document.createElement('div');
+    tributeEntry.classList.add('tribute-entry');
+    tributeEntry.innerHTML = `<strong>${name}</strong>: ${message}`;
+
+    const tributesList = document.getElementById('tributes-list');
+    tributesList.appendChild(tributeEntry);
+
+    document.getElementById('tribute-form').reset();
+});
+
+document.getElementById('flower-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const flowerType = document.getElementById('flower-type').value;
+    const dedication = document.getElementById('dedication').value;
+    const invoiceRequired = document.getElementById('invoice').checked;
+    const recipientName = document.getElementById('recipient-name').value;
+    const recipientAddress = document.getElementById('recipient-address').value;
+    const paymentMethod = document.getElementById('payment-method').value;
+    
+    let price = flowerType === 'type1' ? 1000 : 2000;
+    if (invoiceRequired) {
+        price *= 1.1;
+    }
+
+    const orderSummary = `
+        花籃種類: ${flowerType === 'type1' ? '種類1 - $1000' : '種類2 - $2000'}\n
+        總金額: $${price}\n
+        落款名單: ${dedication}\n
+        ${invoiceRequired ? '需要發票\n收件人姓名: ' + recipientName + '\n收件人地址: ' + recipientAddress : '不需要發票'}
+    `;
+    
+    alert(orderSummary);
+
+    document.getElementById('flower-form').reset();
+});
+
+document.getElementById('invoice').addEventListener('change', function() {
+    document.getElementById('invoice-info').style.display = this.checked ? 'block' : 'none';
+});
+
+document.getElementById('background-music').volume = 0.2;
