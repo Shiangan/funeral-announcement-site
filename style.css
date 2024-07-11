@@ -17,7 +17,7 @@ body {
     background-color: #fff; /* 白色背景 */
     padding: 10px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* 调整到中间 */
     align-items: center;
     position: fixed;
     width: 100%;
@@ -25,28 +25,7 @@ body {
 }
 
 .logo {
-    margin-left: 20px; /* 调整logo位置 */
-    max-width: 150px; /* 设置logo最大宽度 */
-    height: auto; /* 保持高度自动 */
-}
-
-.navbar ul {
-    list-style-type: none;
-    display: flex;
-}
-
-.navbar ul li {
-    margin-right: 20px;
-}
-
-.navbar ul li a {
-    text-decoration: none;
-    color: #333; /* 黑色字体 */
-    font-weight: bold;
-}
-
-.navbar ul li a:hover {
-    color: #ff3366; /* 淡粉红色 */
+    height: 50px; /* 调整logo大小 */
 }
 
 .main-content {
@@ -59,28 +38,28 @@ body {
     text-align: center;
 }
 
-.memorial-form {
-    background-color: #fff; /* 白色背景 */
-    padding: 20px;
-    margin: 20px auto;
+.container {
     max-width: 600px;
+    margin: 20px auto;
+    padding: 0 20px;
+    background-color: #fff; /* 白色背景 */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.memorial-form h2 {
+.container h1 {
     color: #ff3366; /* 淡粉红色 */
     text-align: center;
     margin-bottom: 20px;
 }
 
-.memorial-form label {
+.container label {
     display: block;
     margin-bottom: 8px;
 }
 
-.memorial-form input,
-.memorial-form select {
+.container input,
+.container select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -88,10 +67,10 @@ body {
     border-radius: 4px;
 }
 
-.memorial-form button {
+.container button {
     background-color: #ff3366; /* 淡粉红色按钮 */
     color: #fff;
-        border: none;
+    border: none;
     padding: 12px 20px;
     text-align: center;
     text-decoration: none;
@@ -102,7 +81,7 @@ body {
     width: 100%;
 }
 
-.memorial-form button:hover {
+.container button:hover {
     background-color: #ff1a53; /* 深粉红色 */
 }
 
@@ -113,6 +92,19 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.fixed-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.fixed-icons img {
+    width: 50px;
+    height: auto;
+    margin-left: 10px;
 }
 
 .contact-info {
@@ -131,50 +123,3 @@ body {
 .contact-info a:hover {
     color: #ff3366; /* 淡粉红色 */
 }
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.fixed-icons {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-.fixed-icons img {
-    width: 50px;
-    height: auto;
-    margin-left: 10px;
-}
-
-.memorial-message {
-    background-color: #fff; /* 白色背景 */
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 600px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.memorial-message p {
-    margin-bottom: 10px;
-}
-
-.floating-icons {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-.floating-icons img {
-    width: 50px;
-    height: auto;
-    margin-left: 10px;
-}
-   
