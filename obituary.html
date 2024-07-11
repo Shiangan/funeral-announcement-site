@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>訃聞</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <img src="images/logo.png" alt="公司Logo" class="logo">
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="#">服務項目</a></li>
+                <li><a href="#">聯絡我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="obituary-details">
+                <h2>訃聞</h2>
+                <p id="obituary-name"></p>
+                <p id="obituary-birth-date"></p>
+                <p id="obituary-death-date"></p>
+                <p id="obituary-death-time"></p>
+                <p id="obituary-place-name"></p>
+                <p id="obituary-funeral-date"></p>
+                <p id="obituary-funeral-location"></p>
+                <p id="obituary-hall"></p>
+            </div>
+
+            <div class="share-options">
+                <h2>分享訃聞</h2>
+                <div class="share-buttons">
+                    <button id="share-line">分享到 Line</button>
+                    <button id="share-facebook">分享到 Facebook</button>
+                    <button id="share-sms">通過短信分享</button>
+                </div>
+            </div>
+
+            <div class="tributes">
+                <h2>追思留言</h2>
+                <textarea id="tribute-message" placeholder="寫下您的追思留言"></textarea>
+                <button id="submit-tribute">提交留言</button>
+                <div id="tribute-list"></div>
+            </div>
+
+            <form class="flower-info memorial-form">
+                <h2>訂購花籃</h2>
+                <label for="flower-style">花籃樣式：</label>
+                <select id="flower-style" name="flower-style" required>
+                    <option value="style1">樣式1</option>
+                    <option value="style2">樣式2</option>
+                    <option value="style3">樣式3</option>
+                </select>
+
+                <label for="invoice">是否開立發票：</label>
+                <select id="invoice" name="invoice" required>
+                    <option value="no">否</option>
+                    <option value="yes">是（加1成費用）</option>
+                </select>
+
+                <label for="contact-name">落款人姓名：</label>
+                <input type="text" id="contact-name" name="contact-name" required>
+
+                <button type="submit">提交訂單</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="contact-info">
+            <p>若有任何問題，請聯絡我們：</p>
+            <p><a href="https://line.me/ti/p/TuM5y_Of6I">Line連結</a></p>
+            <p><a href="tel:0938-179-858">電話連結</a></p>
+        </div>
+        <p>&copy; 2024 祥安生命有限公司 版權所有</p>
+    </footer>
+
+    <div class="fixed-icons">
+        <a href="https://line.me/ti/p/TuM5y_Of6I"><img src="images/line.png" alt="Line"></a>
+        <a href="tel:0938-179-858"><img src="images/phone.png" alt="電話"></a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
