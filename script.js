@@ -5,7 +5,7 @@ const orders = [
 ];
 
 // 生成訂單列表
-const orderTable = document.querySelector('.order-table tbody');
+const orderList = document.getElementById('order-list');
 
 orders.forEach(order => {
     const row = document.createElement('tr');
@@ -15,5 +15,5 @@ orders.forEach(order => {
         <td>${order.date}</td>
         <td>${order.status}</td>
     `;
-    orderTable.appendChild(row);
+    orderList.appendChild(row);
 });
