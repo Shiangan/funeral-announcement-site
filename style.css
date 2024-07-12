@@ -1,146 +1,236 @@
-body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+/* Reset and global styles */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #ffecd2, #fcb69f);
-    color: #333;
-    transition: all 0.3s ease-in-out;
 }
 
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f7f7f7; /* 溫暖的背景色 */
+    color: #333; /* 主要文本顏色 */
+}
+
+/* Header styles */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* 白色背景 */
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 隱微陰影 */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
-    height: 50px;
+    max-width: 100px;
+    height: auto;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
 }
 
 .navbar ul {
-    list-style: none;
-    padding: 0;
+    list-style-type: none;
     display: flex;
-    gap: 15px;
 }
 
-.navbar a {
+.navbar ul li {
+    margin: 0 10px;
+}
+
+.navbar ul li a {
     text-decoration: none;
-    color: #333;
-    font-weight: bold;
+    color: #333; /* 導航連結顏色 */
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
+.navbar ul li a:hover {
+    background-color: #ddd; /* 鼠標懸停時的背景色 */
+}
+
+/* Main content styles */
 .main-content {
+    margin-top: 80px; /* 考慮到固定標頭的高度 */
     padding: 20px;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.9);
+.obituary-details {
+    background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-in-out;
+    margin-bottom: 20px;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.obituary-details h2 {
+    color: #555; /* 訃聞標題顏色 */
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
-h2, h3 {
+.obituary-photo {
     text-align: center;
-    color: #ff6f61;
+    margin-bottom: 20px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.obituary-photo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%; /* 圖片圓角 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: opacity 1s;
 }
 
-label {
-    font-weight: bold;
-}
+/* 其他樣式設置根據您的需求添加 */
 
-input, select, textarea, button {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: all 0.3s ease-in-out;
-}
-
-input:focus, select:focus, textarea:focus {
-    border-color: #ff6f61;
-}
-
-button {
-    background-color: #ff6f61;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #ff4e42;
-}
-
+/* 追思留言區域樣式 */
 .tributes {
     margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9; /* 留言區域背景色 */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#tribute-list div {
+.tributes h3 {
+    font-size: 20px;
+    color: #555; /* 標題顏色 */
+    margin-bottom: 10px;
+}
+
+#tribute-message {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#submit-tribute {
+    background-color: #4CAF50; /* 提交按鈕背景色 */
+    color: white
+        ;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#submit-tribute:hover {
+    background-color: #45a049; /* 按鈕懸停時的背景色 */
+}
+
+#tribute-list {
     margin-top: 10px;
     padding: 10px;
-    background: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.footer {
     background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* 花籃訂購區域樣式 */
+.flower-info {
+    margin-top: 20px;
     padding: 20px;
+    background-color: #f9f9f9; /* 花籃訂購區域背景色 */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.flower-info h2 {
+    font-size: 20px;
+    color: #555; /* 標題顏色 */
+    margin-bottom: 10px;
+}
+
+.flower-info label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666; /* 標籤顏色 */
+}
+
+.flower-info select,
+.flower-info input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.flower-info button[type="submit"] {
+    background-color: #4CAF50; /* 提交按鈕背景色 */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.flower-info button[type="submit"]:hover {
+    background-color: #45a049; /* 按鈕懸停時的背景色 */
+}
+
+/* 聯絡我們樣式 */
+.footer {
+    background-color: #333; /* 頁腳背景色 */
+    color: #fff; /* 文本顏色 */
     text-align: center;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
-.footer .contact-info p {
-    margin: 5px 0;
+.footer p {
+    margin-bottom: 10px;
 }
 
-.footer a {
-    color: #ff6f61;
+.contact-info a {
+    color: #fff; /* 聯絡連結顏色 */
     text-decoration: none;
-}
-
-.footer a:hover {
-    text-decoration: underline;
+    margin: 0 10px;
 }
 
 .fixed-icons {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
 }
 
 .fixed-icons img {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.3s ease-in-out;
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
 }
 
-.fixed-icons img:hover {
-    transform: scale(1.1);
+/* 媒體查詢 */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .fixed-icons {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .fixed-icons img {
+        width: 40px;
+        height: 40px;
+    }
 }
