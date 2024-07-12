@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>訃聞生成器 - 祥安生命禮儀公司</title>
+    <title>祥安生命禮儀公司 - 訃聞</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,35 +20,35 @@
 
     <main class="main-content">
         <div class="container">
-            <h2>訃聞生成</h2>
+            <h2>訃聞資料填寫</h2>
             <form id="obituary-form">
                 <label for="name">逝者姓名：</label>
                 <input type="text" id="name" name="name" required>
-                
-                <label for="birth-date">出生日期：</label>
-                <input type="date" id="birth-date" name="birthDate" required>
-                
-                <label for="death-date">死亡日期：</label>
-                <input type="date" id="death-date" name="deathDate" required>
-                
-                <label for="death-time">死亡時間：</label>
-                <input type="time" id="death-time" name="deathTime" required>
-                
-                <label for="place-name">牌位安靈地點：</label>
-                <input type="text" id="place-name" name="placeName" required>
-                
-                <label for="funeral-date">出殯日期：</label>
-                <input type="date" id="funeral-date" name="funeralDate" required>
-                
-                <label for="funeral-location">出殯地點：</label>
-                <input type="text" id="funeral-location" name="funeralLocation" required>
-                
+
+                <label for="birthDate">出生日期：</label>
+                <input type="date" id="birthDate" name="birthDate" required>
+
+                <label for="deathDate">死亡日期：</label>
+                <input type="date" id="deathDate" name="deathDate" required>
+
+                <label for="deathTime">死亡時間：</label>
+                <input type="time" id="deathTime" name="deathTime" required>
+
+                <label for="placeName">牌位安靈地點：</label>
+                <input type="text" id="placeName" name="placeName" required>
+
+                <label for="funeralDate">出殯日期：</label>
+                <input type="date" id="funeralDate" name="funeralDate" required>
+
+                <label for="funeralLocation">出殯地點：</label>
+                <input type="text" id="funeralLocation" name="funeralLocation" required>
+
                 <label for="hall">禮廳：</label>
                 <input type="text" id="hall" name="hall" required>
-                
-                <label for="photo">上傳照片：</label>
+
+                <label for="photo">逝者照片：</label>
                 <input type="file" id="photo" name="photo" accept="image/*" required>
-                
+
                 <button type="submit">生成訃聞</button>
             </form>
         </div>
@@ -63,36 +63,16 @@
         <p>&copy; 2024 祥安生命有限公司 版權所有</p>
     </footer>
 
-    <div class="fixed-icons">
-        <a href="https://line.me/ti/p/TuM5y_Of6I"><img src="line.png" alt="Line"></a>
-        <a href="tel:0938-179-858"><img src="phone.png" alt="電話"></a>
-    </div>
-
     <script>
-        document.getElementById('obituary-form').addEventListener('submit', (event) => {
+        document.getElementById('obituary-form').addEventListener('submit', function(event) {
             event.preventDefault();
-
             const formData = new FormData(event.target);
-            const reader = new FileReader();
-
-            reader.onload = () => {
-                const obituaryData = {
-                    name: formData.get('name'),
-                    birthDate: formData.get('birthDate'),
-                    deathDate: formData.get('deathDate'),
-                    deathTime: formData.get('deathTime'),
-                    placeName: formData.get('placeName'),
-                    funeralDate: formData.get('funeralDate'),
-                    funeralLocation: formData.get('funeralLocation'),
-                    hall: formData.get('hall'),
-                    photo: reader.result
-                };
-
-                localStorage.setItem('obituaryData', JSON.stringify(obituaryData));
-                window.location.href = 'obituary.html';
-            };
-
-            reader.readAsDataURL(formData.get('photo'));
+            const obituaryData = {};
+            formData.forEach((value, key) => {
+                obituaryData[key] = value;
+            });
+            localStorage.setItem('obituaryData', JSON.stringify(obituaryData));
+            window.location.href = 'obituary.html';
         });
     </script>
 </body>
