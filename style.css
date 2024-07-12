@@ -89,3 +89,30 @@ body {
 }
 
 /* 其他樣式設置根據您的需求添加 */
+
+/* 追思留言區域樣式 */
+.tributes {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9; /* 留言區域背景色 */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tributes h3 {
+    font-size: 20px;
+    color: #555; /* 標題顏色 */
+    margin-bottom: 10px;
+}
+
+#tribute-message {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#submit-tribute {
+    background-color: #4CAF50; /* 提交按鈕背景色 */
+    color: white
