@@ -1,95 +1,121 @@
-/* Body 和全局設置 */
-body {
-    font-family: 'Noto Sans TC', Arial, sans-serif;
-    background-color: #f9f9f9;
+/* Reset and global styles */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f7f7f7; /* 溫暖的背景色 */
+    color: #333; /* 主要文本顏色 */
 }
 
+/* Header styles */
 .header {
-    background-color: #ffffff;
-    padding: 10px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* 白色背景 */
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 隱微陰影 */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    max-width: 100px;
+    height: auto;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
 }
 
 .navbar ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    display: flex;
 }
 
 .navbar ul li {
-    display: inline;
-    margin-right: 20px;
+    margin: 0 10px;
 }
 
+.navbar ul li a {
+    text-decoration: none;
+    color: #333; /* 導航連結顏色 */
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    background-color: #ddd; /* 鼠標懸停時的背景色 */
+}
+
+/* Main content styles */
 .main-content {
+    margin-top: 80px; /* 考慮到固定標頭的高度 */
     padding: 20px;
 }
 
 .obituary-details {
-    background-color: #ffffff;
+    background-color: #fff;
     padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.obituary-details h2 {
+    color: #555; /* 訃聞標題顏色 */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.obituary-photo {
+    text-align: center;
     margin-bottom: 20px;
 }
 
 .obituary-photo img {
     max-width: 100%;
     height: auto;
-    display: block;
-    margin: 0 auto 20px;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 50%; /* 圖片圓角 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: opacity 1s;
 }
 
-.share-buttons {
-    margin-bottom: 20px;
-}
+/* 其他樣式設置根據您的需求添加 */
 
-.share-buttons button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.share-buttons button:hover {
-    background-color: #45a049;
-}
-
+/* 追思留言區域樣式 */
 .tributes {
-    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9; /* 留言區域背景色 */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .tributes h3 {
+    font-size: 20px;
+    color: #555; /* 標題顏色 */
     margin-bottom: 10px;
-    font-size: 1.2rem;
-    color: #333;
 }
 
-.tributes textarea {
+#tribute-message {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    resize: vertical;
 }
 
-.tributes button {
-    background-color: #4CAF50;
-    color: white;
+#submit-tribute {
+    background-color: #4CAF50; /* 提交按鈕背景色 */
+    color: white    ;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -97,26 +123,39 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.tributes button:hover {
-    background-color: #45a049;
+#submit-tribute:hover {
+    background-color: #45a049; /* 按鈕懸停時的背景色 */
 }
 
+#tribute-list {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* 花籃訂購區域樣式 */
 .flower-info {
-    background-color: #ffffff;
+    margin-top: 20px;
     padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9; /* 花籃訂購區域背景色 */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .flower-info h2 {
+    font-size: 20px;
+    color: #555; /* 標題顏色 */
     margin-bottom: 10px;
-    font-size: 1.5rem;
-    color: #333;
 }
 
 .flower-info label {
     display: block;
     margin-bottom: 5px;
-    color: #555;
+    color: #666; /* 標籤顏色 */
 }
 
 .flower-info select,
@@ -128,8 +167,8 @@ body {
     border-radius: 5px;
 }
 
-.flower-info button {
-    background-color: #4CAF50;
+.flower-info button[type="submit"] {
+    background-color: #4CAF50; /* 提交按鈕背景色 */
     color: white;
     padding: 10px 20px;
     border: none;
@@ -138,25 +177,26 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.flower-info button:hover {
-    background-color: #45a049;
+.flower-info button[type="submit"]:hover {
+    background-color: #45a049; /* 按鈕懸停時的背景色 */
 }
 
+/* 聯絡我們樣式 */
 .footer {
+    background-color: #333; /* 頁腳背景色 */
+    color: #fff; /* 文本顏色 */
     text-align: center;
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+    padding: 20px;
 }
 
-.footer a {
-    color: #fff;
+.footer p {
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    color: #fff; /* 聯絡連結顏色 */
     text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer a:hover {
-    color: #4CAF50;
+    margin: 0 10px;
 }
 
 .fixed-icons {
@@ -165,12 +205,31 @@ body {
     right: 20px;
 }
 
-.fixed-icons a {
-    display: inline-block;
+.fixed-icons img {
+    width: 50px;
+    height: 50px;
     margin-left: 10px;
-    transition: transform 0.3s ease;
 }
 
-.fixed-icons a:hover {
-    transform: translateY(-5px);
+/* 媒體查詢 */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .fixed-icons {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .fixed-icons img {
+        width: 40px;
+        height: 40px;
+    }
 }
