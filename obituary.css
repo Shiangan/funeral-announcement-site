@@ -1,125 +1,68 @@
 body {
     font-family: Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #ffecd2, #fcb69f);
+    background: linear-gradient(to bottom, #ffebcd, #ff6347);
     color: #333;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-    height: 50px;
-}
-
-.navbar ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 15px;
-}
-
-.navbar a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
-
-.main-content {
-    padding: 20px;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
+header {
+    background: #444;
+    color: #fff;
+    padding: 1rem 0;
     text-align: center;
-    color: #ff6f61;
+    font-size: 2rem;
+}
+
+section {
+    padding: 1rem;
+    margin: 1rem 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+    margin-top: 0;
+    color: #444;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
 label {
-    font-weight: bold;
+    margin: 0.5rem 0 0.2rem;
 }
 
-input, select, textarea, button {
-    padding: 10px;
+input, textarea, select {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
 button {
-    background-color: #ff6f61;
-    color: #fff;
+    padding: 0.5rem;
     border: none;
+    background: #444;
+    color: #fff;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
 }
 
 button:hover {
-    background-color: #ff4e42;
+    background: #666;
 }
 
-.tributes {
-    margin-top: 20px;
+#flower-order {
+    background: #fff3e0;
+    border: 1px solid #ffd700;
 }
 
-#tribute-list div {
-    margin-top: 10px;
-    padding: 10px;
-    background: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.footer {
-    background-color: #fff;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.footer .contact-info p {
-    margin: 5px 0;
-}
-
-.footer a {
-    color: #ff6f61;
-    text-decoration: none;
-}
-
-.footer a:hover {
-    text-decoration: underline;
-}
-
-.fixed-icons {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.fixed-icons img {
-    width: 40px;
-    height: 40px;
+#total-price {
+    font-weight: bold;
+    color: #d9534f;
 }
