@@ -3,142 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>祥安生命禮儀公司 - 訃聞</title>
+    <title>逝者訃聞 - 祥安生命禮儀公司</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="header">
-        <img src="logo.png" alt="公司Logo" class="logo">
-        <nav class="navbar">
+    <header>
+        <h1>逝者訃聞</h1>
+        <nav>
             <ul>
-                <li><a href="#">首頁</a></li>
-                <li><a href="#">服務項目</a></li>
-                <li><a href="#">聯絡我們</a></li>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">關於我們</a></li>
+                <li><a href="contact.html">聯繫我們</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="main-content">
-        <div class="container obituary-details">
-            <h2>訃聞</h2>
-            <div class="obituary-photo">
-                <img id="obituary-photo" src="" alt="逝者照片">
-            </div>
-            <p id="obituary-name"></p>
-            <p id="obituary-birth-date"></p>
-            <p id="obituary-death-date"></p>
-            <p id="obituary-death-time"></p>
-            <p id="obituary-place-name"></p>
-            <p id="obituary-funeral-date"></p>
-            <p id="obituary-funeral-location"></p>
-            <p id="obituary-hall"></p>
+    <main>
+        <section id="tribute">
+            <div class="tribute-content">
+                <h2>逝者訃聞</h2>
+                <p>在此悼念逝者的生平和貢獻。</p>
+                <!-- 填充來自表單的逝者資料 -->
+                <p><strong>姓名：</strong><?php echo $_POST['name']; ?></p>
+                <p><strong>生卒日期：</strong><?php echo $_POST['birthdate']; ?></p>
+                <p><strong>事蹟概述：</strong><?php echo $_POST['achievements']; ?></p>
+                <!-- 可以根據需求添加更多資訊 -->
 
-            <div class="share-buttons">
-                <button id="share-line">分享到Line</button>
-                <button id="share-facebook">分享到Facebook</button>
-                <button id="share-sms">分享簡訊</button>
-            </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.8250689912544!2d121.47126941500634!3d25.0311233446936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDM5JzE2LjMiTiAxMjHCsDU2JzU0LjEiRQ!5e0!3m2!1szh-TW!2stw!4v1624911785956!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
-            <div class="tributes">
-                <h3>追思留言</h3>
-                <textarea id="tribute-message" rows="3" placeholder="留下您的追思"></textarea>
-                <button id="submit-tribute">提交留言</button>
-                <div id="tribute-list"></div>
-            </div>
-
-            <div class="flower-info memorial-form">
-                <h2>訂購花籃</h2>
-                <form id="flower-form">
-                    <label for="flower-style">花籃樣式：</label>
-                    <select id="flower-style" name="flower-style" required>
-                        <option value="style1">樣式1</option>
-                        <option value="style2">樣式2</option>
-                        <option value="style3">樣式3</option>
-                    </select>
-
-                    <label for="invoice">是否開立發票：</label>
-                    <select id="invoice" name="invoice" required>
-                        <option value="no">否</option>
-                        <option value="yes">是（加1成費用）</option>
-                    </select>
-
-                    <label for="contact-name">落款人姓名：</label>
-                    <input type="text" id="contact-name" name="contact-name" required>
-
-                    <label for="recipient-name">收件人姓名：</label>
-                    <input type="text" id="recipient-name" name="recipient-name" required>
-
-                    <label for="recipient-address">收件人地址：</label>
-                    <input type="text" id="recipient-address" name="recipient-address" required>
-
-                    <button type="submit">提交訂單</button>
+                <!-- 留言區 -->
+                <h3>親友留言區</h3>
+                <div id="comments">
+                    <!-- 這裡可以用JavaScript動態加載留言 -->
+                    <!-- 留言樣式可自行設計 -->
+                </div>
+                <form id="comment-form">
+                    <label for="name">姓名：</label>
+                    <input type="text" id="name" name="name" required><br>
+                    <label for="message">留言：</label><br>
+                    <textarea id="message" name="message" rows="4" required></textarea><br>
+                    <button type="submit">送出留言</button>
                 </form>
             </div>
-        </div>
+        </section>
     </main>
 
-    <footer class="footer">
-        <div class="contact-info">
-            <p>若有任何問題，請聯絡我們：</p>
-            <p><a href="https://line.me/ti/p/TuM5y_Of6I">Line連結</a></p>
-            <p><a href="tel:0938-179-858">電話連結</a></p>
-        </div>
-        <p>&copy; 2024 祥安生命有限公司 版權所有</p>
+    <footer>
+        <p>&copy; 2024 祥安生命禮儀公司. All rights reserved.</p>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const obituaryData = JSON.parse(localStorage.getItem('obituaryData'));
-            if (obituaryData) {
-                document.getElementById('obituary-name').textContent = `逝者姓名：${obituaryData.name}`;
-                document.getElementById('obituary-birth-date').textContent = `出生日期：${obituaryData.birthDate}`;
-                document.getElementById('obituary-death-date').textContent = `死亡日期：${obituaryData.deathDate}`;
-                document.getElementById('obituary-death-time').textContent = `死亡時間：${obituaryData.deathTime}`;
-                document.getElementById('obituary-place-name').textContent = `牌位安靈地點：${obituaryData.placeName}`;
-                document.getElementById('obituary-funeral-date').textContent = `出殯日期：${obituaryData.funeralDate}`;
-                document.getElementById('obituary-funeral-location').textContent = `出殯地點：${obituaryData.funeralLocation}`;
-                document.getElementById('obituary-hall').textContent = `禮廳：${obituaryData.hall}`;
-                document.getElementById('obituary-photo').src = obituaryData.photo;
-            }
-
-            document.getElementById('share-line').addEventListener('click', () => {
-                alert('分享到Line');
-            });
-
-            document.getElementById('share-facebook').addEventListener('click', () => {
-                alert('分享到Facebook');
-            });
-
-            document.getElementById('share-sms').addEventListener('click', () => {
-                alert('分享簡訊');
-            });
-
-            // 提交追思留言
-            document.getElementById('submit-tribute').addEventListener('click', () => {
-                const message = document.getElementById('tribute-message').value;
-                const tributeList = document.getElementById('tribute-list');
-                const newTribute = document.createElement('div');
-                newTribute.textContent = message;
-                tributeList.appendChild(newTribute);
-                document.getElementById('tribute-message').value = '';
-            });
-
-            // 提交花籃訂單
-            document.getElementById('flower-form').addEventListener('submit', (event) => {
-                event.preventDefault();
-                const formData = new FormData(event.target);
-                const orderDetails = {
-                    flowerStyle: formData.get('flower-style'),
-                    invoice: formData.get('invoice'),
-                    contactName: formData.get('contact-name'),
-                    recipientName: formData.get('recipient-name'),
-                    recipientAddress: formData.get('recipient-address')
-                };
-                console.log(orderDetails);
-                // 存储到数据库或其他处理逻辑
-                event.target.reset();
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
