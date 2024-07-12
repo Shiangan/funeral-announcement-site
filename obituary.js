@@ -1,85 +1,59 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const obituaryForm = document.getElementById('obituary-form');
-    const musicButtons = document.querySelectorAll('.music-options button');
-    const audioPreview = document.getElementById('audio-preview');
-    let selectedMusicUrl = '';
+document.addEventListener('DOMContentLoaded', () => {
+    // 从本地存储获取訃聞数据
+    const obituaryData = JSON.parse(localStorage.getItem('obituaryData'));
+    if (obituaryData) {
+        document.getElementById('obituary-name').textContent = `逝者姓名：${obituaryData.name}`;
+        document.getElementById('obituary-birth-date').textContent = `出生日期：${obituaryData.birthDate}`;
+        document.getElementById('obituary-death-date').textContent = `死亡日期：${obituaryData.deathDate}`;
+        document.getElementById('obituary-death-time').textContent = `死亡時間：${obituaryData.deathTime}`;
+        document.getElementById('obituary-place-name').textContent = `牌位安靈地點：${obituaryData.placeName}`;
+        document.getElementById('obituary-funeral-date').textContent = `出殯日期：${obituaryData.funeralDate}`;
+        document.getElementById('obituary-funeral-location').textContent = `出殯地點：${obituaryData.funeralLocation}`;
+        document.getElementById('obituary-hall').textContent = `禮廳：${obituaryData.hall}`;
+        const obituaryPhoto = document.getElementById('obituary-photo');
+        obituaryPhoto.src = obituaryData.photo;
+        obituaryPhoto.style.opacity = 0;
+        obituaryPhoto.onload = () => {
+            obituaryPhoto.style.transition = 'opacity 1s';
+            obituaryPhoto.style.opacity = 1;
+        };
+    }
 
-    musicButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            selectedMusicUrl = this.getAttribute('data-music-url');
-            audioPreview.src = selectedMusicUrl;
-            audioPreview.hidden = false;
-            audioPreview.play();
-        });
+    document.getElementById('share-line').addEventListener('click', () => {
+        alert('分享到Line');
     });
 
-    obituaryForm.addEventListener('submit', function(event) {
+    document.getElementById('share-facebook').addEventListener('click', () => {
+        alert('分享到Facebook');
+    });
+
+    document.getElementById('share-sms').addEventListener('click', () => {
+        alert('分享簡訊');
+    });
+
+    document.getElementById('submit-tribute').addEventListener('click', () => {
+        const message = document.getElementById('tribute-message').value;
+        if (message.trim()) {
+            const tributeList = document.getElementById('tribute-list');
+            const newTribute = document.createElement('div');
+            newTribute.textContent = message;
+            tributeList.appendChild(newTribute);
+            document.getElementById('tribute-message').value = '';
+        }
+    });
+
+    const flowerForm = document.getElementById('flower-form');
+    flowerForm.addEventListener('submit', (event) => {
         event.preventDefault();
-
-        const formData = new FormData(obituaryForm);
-        const deceasedName = formData.get('deceased-name');
-        const birthDate = formData.get('birth-date');
-        const deathDate = formData.get('death-date');
-        const funeralDate = formData.get('funeral-date');
-        const funeralLocation = formData.get('funeral-location');
-        const hall = formData.get('hall');
-        const textStyle = formData.get('text-style');
-        const sendFlowerBasket = formData.get('send-flower-basket');
-        const photoFile = formData.get('photo-upload');
-
-        const reader = new FileReader();
-        reader.onload = function(event) {
-            const photoUrl = event.target.result;
-
-            const urlParams = new URLSearchParams({
-                deceasedName,
-                birthDate,
-                deathDate,
-                funeralDate,
-                funeralLocation,
-                hall,
-                textStyle,
-                sendFlowerBasket,
-                photoUrl,
-                musicUrl: selectedMusicUrl
-            });
-
-            window.location.href = 'details.html?' + urlParams.toString();
+        const formData = new FormData(flowerForm);
+        const orderDetails = {
+            flowerStyle: formData.get('flower-style'),
+            invoice: formData.get('invoice'),
+            contactName: formData.get('contact-name'),
+            recipientName: formData.get('recipient-name'),
+            recipientAddress: formData.get('recipient-address')
         };
-        reader.readAsDataURL(photoFile);
+        console.log(orderDetails);
+        flowerForm.reset();
     });
 });
-function updateHalls() {
-    const funeralLocationSelect = document.getElementById('funeralLocation');
-    const hallSelect = document.getElementById('hall');
-
-    // 清空现有的选项
-    hallSelect.innerHTML = '';
-
-    // 根据选择的地點添加对应的禮廳选项
-    if (funeralLocationSelect.value === 'second_funeral_home') {
-        const options = [
-            { text: '至仁一廳', value: 'ziren_hall' },
-            { text: '至忠一廳', value: 'zhizhong_hall' }
-            // Add more options as needed
-        ];
-        options.forEach(option => {
-            const optionElement = document.createElement('option');
-            optionElement.textContent = option.text;
-            optionElement.value = option.value;
-            hallSelect.appendChild(optionElement);
-        });
-    } else if (funeralLocationSelect.value === 'banqiao_funeral_home') {
-        const options = [
-            { text: '明善廳', value: 'minshan_hall' },
-            { text: '明道廳', value: 'mindao_hall' }
-            // Add more options as needed
-        ];
-        options.forEach(option => {
-            const optionElement = document.createElement('option');
-            optionElement.textContent = option.text;
-            optionElement.value = option.value;
-            hallSelect.appendChild(optionElement);
-        });
-    }
-}
