@@ -20,6 +20,7 @@
 
     <main class="main-content">
         <div class="container obituary-details">
+            <!-- 訃聞內容 -->
             <h2>訃聞</h2>
             <div class="obituary-photo">
                 <img id="obituary-photo" src="" alt="逝者照片">
@@ -33,12 +34,14 @@
             <p id="obituary-funeral-location"></p>
             <p id="obituary-hall"></p>
 
+            <!-- 分享按鈕 -->
             <div class="share-buttons">
                 <button id="share-line">分享到Line</button>
                 <button id="share-facebook">分享到Facebook</button>
                 <button id="share-sms">分享簡訊</button>
             </div>
 
+            <!-- 追思留言 -->
             <div class="tributes">
                 <h3>追思留言</h3>
                 <textarea id="tribute-message" rows="3" placeholder="留下您的追思"></textarea>
@@ -46,33 +49,26 @@
                 <div id="tribute-list"></div>
             </div>
 
+            <!-- 花籃訂購 -->
             <div class="flower-info memorial-form">
                 <h2>訂購花籃</h2>
-                <form id="flower-form">
-                    <label for="flower-style">花籃樣式：</label>
-                    <select id="flower-style" name="flower-style" required>
-                        <option value="style1">樣式1</option>
-                        <option value="style2">樣式2</option>
-                        <option value="style3">樣式3</option>
-                    </select>
+                <label for="flower-style">花籃樣式：</label>
+                <select id="flower-style" name="flower-style" required>
+                    <option value="style1">樣式1</option>
+                    <option value="style2">樣式2</option>
+                    <option value="style3">樣式3</option>
+                </select>
 
-                    <label for="invoice">是否開立發票：</label>
-                    <select id="invoice" name="invoice" required>
-                        <option value="no">否</option>
-                        <option value="yes">是（加1成費用）</option>
-                    </select>
+                <label for="invoice">是否開立發票：</label>
+                <select id="invoice" name="invoice" required>
+                    <option value="no">否</option>
+                    <option value="yes">是（加1成費用）</option>
+                </select>
 
-                    <label for="contact-name">落款人姓名：</label>
-                    <input type="text" id="contact-name" name="contact-name" required>
+                <label for="contact-name">落款人姓名：</label>
+                <input type="text" id="contact-name" name="contact-name" required>
 
-                    <label for="recipient-name">收件人姓名：</label>
-                    <input type="text" id="recipient-name" name="recipient-name" required>
-
-                    <label for="recipient-address">收件人地址：</label>
-                    <input type="text" id="recipient-address" name="recipient-address" required>
-
-                    <button type="submit">提交訂單</button>
-                </form>
+                <button type="submit">提交訂單</button>
             </div>
         </div>
     </main>
