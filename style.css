@@ -1,9 +1,10 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
     background: linear-gradient(to right, #ffecd2, #fcb69f);
     color: #333;
+    transition: all 0.3s ease-in-out;
 }
 
 .header {
@@ -39,13 +40,23 @@ body {
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
 }
 
-h2 {
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+h2, h3 {
     text-align: center;
     color: #ff6f61;
 }
@@ -64,6 +75,11 @@ input, select, textarea, button {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #ff6f61;
 }
 
 button {
@@ -122,4 +138,9 @@ button:hover {
 .fixed-icons img {
     width: 40px;
     height: 40px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fixed-icons img:hover {
+    transform: scale(1.1);
 }
