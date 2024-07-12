@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>祥安生命禮儀公司 - 訃聞</title>
+    <title>訃聞生成器 - 祥安生命禮儀公司</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,57 +19,38 @@
     </header>
 
     <main class="main-content">
-        <div class="container obituary-details">
-            <!-- 訃聞內容 -->
-            <h2>訃聞</h2>
-            <div class="obituary-photo">
-                <img id="obituary-photo" src="" alt="逝者照片">
-            </div>
-            <p id="obituary-name"></p>
-            <p id="obituary-birth-date"></p>
-            <p id="obituary-death-date"></p>
-            <p id="obituary-death-time"></p>
-            <p id="obituary-place-name"></p>
-            <p id="obituary-funeral-date"></p>
-            <p id="obituary-funeral-location"></p>
-            <p id="obituary-hall"></p>
-
-            <!-- 分享按鈕 -->
-            <div class="share-buttons">
-                <button id="share-line">分享到Line</button>
-                <button id="share-facebook">分享到Facebook</button>
-                <button id="share-sms">分享簡訊</button>
-            </div>
-
-            <!-- 追思留言 -->
-            <div class="tributes">
-                <h3>追思留言</h3>
-                <textarea id="tribute-message" rows="3" placeholder="留下您的追思"></textarea>
-                <button id="submit-tribute">提交留言</button>
-                <div id="tribute-list"></div>
-            </div>
-
-            <!-- 花籃訂購 -->
-            <div class="flower-info memorial-form">
-                <h2>訂購花籃</h2>
-                <label for="flower-style">花籃樣式：</label>
-                <select id="flower-style" name="flower-style" required>
-                    <option value="style1">樣式1</option>
-                    <option value="style2">樣式2</option>
-                    <option value="style3">樣式3</option>
-                </select>
-
-                <label for="invoice">是否開立發票：</label>
-                <select id="invoice" name="invoice" required>
-                    <option value="no">否</option>
-                    <option value="yes">是（加1成費用）</option>
-                </select>
-
-                <label for="contact-name">落款人姓名：</label>
-                <input type="text" id="contact-name" name="contact-name" required>
-
-                <button type="submit">提交訂單</button>
-            </div>
+        <div class="container">
+            <h2>訃聞生成</h2>
+            <form id="obituary-form">
+                <label for="name">逝者姓名：</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="birth-date">出生日期：</label>
+                <input type="date" id="birth-date" name="birthDate" required>
+                
+                <label for="death-date">死亡日期：</label>
+                <input type="date" id="death-date" name="deathDate" required>
+                
+                <label for="death-time">死亡時間：</label>
+                <input type="time" id="death-time" name="deathTime" required>
+                
+                <label for="place-name">牌位安靈地點：</label>
+                <input type="text" id="place-name" name="placeName" required>
+                
+                <label for="funeral-date">出殯日期：</label>
+                <input type="date" id="funeral-date" name="funeralDate" required>
+                
+                <label for="funeral-location">出殯地點：</label>
+                <input type="text" id="funeral-location" name="funeralLocation" required>
+                
+                <label for="hall">禮廳：</label>
+                <input type="text" id="hall" name="hall" required>
+                
+                <label for="photo">上傳照片：</label>
+                <input type="file" id="photo" name="photo" accept="image/*" required>
+                
+                <button type="submit">生成訃聞</button>
+            </form>
         </div>
     </main>
 
@@ -87,6 +68,32 @@
         <a href="tel:0938-179-858"><img src="phone.png" alt="電話"></a>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('obituary-form').addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const reader = new FileReader();
+
+            reader.onload = () => {
+                const obituaryData = {
+                    name: formData.get('name'),
+                    birthDate: formData.get('birthDate'),
+                    deathDate: formData.get('deathDate'),
+                    deathTime: formData.get('deathTime'),
+                    placeName: formData.get('placeName'),
+                    funeralDate: formData.get('funeralDate'),
+                    funeralLocation: formData.get('funeralLocation'),
+                    hall: formData.get('hall'),
+                    photo: reader.result
+                };
+
+                localStorage.setItem('obituaryData', JSON.stringify(obituaryData));
+                window.location.href = 'obituary.html';
+            };
+
+            reader.readAsDataURL(formData.get('photo'));
+        });
+    </script>
 </body>
 </html>
