@@ -31,12 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
         newTribute.textContent = message;
         tributeList.appendChild(newTribute);
         document.getElementById('tribute-message').value = '';
-
-        // 添加動畫效果，例如漸顯新留言
-        newTribute.style.opacity = '0';
-        setTimeout(() => {
-            newTribute.style.opacity = '1';
-        }, 300); // 300毫秒後漸顯新留言
     });
 
     document.getElementById('flower-form').addEventListener('submit', (event) => {
@@ -49,8 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             recipientName: formData.get('recipient-name'),
             recipientAddress: formData.get('recipient-address')
         };
-        // 在這裡可以添加提交訂單的邏輯，例如保存到數據庫
         console.log(orderDetails);
-        event.target.reset(); // 清空表單
+        event.target.reset();
     });
 });
