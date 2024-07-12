@@ -1,75 +1,81 @@
-document.getElementById('deceased-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById('name').value;
-    const birthDateType = document.getElementById('birth-date-type').value;
-    const birthDate = document.getElementById('birth-date').value;
-    const deathDateType = document.getElementById('death-date-type').value;
-    const deathDate = document.getElementById('death-date').value;
-    const ageType = document.getElementById('age-type').value;
-    const age = document.getElementById('age').value;
-    const funeralDate = document.getElementById('funeral-date').value;
-    const funeralLocation = document.getElementById('funeral-location').value;
-    const lifeStory = document.getElementById('life-story').value;
-    
-    const obituaryText = `
-        我們摯愛的親人 ${name} 於 ${deathDateType} ${deathDate} 安詳離世，享${ageType} ${age} 歲，
-        距生於 ${birthDateType} ${birth        Date}。出殯儀式將於 ${funeralDate} 在 ${funeralLocation} 舉行。
-        ${lifeStory ? '生平介紹：' + lifeStory : ''}
-    `;
-    
-    document.getElementById('obituary-text').innerText = obituaryText;
-    document.getElementById('deceased-info').style.display = 'none';
-    document.getElementById('obituary').style.display = 'block';
-    document.getElementById('tributes').style.display = 'block';
-    document.getElementById('flower-order').style.display = 'block';
+document.addEventListener('DOMContentLoaded', () => {
+    // 取得表單和元素
+    const deceasedForm = document.getElementById('deceased-form');
+    const obituarySection = document.getElementById('obituary');
+    const tributesSection = document.getElementById('tributes');
+    const flowerOrderSection = document.getElementById('flower-order');
+    const tributeForm = document.getElementById('tribute-form');
+    const flowerForm = document.getElementById('flower-form');
+    const invoiceCheckbox = document.getElementById('invoice');
+    const invoiceInfo = document.getElementById('invoice-info');
+
+    // 提交訃聞表單
+    deceasedForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(deceasedForm);
+        const obituaryText = `
+            姓名：${formData.get('name')}
+            出生日期：${formData.get('birth-date')}
+            死亡日期：${formData.get('death-date歲數：${formData.get('age')} ${formData.get('age-type')}
+            出殯日期：${formData.get('funeral-date')}
+            出殯地點：${formData.get('funeral-location')}
+            生平介紹：${formData.get('life-story')}
+        `;
+
+        document.getElementById('obituary-text').textContent = obituaryText;
+        obituarySection.style.display = 'block';
+        tributesSection.style.display = 'block';
+        flowerOrderSection.style.display = 'block';
+    });
+
+    // 訂購花籃表單
+    flowerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(flowerForm);
+        let totalPrice = 0;
+
+        switch (formData.get('flower-type')) {
+            case 'type1':
+                totalPrice += 1000;
+                break;
+            case 'type2':
+                totalPrice += 2000;
+                break;
+        }
+
+        if (formData.get('invoice')) {
+            totalPrice *= 1.1; // 添加10%附加費
+        }
+
+        document.getElementById('total-price').textContent = `總金額: $${totalPrice}`;
+
+        // 清空表單
+        flowerForm.reset();
+        invoiceInfo.style.display = 'none';
+    });
+
+    // 显示或隐藏发票信息
+    invoiceCheckbox.addEventListener('change', () => {
+        if (invoiceCheckbox.checked) {
+            invoiceInfo.style.display = 'block';
+        } else {
+            invoiceInfo.style.display = 'none';
+        }
+    });
+
+    // 提交追思留言表单
+    tributeForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(tributeForm);
+        const tributeMessage = `
+            姓名：${formData.get('tribute-name')}
+            留言：${formData.get('tribute-message')}
+        `;
+        const tributeDiv = document.createElement('div');
+        tributeDiv.textContent = tributeMessage;
+        document.getElementById('tributes-list').appendChild(tributeDiv);
+
+        // 清空表单
+        tributeForm.reset();
+    });
 });
-
-document.getElementById('tribute-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById('tribute-name').value;
-    const message = document.getElementById('tribute-message').value;
-
-    const tributeEntry = document.createElement('div');
-    tributeEntry.classList.add('tribute-entry');
-    tributeEntry.innerHTML = `<strong>${name}</strong>: ${message}`;
-
-    const tributesList = document.getElementById('tributes-list');
-    tributesList.appendChild(tributeEntry);
-
-    document.getElementById('tribute-form').reset();
-});
-
-document.getElementById('flower-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const flowerType = document.getElementById('flower-type').value;
-    const dedication = document.getElementById('dedication').value;
-    const invoiceRequired = document.getElementById('invoice').checked;
-    const recipientName = document.getElementById('recipient-name').value;
-    const recipientAddress = document.getElementById('recipient-address').value;
-    const paymentMethod = document.getElementById('payment-method').value;
-    
-    let price = flowerType === 'type1' ? 1000 : 2000;
-    if (invoiceRequired) {
-        price *= 1.1;
-    }
-
-    const orderSummary = `
-        花籃種類: ${flowerType === 'type1' ? '種類1 - $1000' : '種類2 - $2000'}\n
-        總金額: $${price}\n
-        落款名單: ${dedication}\n
-        ${invoiceRequired ? '需要發票\n收件人姓名: ' + recipientName + '\n收件人地址: ' + recipientAddress : '不需要發票'}
-    `;
-    
-    alert(orderSummary);
-
-    document.getElementById('flower-form').reset();
-});
-
-document.getElementById('invoice').addEventListener('change', function() {
-    document.getElementById('invoice-info').style.display = this.checked ? 'block' : 'none';
-});
-
-document.getElementById('background-music').volume = 0.2;
