@@ -102,4 +102,43 @@
             }
 
             document.getElementById('share-line').addEventListener('click', () => {
-                alert('分享到
+                alert('分享到Line');
+            });
+
+            document.getElementById('share-facebook').addEventListener('click', () => {
+                alert('分享到Facebook');
+            });
+
+            document.getElementById('share-sms').addEventListener('click', () => {
+                alert('分享簡訊');
+            });
+
+            // 提交追思留言
+            document.getElementById('submit-tribute').addEventListener('click', () => {
+                const message = document.getElementById('tribute-message').value;
+                const tributeList = document.getElementById('tribute-list');
+                const newTribute = document.createElement('div');
+                newTribute.textContent = message;
+                tributeList.appendChild(newTribute);
+                document.getElementById('tribute-message').value = '';
+            });
+
+            // 提交花籃訂單
+            document.getElementById('flower-form').addEventListener('submit', (event) => {
+                event.preventDefault();
+                const formData = new FormData(event.target);
+                const orderDetails = {
+                    flowerStyle: formData.get('flower-style'),
+                    invoice: formData.get('invoice'),
+                    contactName: formData.get('contact-name'),
+                    recipientName: formData.get('recipient-name'),
+                    recipientAddress: formData.get('recipient-address')
+                };
+                console.log(orderDetails);
+                // 存储到数据库或其他处理逻辑
+                event.target.reset();
+            });
+        });
+    </script>
+</body>
+</html>
