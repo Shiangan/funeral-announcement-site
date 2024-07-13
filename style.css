@@ -1,14 +1,14 @@
 /* style.css */
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #00808C, #CCEEFF);
+    background: linear-gradient(to right, #00808C, #00808C);
     color: #333;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #CCEEFF;
+    background-color: #00808C;
     color: blue;
     text-align: center;
     padding: 10px 0;
@@ -19,7 +19,7 @@ h1 {
 }
 
 h2 {
-    color: #CCEEFF;
+    color: #00808C;
 }
 
 section {
@@ -47,15 +47,15 @@ input, select, textarea, button {
 }
 
 button {
-    background-color: #CCEEFF;
-    color: blue;
+    background-color: #00808C;
+    color: white;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #CCEEFF;
+    background-color: #00808C;
 }
 
 #tribute-list div, #tributes-list div {
@@ -69,7 +69,7 @@ button:hover {
 footer {
     text-align: center;
     padding: 10px 0;
-    background-color: #CCEEFF;
+    background-color: #00808C;
     color: blue;
     position: fixed;
     width: 80%;
