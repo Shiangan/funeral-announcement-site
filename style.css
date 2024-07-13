@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    background-color: #4CAF50;
+    background-color: #CCEEFFF;
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -19,7 +19,7 @@ h1 {
 }
 
 h2 {
-    color: #4CAF50;
+    color: #CCEEFFF;
 }
 
 section {
@@ -47,7 +47,7 @@ input, select, textarea, button {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #CCEEFFF;
     color: white;
     border: none;
     cursor: pointer;
@@ -55,7 +55,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #CCEEFFF;
 }
 
 #tribute-list div, #tributes-list div {
@@ -69,7 +69,7 @@ button:hover {
 footer {
     text-align: center;
     padding: 10px 0;
-    background-color: #4CAF50;
+    background-color: #CCEEFFF;
     color: white;
     position: fixed;
     width: 100%;
