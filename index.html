@@ -12,7 +12,7 @@
     </header>
 
     <audio id="background-music" loop autoplay>
-        <source src="宣傳.mp3" type="audio/mpeg">
+        <source src="宣傳.mp4" type="audio/mpeg">
         您的瀏覽器不支持音頻播放。
     </audio>
 
@@ -61,66 +61,3 @@
             <button type="submit">提交</button>
         </form>
     </section>
-
-    
-    <section id="obituary" style="display:none;">
-        <h2>訃聞</h2>
-        <p id="obituary-text"></p>
-        <button id="share-button">分享</button>
-    </section>
-
-    <section id="tributes" style="display:none;">
-        <h3>追思留言</h3>
-        <form id="tribute-form">
-            <label for="tribute-name">姓名:</label>
-            <input type="text" id="tribute-name" name="tribute-name" required>
-            <label for="tribute-message">留言:</label>
-            <textarea id="tribute-message" name="tribute-message" required></textarea>
-            <label for="tribute-photo">照片:</label>
-            <input type="file" id="tribute-photo" name="tribute-photo" accept="image/*">
-            <label for="tribute-video">影片:</label>
-            <input type="file" id="tribute-video" name="tribute-video" accept="video/*">
-            <button type="submit">提交</button>
-            
-        </form>
-        <div id="tributes-list"></div>
-    </section>
-
-
-    <section id="flower-order" style="display:none;">
-        <h2>花籃訂購</h2>
-        <form id="flower-form">
-            <label for="flower-type">花籃種類:</label>
-            <select id="flower-type" name="flower-type" required>
-                <option value="type1">種類1 - $1000</option>
-                <option value="type2">種類2 - $2000</option>
-            </select>
-            <label for="dedication">落款名單:</label>
-            <textarea id="dedication" name="dedication" required></textarea>
-            <label for="invoice">是否需要發票:</label>
-            <input type="checkbox" id="invoice" name="invoice">
-            <div id="invoice-info" style="display: none;">
-                <label for="recipient-name">收件人姓名:</label>
-                <input type="text" id="recipient-name" name="recipient-name">
-                <label for="recipient-address">收件人地址:</label>
-                <input type="text" id="recipient-address" name="recipient-address">
-            </div>
-            <label for="payment-method">付款方式:</label>
-            <select id="payment-method" name="payment-method" required>
-                <option value="line-pay">Line Pay</option>
-                <option value="bank-transfer">銀行匯款</option>
-            </select>
-            <label for="transfer-receipt">匯款單:</label>
-            <input type="file" id="transfer-receipt" name="transfer-receipt" accept="image/*">
-            <p id="total-price">總金額: $0</p>
-            <button type="submit">提交訂單</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>© 2024 祥安生命禮儀公司</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
