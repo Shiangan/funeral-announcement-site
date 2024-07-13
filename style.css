@@ -1,7 +1,7 @@
 /* style.css */
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #f2f2f2, #CCEEFF);
+    background: linear-gradient(to right, #00808C, #CCEEFF);
     color: #333;
     margin: 0;
     padding: 0;
@@ -55,12 +55,12 @@ button {
 }
 
 button:hover {
-    background-color: #CCEEFFF;
+    background-color: #CCEEFF;
 }
 
 #tribute-list div, #tributes-list div {
     padding: 10px;
-    background: #f9f9f9;
+    background: #00808C;
     margin-top: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
