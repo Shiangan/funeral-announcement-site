@@ -48,7 +48,7 @@ input, select, textarea, button {
 
 button {
     background-color: #CCEEFF;
-    color: white;
+    color: blue;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
