@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    background-color: #CCEEFFF;
+    background-color: #CCEEFF;
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -19,7 +19,7 @@ h1 {
 }
 
 h2 {
-    color: #CCEEFFF;
+    color: #CCEEFF;
 }
 
 section {
@@ -47,7 +47,7 @@ input, select, textarea, button {
 }
 
 button {
-    background-color: #CCEEFFF;
+    background-color: #CCEEFF;
     color: white;
     border: none;
     cursor: pointer;
@@ -69,7 +69,7 @@ button:hover {
 footer {
     text-align: center;
     padding: 10px 0;
-    background-color: #CCEEFFF;
+    background-color: #CCEEFF;
     color: white;
     position: fixed;
     width: 100%;
