@@ -12,7 +12,7 @@
     </header>
 
     <audio id="background-music" loop autoplay>
-        <source src="audio/宣傳.mp4" type="audio/mpeg">
+        <source src="audio/宣傳.mp4" type="video/mpeg">
         您的瀏覽器不支持音頻播放。
     </audio>
 
@@ -21,7 +21,7 @@
         <form id="deceased-form">
             <label for="name">姓名:</label>
             <input type="text" id="name" name="name" required>
-            <label for="photo">照片:</label>
+            <label for="photo">追思照片:</label>
             <input type="file" id="photo" name="photo" accept="image/*" required>
             
             <label for="birth-date-type">出生日期類型:</label>
@@ -49,9 +49,13 @@
             </select>
             <label for="age">歲數:</label>
             <input type="number" id="age" name="age" required>
+
+            <label for="funeral-sapce">牌位安置地點:</label>
+            <textarea id="funeral-space" name="funeral-sapce"></textarea>
             
             <label for="funeral-date">出殯日期:</label>
             <input type="date" id="funeral-date" name="funeral-date" required>
+            
             <label for="funeral-location">出殯地點:</label>
             <input type="text" id="funeral-location" name="funeral-location" required>
             
