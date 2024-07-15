@@ -11,72 +11,73 @@
         <h1>雲端訃聞</h1>
     </header>
 
-    <!-- 宣傳影片 -->
-    <section id="promo-video">
-        <video autoplay muted loop controls>
-            <source src="宣傳.mp4" type="video/mp4">
-            您的瀏覽器不支持視頻播放。
-        </video>
-    </section>
+    <!-- 內容部分 -->
+    <main>
+        <!-- 宣傳影片 -->
+        <section id="promo-video">
+            <video autoplay muted loop controls>
+                <source src="宣傳.mp4" type="video/mp4">
+                您的瀏覽器不支持視頻播放。
+            </video>
+        </section>
 
-    <section id="music-selection">
-        <h2>選擇背景音樂</h2>
-        <select id="music-choice" required>
-            <option value="audio/music1.mp3">音樂1</option>
-            <option value="audio/music2.mp3">音樂2</option>
-            <option value="audio/music3.mp3">音樂3</option>
-            <option value="audio/music4.mp3">音樂4</option>
-            <option value="audio/music5.mp3">音樂5</option>
-        </select>
-    </section>
-
-    <section id="deceased-info">
-        <h2>往生者資料</h2>
-        <form id="deceased-form">
-            <label for="name">姓名:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="photo">追思照片:</label>
-            <input type="file" id="photo" name="photo" accept="image/*" required>
-            
-            <label for="birth-date-type">出生日期:</label>
-            <input type="date" id="birth-date" name="birth-date" required>
-            
-            <label for="death-date-type">死亡日期:</label>
-            <input type="date" id="death-date" name="death-date" required>
-            
-            <label for="funeral-space">牌位安置地點:</label>
-            <textarea id="funeral-space" name="funeral-space"></textarea>
-            
-            <label for="funeral-date">出殯日期:</label>
-            <input type="date" id="funeral-date" name="funeral-date" required>
-            
-            <label for="funeral-location">出殯地點:</label>
-            <select id="funeral-location" name="funeral-location" required>
-                <option value="第二殯儀館">第二殯儀館 禮廳</option>
-                <option value="板橋殯儀館">板橋殯儀館 禮廳</option>
-                <option value="其他">其他</option>
+        <!-- 選擇背景音樂 -->
+        <section id="music-selection">
+            <h2>選擇背景音樂</h2>
+            <select id="music-choice" required>
+                <option value="audio/music1.mp3">音樂1</option>
+                <option value="audio/music2.mp3">音樂2</option>
+                <option value="audio/music3.mp3">音樂3</option>
+                <option value="audio/music4.mp3">音樂4</option>
+                <option value="audio/music5.mp3">音樂5</option>
             </select>
-            <input type="text" id="other-funeral-location" name="other-funeral-location" placeholder="若選擇其他，請填寫地點">
-            
-            <label for="family-service-time">家奠禮時間:</label>
-            <input type="time" id="family-service-time" name="family-service-time" required>
+        </section>
 
-            <label for="public-service-time">公奠禮時間:</label>
-            <input type="time" id="public-service-time" name="public-service-time" required>
-            
-            <label for="life-story">生平介紹:</label>
-            <textarea id="life-story" name="life-story"></textarea>
-            
-            <button type="submit">提交</button>
-        </form>
-    </section>
+        <!-- 往生者資料表單 -->
+        <section id="deceased-info">
+            <h2>往生者資料</h2>
+            <form id="deceased-form">
+                <label for="name">姓名:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="photo">追思照片:</label>
+                <input type="file" id="photo" name="photo" accept="image/*" required>
+                
+                <label for="birth-date">出生日期:</label>
+                <input type="date" id="birth-date" name="birth-date" required>
+                
+                <label for="death-date">死亡日期:</label>
+                <input type="date" id="death-date" name="death-date" required>
+                
+                <label for="funeral-space">牌位安置地點:</label>
+                <textarea id="funeral-space" name="funeral-space"></textarea>
+                
+                <label for="funeral-date">出殯日期:</label>
+                <input type="date" id="funeral-date" name="funeral-date" required>
+                
+                <label for="funeral-location">出殯地點:</label>
+                <select id="funeral-location" name="funeral-location" required>
+                    <option value="第二殯儀館">第二殯儀館 禮廳</option>
+                    <option value="板橋殯儀館">板橋殯儀館 禮廳</option>
+                    <option value="其他">其他</option>
+                </select>
+                <input type="text" id="other-funeral-location" name="other-funeral-location" placeholder="若選擇其他，請填寫地點">
+                
+                <label for="family-service-time">家奠禮時間:</label>
+                <input type="time" id="family-service-time" name="family-service-time" required>
 
-    <a href="deceased.html"></a>
+                <label for="public-service-time">公奠禮時間:</label>
+                <input type="time" id="public-service-time" name="public-service-time" required>
+                
+                <label for="life-story">生平介紹:</label>
+                <textarea id="life-story" name="life-story"></textarea>
+                
+                <button type="submit">提交</button>
+            </form>
+        </section>
+    </main>
 
     <footer>
         <p>&copy; 2024 祥安生命有限公司</p>
     </footer>
-
-    <script src="js/form.js"></script>
 </body>
 </html>
