@@ -1,0 +1,51 @@
+<section id="flower-basket">
+    <h2>致贈花籃</h2>
+    <p>請選擇您喜歡的花籃樣式：</p>
+    <div class="basket-options">
+        <!-- 花籃選項示例 -->
+        <div class="basket-option">
+            <img src="flower1.jpg" alt="花籃1">
+            <p>花籃名稱：花籃一</p>
+            <p>價格：$1000</p>
+            <button class="order-btn" data-price="1000">選擇這個花籃</button>
+        </div>
+        <div class="basket-option">
+            <img src="flower2.jpg" alt="花籃2">
+            <p>花籃名稱：花籃二</p>
+            <p>價格：$1200</p>
+            <button class="order-btn" data-price="1200">選擇這個花籃</button>
+        </div>
+        <!-- 其他花籃選項 -->
+    </div>
+    
+    <form id="order-form">
+        <label for="recipient-name">落款名：</label>
+        <input type="text" id="recipient-name" name="recipient-name" required placeholder="例如：姻親 陳妍如/祥安生命 陳妍如">
+        
+        <label for="invoice-option">需開發票或收據？</label>
+        <input type="checkbox" id="invoice-option" name="invoice-option">
+        <label for="invoice-option">是，需開發票</label>
+        
+        <div id="invoice-info" style="display:none;">
+            <label for="address">收件地址：</label>
+            <textarea id="address" name="address" placeholder="請填寫收件地址"></textarea>
+        </div>
+        
+        <label>總金額：<span id="total-price">0</span> 元</label>
+        
+        <label>支付方式：</label>
+        <input type="radio" id="payment-method1" name="payment-method" value="bank-transfer" checked>
+        <label for="payment-method1">匯款</label>
+        
+        <input type="radio" id="payment-method2" name="payment-method" value="line-pay">
+        <label for="payment-method2">Line Pay</label>
+        
+        <button type="submit">提交訂單</button>
+    </form>
+    
+    <div id="order-success" style="display:none;">
+        <h3>訂單成功！</h3>
+        <p>感謝您的訂購。</p>
+        <p>請查收匯款單或使用Line Pay。</p>
+    </div>
+</section>
