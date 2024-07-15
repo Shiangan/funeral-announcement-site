@@ -3,131 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>祥安生命有限公司－訃聞詳情</title>
+    <title>祥安生命有限公司－雲端訃聞</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1 id="deceased-name">雲端訃聞</h1>
+        <h1>雲端訃聞</h1>
     </header>
 
-    <audio id="background-music" loop autoplay>
-        <source src="宣傳.mp4" type="video/mp4">
-        您的瀏覽器不支持音頻播放。
-    </audio>
-
-    <section id="announcement">
-        <img id="deceased-photo" alt="追思照片">
-        <p id="invitation">敬邀您...</p>
-        <div id="content">
-            <p id="announcement-text"></p>
-        </div>
+    <section id="tribute">
+        <img id="tribute-photo" src="" alt="追思照片" style="display:none;">
+        <h2>敬邀您</h2>
+        <button id="enter-page">進入頁面</button>
     </section>
 
-    <section id="memories">
-        <h2>追思回憶</h2>
-        <input type="file" id="memory-upload" accept="image/*,video/*">
-        <div id="memory-gallery"></div>
-    </section>
+    <section id="deceased-content" style="display:none;">
+        <h2>逝者的雲端訃聞</h2>
+        <p>我們摯愛的親人<span id="deceased-name"></span>，於<span id="death-date"></span>安詳離世，距生於<span id="birth-date"></span>，享年<span id="age"></span>歲。</p>
+        <p>設靈於<span id="funeral-space"></span>。</p>
+        <p>儀式地點：<span id="funeral-location"></span></p>
+        <p>出殯日期：<span id="funeral-date"></span></p>
+        <p>家奠禮時間：<span id="family-service-time"></span></p>
+        <p>公奠禮時間：<span id="public-service-time"></span></p>
+        <p>家人一同緬懷：<span id="life-story"></span></p>
 
-    <section id="messages">
-        <h2>追思留言</h2>
-        <textarea id="message-input" placeholder="留下您的祝福"></textarea>
-        <button id="message-submit">提交</button>
-        <div id="message-list"></div>
-    </section>
+        <div id="map-container"></div>
 
-    <section id="map">
-        <h2>儀式地圖</h2>
-        <div id="map-canvas"></div>
-    </section>
+        <section id="photo-memories">
+            <h3>照片回憶</h3>
+            <div id="photos"></div>
+            <label for="upload-photo">上傳照片:</label>
+            <input type="file" id="upload-photo" name="upload-photo" accept="image/*">
+        </section>
 
-    <section id="flower-order">
-        <h2>致贈花籃</h2>
-        <div id="flower-gallery">
-            <!-- 添加花籃圖片和價位 -->
-        </div>
-        <button>聯絡我們</button>
-        <p>Line連結，電話0938179858</p>
-    </section>
+        <section id="message-section">
+            <h3>追思留言區</h3>
+            <textarea id="tribute-message" placeholder="留下您的追思"></textarea>
+            <button id="submit-message">提交留言</button>
+            <div id="messages"></div>
+        </section>
 
-    <footer>
-        <p>2024 祥安生命有限公司</p>
-    </footer>
+        <section id="flower-order">
+            <h3>致贈花籃</h3>
+            <p>請選擇花籃樣式並填寫訂單資訊：</p>
+            <form id="flower-form">
+                <label for="flower-type">花籃樣式:</label>
+                <select id="flower-type" name="flower-type" required>
+                    <option value="樣式1">樣式1</option>
+                    <option value="樣式2">樣式2</option>
+                    <option value="樣式3">樣式3</option>
+                    <option value="樣式4">樣式4</option>
+                    <option value="樣式5">樣式5</option>
+                    <option value="樣式6">樣式6</option>
+                    <option value="樣式7">樣式7</option>
+                    <option value="樣式8">樣式8</option>
+                    <option value="樣式9">樣式9</option>
+                    <option value="樣式10">樣式10</option>
+                    <option value="樣式11">樣式11</option>
+                    <option value="樣式12">樣式12</option>
+                </select>
+                <label for="name-list">落款名單:</label>
+                <textarea id="name-list" name="name-list" required></textarea>
+                <label for="need-invoice">是否需要發票:</label>
+                <input type="checkbox" id="need-invoice" name="need-invoice">
+                <label for="address">收件地址:</label>
+                <input type="text" id="address" name="address">
+                <label for="total-price">總價:</label>
+                <input type="text" id="total-price" name="total-price" readonly>
+                <p id="invoice-info" style="display:none;">(已含1成發票費)</p>
+<button type="submit">提交訂單</button>
+</form>
+<div id="order-success" style="display:none;">
+    <h3>訂單成功！</h3>
+    <p>感謝您的訂購。</p>
+    <p>請查收匯款單或使用Line Pay。</p>
+</div>
+</section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
+<section id="share-buttons">
+    <h3>分享訃聞</h3>
+    <button id="line-share">Line分享</button>
+    <button id="sms-share">簡訊分享</button>
+    <button id="fb-share">Facebook分享</button>
+</section>
 
-            const name = urlParams.get('name');
-            const birthDateType = urlParams.get('birth-date-type');
-            const birthDate = urlParams.get('birth-date');
-            const deathDateType = urlParams.get('death-date-type');
-            const deathDate = urlParams.get('death-date');
-            const ageType = urlParams.get('age-type');
-            const age = urlParams.get('age');
-            const funeralSpace = urlParams.get('funeral-space');
-            const funeralDate = urlParams.get('funeral-date');
-            const funeralLocation = urlParams.get('funeral-location');
-            const familyServiceTime = urlParams.get('family-service-time');
-            const publicServiceTime = urlParams.get('public-service-time');
-            const lifeStory = urlParams.get('life-story');
-            const music = urlParams.get('music');
-            const photoSrc = urlParams.get('photo');
-
-            const deceasedNameElement = document.getElementById('deceased-name');
-            const announcementTextElement = document.getElementById('announcement-text');
-            const deceasedPhotoElement = document.getElementById('deceased-photo');
-
-            deceasedNameElement.textContent = `${name}的雲端訃聞`;
-            announcementTextElement.innerHTML = `
-                <p>我們摯愛的親人${name}，於${deathDateType === 'gregorian' ? '國曆' : '農曆'}${deathDate}安詳離世，享年${age}歲。</p>
-                <p>出生於${birthDateType === 'gregorian' ? '國曆' : '農曆'}${birthDate}，${ageType}${age}歲。</p>
-                               <p>設靈於${funeralSpace}。</p>
-                <p>出殯日期為${funeralDate}，地點在${funeralLocation}。</p>
-                <p>家奠禮時間為${familyServiceTime}。</p>
-                <p>公奠禮時間為${publicServiceTime}。</p>
-                <p>${lifeStory}</p>
-            `;
-
-            deceasedPhotoElement.src = photoSrc;
-
-            const musicElement = document.getElementById('background-music');
-            const musicSourceElement = musicElement.querySelector('source');
-            musicSourceElement.src = music;
-            musicElement.load();
-            musicElement.play();
-        });
-
-        document.getElementById('message-submit').addEventListener('click', () => {
-            const messageInput = document.getElementById('message-input');
-            const messageList = document.getElementById('message-list');
-            const message = messageInput.value;
-
-            if (message.trim()) {
-                const messageItem = document.createElement('p');
-                messageItem.textContent = message;
-                messageList.appendChild(messageItem);
-                messageInput.value = '';
-            }
-        });
-
-        document.getElementById('memory-upload').addEventListener('change', function() {
-            const files = this.files;
-            const gallery = document.getElementById('memory-gallery');
-            gallery.innerHTML = ''; // Clear existing content
-
-            for (const file of files) {
-                const fileReader = new FileReader();
-                fileReader.onload = function(event) {
-                    const mediaElement = document.createElement(file.type.startsWith('image/') ? 'img' : 'video');
-                    mediaElement.src = event.target.result;
-                    mediaElement.controls = true;
-                    gallery.appendChild(mediaElement);
-                };
-                fileReader.readAsDataURL(file);
-            }
-        });
-    </script>
+<script src="js/deceased.js"></script>
 </body>
 </html>
