@@ -3,90 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>祥安生命有限公司－雲端訃聞</title>
+    <title>逝者訃聞 - 祥安生命有限公司</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>雲端訃聞</h1>
+        <h1>逝者訃聞</h1>
     </header>
 
-    <section id="tribute">
-        <img id="tribute-photo" src="" alt="追思照片" style="display:none;">
-        <h2>敬邀您</h2>
-        <button id="enter-page">進入頁面</button>
+    <!-- 追思照片輪播 -->
+    <section id="tribute-photos-carousel">
+        <h2>追思照片</h2>
+        <div class="slideshow-container" id="slideshow-container">
+            <!-- 這裡可以用 JavaScript 動態生成輪播圖片 -->
+        </div>
     </section>
 
-    <section id="deceased-content" style="display:none;">
-        <h2>逝者的雲端訃聞</h2>
-        <p>我們摯愛的親人<span id="deceased-name"></span>，於<span id="death-date"></span>安詳離世，距生於<span id="birth-date"></span>，享年<span id="age"></span>歲。</p>
-        <p>設靈於<span id="funeral-space"></span>。</p>
-        <p>儀式地點：<span id="funeral-location"></span></p>
-        <p>出殯日期：<span id="funeral-date"></span></p>
-        <p>家奠禮時間：<span id="family-service-time"></span></p>
-        <p>公奠禮時間：<span id="public-service-time"></span></p>
-        <p>家人一同緬懷：<span id="life-story"></span></p>
+    <!-- 具體訃聞內容 -->
+    <section id="deceased-info">
+        <h2>往生者資料</h2>
+        <div id="deceased-details">
+            <!-- 這裡是具體的訃聞內容，動態生成根據用戶填寫的資訊 -->
+        </div>
+    </section>
 
-        <div id="map-container"></div>
-
-        <section id="photo-memories">
-            <h3>照片回憶</h3>
-            <div id="photos"></div>
-            <label for="upload-photo">上傳照片:</label>
-            <input type="file" id="upload-photo" name="upload-photo" accept="image/*">
-        </section>
-
-        <section id="message-section">
-            <h3>追思留言區</h3>
-            <textarea id="tribute-message" placeholder="留下您的追思"></textarea>
-            <button id="submit-message">提交留言</button>
-            <div id="messages"></div>
-        </section>
-
-        <section id="flower-order">
-            <h3>致贈花籃</h3>
-            <p>請選擇花籃樣式並填寫訂單資訊：</p>
-            <form id="flower-form">
-                <label for="flower-type">花籃樣式:</label>
-                <select id="flower-type" name="flower-type" required>
-                    <option value="樣式1">樣式1</option>
-                    <option value="樣式2">樣式2</option>
-                    <option value="樣式3">樣式3</option>
-                    <option value="樣式4">樣式4</option>
-                    <option value="樣式5">樣式5</option>
-                    <option value="樣式6">樣式6</option>
-                    <option value="樣式7">樣式7</option>
-                    <option value="樣式8">樣式8</option>
-                    <option value="樣式9">樣式9</option>
-                    <option value="樣式10">樣式10</option>
-                    <option value="樣式11">樣式11</option>
-                    <option value="樣式12">樣式12</option>
-                </select>
-                <label for="name-list">落款名單:</label>
-                <textarea id="name-list" name="name-list" required></textarea>
-                <label for="need-invoice">是否需要發票:</label>
-                <input type="checkbox" id="need-invoice" name="need-invoice">
-                <label for="address">收件地址:</label>
-                <input type="text" id="address" name="address">
-                <label for="total-price">總價:</label>
-                <input type="text" id="total-price" name="total-price" readonly>
-                <p id="invoice-info" style="display:none;">(已含1成發票費)</p>
-<button type="submit">提交訂單</button>
-</form>
-<div id="order-success" style="display:none;">
-    <h3>訂單成功！</h3>
-    <p>感謝您的訂購。</p>
-    <p>請查收匯款單或使用Line Pay。</p>
-</div>
-</section>
-
-<section id="share-buttons">
-    <h3>分享訃聞</h3>
-    <button id="line-share">Line分享</button>
-    <button id="sms-share">簡訊分享</button>
-    <button id="fb-share">Facebook分享</button>
-</section>
-
-<script src="js/deceased.js"></script>
+    <!-- 增加腳本連結 -->
+    <script src="js/deceased.js"></script>
 </body>
 </html>
