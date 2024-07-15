@@ -1,112 +1,62 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
-    color: #343a40;
+/* Reset CSS */
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa; /* 背景色 */
 }
 
 header {
-    background-color: #6c757d;
-    color: white;
+    background-color: #343a40; /* 頁首背景色 */
+    color: #fff; /* 文字顏色 */
     text-align: center;
-    padding: 1em 0;
-    width: 100%;
+    padding: 1rem 0;
 }
 
-h1, h2, h3 {
-    margin: 0.5em 0;
+h1 {
+    font-size: 2.5rem;
 }
 
 section {
-    padding: 1em;
-    margin: 1em auto;
-    max-width: 800px;
-    background-color: white;
+    padding: 2rem;
+    margin: 2rem 0;
+    background-color: #fff; /* 區塊背景色 */
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 陰影效果 */
 }
 
-#announcement p {
-    font-size: 1.2em;
-    line-height: 1.6;
-    margin: 0.5em 0;
-}
-
-#memories input {
-    display: block;
-    margin: 1em 0;
-}
-
-#memory-gallery img, 
-#memory-gallery video {
-    max-width: 100%;
-    margin: 1em 0;
-}
-
-textarea {
-    width: 100%;
-    padding: 0.5em;
-    margin: 0.5em 0;
-    border-radius: 4px;
-    border: 1px solid #ced4da;
-}
-
-button {
-    background-color: #6c757d;
-    color: white;
-    padding: 0.5em 1em;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #5a6268;
-}
-
-footer {
+/* 照片輪播區塊樣式 */
+#tribute-photos-carousel {
     text-align: center;
-    padding: 1em 0;
-    background-color: #f1f1f1;
-    width: 100%;
 }
 
-audio {
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.slideshow-container img {
+    width: 100%;
+    height: auto;
     display: none;
 }
 
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 2s forwards;
+/* 具體訃聞內容樣式 */
+#deceased-info {
+    text-align: left;
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+#deceased-info h2 {
+    margin-bottom: 1rem;
 }
 
-.message {
-    border-bottom: 1px solid #ced4da;
-    padding: 0.5em 0;
-}
-
-.music-selection {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 1em;
-}
-
-.music-selection button {
-    margin: 0.5em;
-    background-color: #28a745;
-}
-
-.music-selection button:hover {
-    background-color: #218838;
+#deceased-details {
+    margin-top: 1rem;
 }
