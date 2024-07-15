@@ -1,119 +1,89 @@
-/* 通用样式 */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
     color: #343a40;
     margin: 0;
     padding: 0;
-    text-align: center;
 }
 
 header {
     background-color: #6c757d;
     color: white;
-    padding: 1rem 0;
+    text-align: center;
+    padding: 1em 0;
 }
 
-h1, h2 {
+h1, h2, h3 {
     margin: 0.5em 0;
 }
 
 section {
-    margin: 2em auto;
-    max-width: 600px;
     padding: 1em;
+    margin: 1em auto;
+    max-width: 800px;
     background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+#announcement p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 0.5em 0;
 }
 
-label {
-    margin-top: 1em;
-    text-align: left;
+#memories input {
+    display: block;
+    margin: 1em 0;
 }
 
-input[type="text"],
-input[type="file"],
-input[type="date"],
-input[type="number"],
-select,
+#memory-gallery img, 
+#memory-gallery video {
+    max-width: 100%;
+    margin: 1em 0;
+}
+
 textarea {
-    margin-top: 0.5em;
+    width: 100%;
     padding: 0.5em;
-    font-size: 1em;
-    border: 1px solid #ced4da;
+    margin: 0.5em 0;
     border-radius: 4px;
+    border: 1px solid #ced4da;
 }
 
 button {
-    margin-top: 1.5em;
-    padding: 0.5em;
-    font-size: 1em;
+    background-color: #6c757d;
     color: white;
-    background-color: #007bff;
+    padding: 0.5em 1em;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #5a6268;
+}
+
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #f1f1f1;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
 
 audio {
     display: none;
 }
 
-/* 漸顯效果 */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-top: 1em;
+.fade-in {
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    animation: fadeIn 2s forwards;
 }
 
-/* 追悼留言和花籃訂購樣式 */
-#tributes, #flower-baskets {
-    margin-top: 3em;
-}
-
-#tribute-messages, #flower-basket-messages {
-    margin-top: 1em;
-    text-align: left;
-    border-top: 1px solid #ced4da;
-    padding-top: 1em;
-}
-
-#tribute-messages div, #flower-basket-messages div {
-    margin-bottom: 1em;
-    padding: 1em;
-    background-color: #f1f3f5;
-    border-radius: 4px;
-}
-
-#tribute-messages div:nth-child(odd), #flower-basket-messages div:nth-child(odd) {
-    background-color: #e9ecef;
-}
-
-#tribute-messages div p, #flower-basket-messages div p {
-    margin: 0.5em 0;
-}
-
-@media (max-width: 600px) {
-    section {
-        padding: 1em;
-        margin: 1em;
-    }
-
-    form {
-        font-size: 0.9em;
+@keyframes fadeIn {
+    to {
+        opacity: 1;
     }
 }
