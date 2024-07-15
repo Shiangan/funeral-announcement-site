@@ -3,124 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>雲端訃聞內容</title>
-    <meta name="Title" content="雲端訃聞-祥安生命">
-    <meta name="Keywords" content="雲端，雲端QRCODE">
-    <meta property="og:image" content="">
-    <link rel="stylesheet" href="../cache/css.css">
-    <link rel="stylesheet" href="../js/calendar/calendar-mos.css">
-    <script src="../js/common.js"></script>
-    <script src="../js/calendar/calendar.js"></script>
-    <script src="../js/calendar/lang/calendar-en.js"></script>
-    <script src="../js/swfobject.js"></script>
-    <script src="../js/swapimg.js"></script>
-    <script src="../editor/ckeditor/ckeditor.js"></script>
-    <script src="../editor/ckeditor/ckfinder/ckfinder.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150849169-5"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-150849169-5');
-    </script>
-    <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '295651894912099');
-        fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=295651894912099&ev=PageView&noscript=1"
-    /></noscript>
-    <style>
-        body {
-            margin: 0;
-            background-color: #fff;
-            background-repeat: no-repeat;
-            background-position: center top;
-        }
-        #menu {
-            position: fixed;
-            bottom: 0;
-            text-align: center;
-        }
-        #data {
-            margin: 30px 0 0 0;
-        }
-        #top {
-            position: fixed;
-            top: 0;
-        }
-        table {
-            font-size: 26px;
-            letter-spacing: 0;
-            line-height: 1.3em;
-            color: #FFFFFF;
-            word-break: break-all;
-        }
-        @media (max-width: 1199px){
-            #data table img{
-                width: 100%;
-            }
-        }
-        .a1 {
-            font-size: 20px;
-            letter-spacing: 0.5px;
-            line-height: 1.4em;
-            color: #07095d;
-            word-break: break-all;
-        }
-    </style>
+    <title>祥安生命有限公司－往生者資料</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div align="center" id="top"></div>
-<div align="center" id="data">
-    <div>
-        <table border="0" cellpadding="0" cellspacing="0" width="100%">
-            <tbody>
-                <tr>
-                    <td align="center" class="a1" style="padding-top: 15px" valign="middle">
-                        祥安
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/t2O5PKN6DSE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <br><br>
-                        <marquee width="500" height="40" scrollamount="5" direction="left" style="font-size:1.5em; color:#8F5D00"> 有 一 種 思 念 可 以 跨 越 時 空 . . . 直 到 永 遠 </marquee>
-                        <br>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" valign="middle">
-                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                            <tbody>
-                                <tr>
-                                    <td align="center" valign="middle">
-                                        <a href="">
-                                            <img alt="" border="0" src="../upload/webstyle_default/Image/qr4_pic.gif" width="90%" style="margin-bottom:3rem;" />
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center" valign="middle">
-                                        <img alt="" border="0" src="../upload/cht/article/b5e93765f15c1c0556cf969a5e6ab690.jpg" width="90%" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center" valign="middle">
-                                        <img alt="" border="0" src="https://images2.imgbox.com/48/9d/svIb0qNB_o.gif" width="90%" />
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+    <header>
+        <h1>往生者資料</h1>
+    </header>
+
+    <main>
+        <section id="deceased-details">
+            <h2>往生者詳細資料</h2>
+            <div id="details">
+                <!-- 這裡將由 JavaScript 動態生成用戶填寫的往生者資料 -->
+            </div>
+        </section>
+
+        <section id="funeral-details">
+            <h2>出殯安排</h2>
+            <div id="funeral-info">
+                <!-- 這裡將由 JavaScript 動態生成用戶填寫的出殯安排資訊 -->
+            </div>
+        </section>
+
+        <section id="life-story">
+            <h2>生平介紹</h2>
+            <div id="story">
+                <!-- 這裡將由 JavaScript 動態生成用戶填寫的生平介紹 -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 祥安生命有限公司. 版权所有.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
