@@ -4,6 +4,9 @@ body {
     color: #343a40;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 header {
@@ -11,6 +14,7 @@ header {
     color: white;
     text-align: center;
     padding: 1em 0;
+    width: 100%;
 }
 
 h1, h2, h3 {
@@ -68,9 +72,7 @@ footer {
     text-align: center;
     padding: 1em 0;
     background-color: #f1f1f1;
-    position: absolute;
     width: 100%;
-    bottom: 0;
 }
 
 audio {
@@ -86,4 +88,25 @@ audio {
     to {
         opacity: 1;
     }
+}
+
+.message {
+    border-bottom: 1px solid #ced4da;
+    padding: 0.5em 0;
+}
+
+.music-selection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.music-selection button {
+    margin: 0.5em;
+    background-color: #28a745;
+}
+
+.music-selection button:hover {
+    background-color: #218838;
 }
