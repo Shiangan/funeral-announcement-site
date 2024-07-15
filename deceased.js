@@ -1,73 +1,63 @@
-// deceased.js
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>逝者訃聞 - 祥安生命有限公司</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>逝者訃聞</h1>
+    </header>
 
-// 用戶訃聞資料（模擬）
-const deceasedData = {
-    name: "逝者姓名",
-    birthDateType: "gregorian",
-    birthDate: "1990-01-01",
-    deathDateType: "gregorian",
-    deathDate: "2024-07-15",
-    ageType: "享年",
-    age: "34",
-    funeralSpace: "墓園地址",
-    funeralDate: "2024-07-20",
-    funeralLocation: "第二殯儀館",
-    familyServiceTime: "14:00",
-    publicServiceTime: "15:00",
-    lifeStory: "生平介紹..."
-};
+    <main>
+        <section id="deceased-details">
+            <h2>逝者資料</h2>
+            <form id="deceased-form" action="deceased.html" method="POST">
+                <label for="name">姓名:</label>
+                <input type="text" id="name" name="name" required><br><br>
 
-// 加載訃聞資料
-function loadDeceasedInfo() {
-    const deceasedDetails = document.getElementById('deceased-details');
-    deceasedDetails.innerHTML = `
-        <p><strong>逝者姓名：</strong>${deceasedData.name}</p>
-        <p><strong>出生日期：</strong>${deceasedData.birthDateType === 'gregorian' ? '國曆' : '農曆'} ${deceasedData.birthDate}</p>
-        <p><strong>死亡日期：</strong>${deceasedData.deathDateType === 'gregorian' ? '國曆' : '農曆'} ${deceasedData.deathDate}</p>
-        <p><strong>${deceasedData.ageType}：</strong>${deceasedData.age}${deceasedData.ageType}</p>
-        <p><strong>牌位安置地點：</strong>${deceasedData.funeralSpace}</p>
-        <p><strong>出殯日期：</strong>${deceasedData.funeralDate}</p>
-        <p><strong>出殯地點：</strong>${deceasedData.funeralLocation === '其他' ? deceasedData.otherFuneralLocation : deceasedData.funeralLocation}</p>
-        <p><strong>家奠禮時間：</strong>${deceasedData.familyServiceTime}</p>
-        <p><strong>公奠禮時間：</strong>${deceasedData.publicServiceTime}</p>
-        <p><strong>生平介紹：</strong>${deceasedData.lifeStory}</p>
-    `;
-}
+                <label for="birth-date">出生日期:</label>
+                <input type="date" id="birth-date" name="birth-date" required><br><br>
 
-// 加載追思照片
-function loadTributePhotos() {
-    const slideshowContainer = document.getElementById('slideshow-container');
-    const photos = [
-        'photo1.jpg',
-        'photo2.jpg',
-        'photo3.jpg'
-    ];
+                <label for="death-date">死亡日期:</label>
+                <input type="date" id="death-date" name="death-date" required><br><br>
 
-    photos.forEach(photo => {
-        const img = document.createElement('img');
-        img.src = `photos/${photo}`;
-        img.alt = '追思照片';
-        slideshowContainer.appendChild(img);
-    });
+                <label for="funeral-space">牌位安置地點:</label>
+                <input type="text" id="funeral-space" name="funeral-space"><br><br>
 
-    let slideIndex = 0;
+                <label for="funeral-date">出殯日期:</label>
+                <input type="date" id="funeral-date" name="funeral-date" required><br><br>
 
-    function showSlides() {
-        const slides = slideshowContainer.getElementsByTagName('img');
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = 'none';
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) { slideIndex = 1 }
-        slides[slideIndex - 1].style.display = 'block';
-        setTimeout(showSlides, 2000); // 切換間隔時間（ms）
-    }
+                <label for="funeral-location">出殯地點:</label>
+                <select id="funeral-location" name="funeral-location" required>
+                    <option value="第二殯儀館">第二殯儀館 禮廳</option>
+                    <option value="板橋殯儀館">板橋殯儀館 禮廳</option>
+                    <option value="其他">其他</option>
+                </select><br><br>
 
-    showSlides();
-}
+                <input type="text" id="other-funeral-location" name="other-funeral-location" placeholder="若選擇其他，請填寫地點"><br><br>
 
-// 加載訃聞資料和追思照片
-document.addEventListener('DOMContentLoaded', function () {
-    loadDeceasedInfo();
-    loadTributePhotos();
-});
+                <label for="family-service-time">家奠禮時間:</label>
+                <input type="time" id="family-service-time" name="family-service-time" required><br><br>
+
+                <label for="public-service-time">公奠禮時間:</label>
+                <input type="time" id="public-service-time" name="public-service-time" required><br><br>
+
+                <label for="life-story">生平介紹:</label><br>
+                <textarea id="life-story" name="life-story"></textarea><br><br>
+
+                <!-- 按鈕觸發 JavaScript 函式生成訃聞 -->
+                <button type="button" id="generate-details">生成訃聞</button>
+            </form>
+        </section>
+
+        <!-- 顯示動態生成的訃聞內容 -->
+        <section id="generated-content" style="display: none;">
+            <h2>生成的訃聞內容</h2>
+            <div id="deceased-content"></div>
+        </section>
+    </main>
+
