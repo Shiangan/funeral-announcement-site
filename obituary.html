@@ -3,121 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>雲端訃聞</title>
+    <title>祥安生命有限公司－雲端訃聞</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>雲端訃聞</h1>
+        <h1 id="deceased-title">逝者的雲端訃聞</h1>
     </header>
 
-    <audio id="background-music" loop autoplay>
-        <source src="宣傳.mp4" type="audio/mpeg">
-        您的瀏覽器不支持音頻播放。
-    </audio>
-
-    <section id="obituary.html">
-        <h2>往生者資料</h2>
-        <form id="deceased-form">
-            <label for="name">姓名:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="photo">照片:</label>
-            <input type="file" id="photo" name="photo" accept="image/*" required>
-            
-            <label for="birth-date-type">出生日期類型:</label>
-            <select id="birth-date-type" name="birth-date-type" required>
-                <option value="gregorian">國曆</option>
-                <option value="lunar">農曆</option>
-            </select>
-            <label for="birth-date">出生日期:</label>
-            <input type="date" id="birth-date" name="birth-date" required>
-            
-            <label for="death-date-type">死亡日期類型:</label>
-            <select id="death-date-type" name="death-date-type" required>
-                <option value="gregorian">國曆</option>
-                <option value="lunar">農曆</option>
-            </select>
-            <label for="death-date">死亡日期:</label>
-            <input type="date" id="death-date" name="death-date" required>
-            
-            <label for="age-type">享壽類型:</label>
-            <select id="age-type" name="age-type" required>
-                <option value="享年">享年</option>
-                <option value="享壽">享壽</option>
-                <option value="享耆壽">享耆壽</option>
-                <option value="享嵩壽">享嵩壽</option>
-            </select>
-            <label for="age">歲數:</label>
-            <input type="number" id="age" name="age" required>
-            
-            <label for="funeral-date">出殯日期:</label>
-            <input type="date" id="funeral-date" name="funeral-date" required>
-            <label for="funeral-location">出殯地點:</label>
-            <input type="text" id="funeral-location" name="funeral-location" required>
-            
-            <label for="life-story">生平介紹:</label>
-            <textarea id="life-story" name="life-story"></textarea>
-            
-            <button type="submit">提交</button>
-        </form>
+    <section id="announcement">
+        <div>
+            <p>我們摯愛的親人 <span id="deceased-name"></span>，於 <span id="death-date"></span> 安詳離世，距生於 <span id="birth-date"></span> <span id="age-type"></span> <span id="age"></span> 歲。</p>
+            <p>設靈於 <span id="funeral-space"></span>，儀式地點 <span id="funeral-location"></span>，日期 <span id="funeral-date"></span>。</p>
+            <p>家奠禮 <span id="family-ceremony-time"></span>，公奠禮 <span id="public-ceremony-time"></span>。</p>
+            <p>家人一同緬懷....</p>
+        </div>
     </section>
 
-    <section id="obituary" style="display:none;">
-        <h2>訃聞</h2>
-        <p id="obituary-text"></p>
-        <button id="share-button">分享</button>
+    <section id="memories">
+        <h3>回憶照片與影片</h3>
+        <input type="file" id="memory-upload" accept="image/*, video/*" multiple>
+        <div id="memory-gallery"></div>
     </section>
 
-    <section id="tributes" style="display:none;">
-        <h3>追思留言</h3>
-        <form id="tribute-form">
-            <label for="tribute-name">姓名:</label>
-            <input type="text" id="tribute-name" name="tribute-name" required>
-            <label for="tribute-message">留言:</label>
-            <textarea id="tribute-message" name="tribute-message" required></textarea>
-            <label for="tribute-photo">照片:</label>
-            <input type="file" id="tribute-photo" name="tribute-photo" accept="image/*">
-            <label for="tribute-video">影片:</label>
-            <input type="file" id="tribute-video" name="tribute-video" accept="video/*">
-            <button type="submit">提交</button>
-        </form>
-        <div id="tributes-list"></div>
+    <section id="messages">
+        <h3>追思留言區</h3>
+        <textarea id="message-input" placeholder="留下您的追思或祝福..."></textarea>
+        <button id="submit-message">提交留言</button>
+        <div id="message-list"></div>
     </section>
 
-    <section id="flower-order" style="display:none;">
-        <h2>花籃訂購</h2>
-        <form id="flower-form">
-            <label for="flower-type">花籃種類:</label>
-            <select id="flower-type" name="flower-type" required>
-                <option value="type1">種類1 - $1000</option>
-                <option value="type2">種類2 - $2000</option>
-            </select>
-            <label for="dedication">落款名單:</label>
-            <textarea id="dedication" name="dedication" required></textarea>
-            <label for="invoice">是否需要發票:</label>
-            <input type="checkbox" id="invoice" name="invoice">
-            <div id="invoice-info" style="display: none;">
-                <label for="recipient-name">收件人姓名:</label>
-                <input type="text" id="recipient-name" name="recipient-name">
-                <label for="recipient-address">收件人地址:</label>
-                <input type="text" id="recipient-address" name="recipient-address">
-            </div>
-            <label for="payment-method">付款方式:</label>
-            <select id="payment-method" name="payment-method" required>
-                <option value="line-pay">Line Pay</option>
-                <option value="bank-transfer">銀行匯款</option>
-            </select>
-            <label for="transfer-receipt">匯款單:</label>
-            <input type="file" id="transfer-receipt" name="transfer-receipt" accept="image/*">
-            <p id="total-price">總金額: $0</p>
-            <button type="submit">提交訂單</button>
-        </form>
+    <section id="map">
+        <h3>儀式地圖</h3>
+        <div id="map-container"></div>
+        <p>大眾交通方式...</p>
+    </section>
+
+    <section id="flowers">
+        <h3>致贈花籃</h3>
+        <div id="flower-options">
+            <!-- 花篮样式及价位 -->
+        </div>
+        <p>聯絡電話: 0938-179-858</p>
+        <a href="https://line.me/ti/p/your-line-id" target="_blank">聯繫我們的Line</a>
     </section>
 
     <footer>
-        <p>© 2024 祥安生命禮儀公司</p>
+        <p>&copy; 2024 祥安生命有限公司. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <audio id="background-music" loop autoplay>
+        <source src="music1.mp3" type="audio/mpeg">
+        <source src="music2.mp3" type="audio/mpeg">
+        <source src="music3.mp3" type="audio/mpeg">
+        <source src="music4.mp3" type="audio/mpeg">
+        <source src="music5.mp3" type="audio/mpeg">
+        您的瀏覽器不支持音頻播放。
+    </audio>
+
+    <script src="js/deceased.js"></script>
 </body>
 </html>
