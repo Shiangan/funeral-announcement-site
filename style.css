@@ -7,7 +7,7 @@
 
 /* 基本風格 */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
     background-color: #f2f2f2;
     padding: 20px;
@@ -51,11 +51,16 @@ input[type="date"],
 input[type="time"],
 textarea,
 select {
-    width: 100%;
+    width: calc(100% - 16px); /* 调整宽度以适应边框 */
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 14px; /* 统一字体大小 */
+}
+
+textarea {
+    min-height: 100px; /* 固定文本框高度 */
 }
 
 button {
@@ -68,6 +73,7 @@ button {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease; /* 添加过渡效果 */
 }
 
 button:hover {
