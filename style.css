@@ -5,6 +5,18 @@
     box-sizing: border-box;
 }
 
+<select id="font-choice" onchange="changeFont(this.value)">
+    <option value="Arial, sans-serif">Arial</option>
+    <option value="Helvetica, sans-serif">Helvetica</option>
+    <option value="Verdana, sans-serif">Verdana</option>
+    <option value="Tahoma, sans-serif">Tahoma</option>
+    <option value="Times New Roman, serif">Times New Roman</option>
+    <option value="Georgia, serif">Georgia</option>
+    <option value="Palatino Linotype, Book Antiqua, Palatino, serif">Palatino</option>
+    <option value="Courier New, Courier, monospace">Courier New</option>
+    <option value="Lucida Console, Monaco, monospace">Lucida Console</option>
+</select>
+
 /* 基本風格 */
 body {
     font-family: 'Arial', sans-serif;
