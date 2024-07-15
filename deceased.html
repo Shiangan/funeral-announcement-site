@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>祥安生命有限公司－訃聞詳情</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 id="deceased-name">雲端訃聞</h1>
+    </header>
+
+    <audio id="background-music" loop autoplay>
+        <source src="宣傳.mp4" type="video/mp4">
+        您的瀏覽器不支持音頻播放。
+    </audio>
+
+    <section id="announcement">
+        <img id="deceased-photo" alt="追思照片">
+        <p id="invitation">敬邀您...</p>
+        <div id="content">
+            <p id="announcement-text"></p>
+        </div>
+    </section>
+
+    <section id="memories">
+        <h2>追思回憶</h2>
+        <input type="file" id="memory-upload" accept="image/*,video/*">
+        <div id="memory-gallery"></div>
+    </section>
+
+    <section id="messages">
+        <h2>追思留言</h2>
+        <textarea id="message-input" placeholder="留下您的祝福"></textarea>
+        <button id="message-submit">提交</button>
+        <div id="message-list"></div>
+    </section>
+
+    <section id="map">
+        <h2>儀式地圖</h2>
+        <div id="map-canvas"></div>
+    </section>
+
+    <section id="flower-order">
+        <h2>致贈花籃</h2>
+        <div id="flower-gallery">
+            <!-- 添加花籃圖片和價位 -->
+        </div>
+        <button>聯絡我們</button>
+        <p>Line連結，電話0938179858</p>
+    </section>
+
+    <footer>
+        <p>2024 祥安生命有限公司</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+
+            const name = urlParams.get('name');
+            const birthDateType = urlParams.get('birth-date-type');
+            const birthDate = urlParams.get('birth-date');
+            const deathDateType = urlParams.get('death-date-type');
+            const deathDate = urlParams.get('death-date');
+            const ageType = urlParams.get('age-type');
+            const age = urlParams.get('age');
+            const funeralSpace = urlParams.get('funeral-space');
+            const funeralDate = urlParams.get('funeral-date');
+            const funeralLocation = urlParams.get('funeral-location');
+            const familyServiceTime = urlParams.get('family-service-time');
+            const publicServiceTime = urlParams.get('public-service-time');
+            const lifeStory = urlParams.get('life-story');
+            const music = urlParams.get('music');
+            const photoSrc = urlParams.get('photo');
+
+            const deceasedNameElement = document.getElementById('deceased-name');
+            const announcementTextElement = document.getElementById('announcement-text');
+            const deceasedPhotoElement = document.getElementById('deceased-photo');
+
+            deceasedNameElement.textContent = `${name}的雲端訃聞`;
+            announcementTextElement.innerHTML = `
+                <p>我們摯愛的親人${name}，於${deathDateType === 'gregorian' ? '國曆' : '農曆'}${deathDate}安詳離世，享年${age}歲。</p>
+                <p>出生於${birthDateType === 'gregorian' ? '國曆' : '農曆'}${birthDate}，${ageType}${age}歲。</p>
+                               <p>設靈於${funeralSpace}。</p>
+                <p>出殯日期為${funeralDate}，地點在${funeralLocation}。</p>
+                <p>家奠禮時間為${familyServiceTime}。</p>
+                <p>公奠禮時間為${publicServiceTime}。</p>
+                <p>${lifeStory}</p>
+            `;
+
+            deceasedPhotoElement.src = photoSrc;
+
+            const musicElement = document.getElementById('background-music');
+            const musicSourceElement = musicElement.querySelector('source');
+            musicSourceElement.src = music;
+            musicElement.load();
+            musicElement.play();
+        });
+
+        document.getElementById('message-submit').addEventListener('click', () => {
+            const messageInput = document.getElementById('message-input');
+            const messageList = document.getElementById('message-list');
+            const message = messageInput.value;
+
+            if (message.trim()) {
+                const messageItem = document.createElement('p');
+                messageItem.textContent = message;
+                messageList.appendChild(messageItem);
+                messageInput.value = '';
+            }
+        });
+
+        document.getElementById('memory-upload').addEventListener('change', function() {
+            const files = this.files;
+            const gallery = document.getElementById('memory-gallery');
+            gallery.innerHTML = ''; // Clear existing content
+
+            for (const file of files) {
+                const fileReader = new FileReader();
+                fileReader.onload = function(event) {
+                    const mediaElement = document.createElement(file.type.startsWith('image/') ? 'img' : 'video');
+                    mediaElement.src = event.target.result;
+                    mediaElement.controls = true;
+                    gallery.appendChild(mediaElement);
+                };
+                fileReader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
