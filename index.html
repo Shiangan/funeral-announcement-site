@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>祥安生命有限公司－雲端訃聞</title>
+    <title>祥安生命有限公司－雲端訃聞生成</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>雲端訃聞</h1>
+        <h1>雲端訃聞生成</h1>
     </header>
 
-    <!-- 內容部分 -->
     <main>
         <!-- 宣傳影片 -->
         <section id="promo-video">
@@ -33,65 +32,31 @@
             </select>
         </section>
 
-        <label for="font-choice">选择字体:</label>
-<select id="font-choice" onchange="changeFont(this.value)">
-    <option value="Arial, sans-serif">Arial</option>
-    <option value="Helvetica, sans-serif">Helvetica</option>
-    <option value="Verdana, sans-serif">Verdana</option>
-    <option value="Tahoma, sans-serif">Tahoma</option>
-    <option value="Times New Roman, serif">Times New Roman</option>
-    <option value="Georgia, serif">Georgia</option>
-    <option value="Palatino Linotype, Book Antiqua, Palatino, serif">Palatino</option>
-    <option value="Courier New, Courier, monospace">Courier New</option>
-    <option value="Lucida Console, Monaco, monospace">Lucida Console</option>
-</select>
+        <!-- 選擇字體 -->
+        <section id="font-selection">
+            <label for="font-choice">選擇字體:</label>
+            <select id="font-choice" onchange="changeFont(this.value)">
+                <option value="Arial, sans-serif">Arial</option>
+                <option value="Helvetica, sans-serif">Helvetica</option>
+                <option value="Verdana, sans-serif">Verdana</option>
+                <option value="Tahoma, sans-serif">Tahoma</option>
+                <option value="Times New Roman, serif">Times New Roman</option>
+                <option value="Georgia, serif">Georgia</option>
+                <option value="Palatino Linotype, Book Antiqua, Palatino, serif">Palatino</option>
+                <option value="Courier New, Courier, monospace">Courier New</option>
+                <option value="Lucida Console, Monaco, monospace">Lucida Console</option>
+            </select>
+        </section>
 
         <!-- 往生者資料表單 -->
         <section id="deceased-info">
             <h2>往生者資料</h2>
-            <form id="deceased-form" action="deceased.html" method="POST">
-    <!-- 表單內容 -->
-    <label for="name">姓名:</label>
-    <input type="text" id="name" name="name" required>
-    <label for="photo">追思照片:</label>
-    <input type="file" id="photo" name="photo" accept="image/*" required>
-    
-    <label for="birth-date">出生日期:</label>
-    <input type="date" id="birth-date" name="birth-date" required>
-    
-    <label for="death-date">死亡日期:</label>
-    <input type="date" id="death-date" name="death-date" required>
-    
-    <label for="funeral-space">牌位安置地點:</label>
-    <textarea id="funeral-space" name="funeral-space"></textarea>
-    
-    <label for="funeral-date">出殯日期:</label>
-    <input type="date" id="funeral-date" name="funeral-date" required>
-    
-    <label for="funeral-location">出殯地點:</label>
-    <select id="funeral-location" name="funeral-location" required>
-        <option value="第二殯儀館">第二殯儀館 禮廳</option>
-        <option value="板橋殯儀館">板橋殯儀館 禮廳</option>
-        <option value="其他">其他</option>
-    </select>
-    <input type="text" id="other-funeral-location" name="other-funeral-location" placeholder="若選擇其他，請填寫地點">
-    
-    <label for="family-service-time">家奠禮時間:</label>
-    <input type="time" id="family-service-time" name="family-service-time" required>
+            <form id="deceased-form" action="deceased.html" method="GET">
+                <label for="name">姓名:</label>
+                <input type="text" id="name" name="name" required>
 
-    <label for="public-service-time">公奠禮時間:</label>
-    <input type="time" id="public-service-time" name="public-service-time" required>
-    
-    <label for="life-story">生平介紹:</label>
-    <textarea id="life-story" name="life-story"></textarea>
-    
-    <!-- 提交按鈕 -->
-    <button type="submit" formaction="deceased.html">提交</button>
-</form>
+                <label for="photo">追思照片:</label>
+                <input type="file" id="photo" name="photo" accept="image/*" required>
 
-            <footer>
-    <p>&copy; 2024 祥安生命有限公司. 版权所有.</p>
-</footer>
-
-</body>
-</html>
+                <label for="birth-date">出生日期:</label>
+                <input type="​⬤
