@@ -1,41 +1,29 @@
-/* Reset CSS */
-* {
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    color: #333;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-<select id="font-choice" onchange="changeFont(this.value)">
-    <option value="Arial, sans-serif">Arial</option>
-    <option value="Helvetica, sans-serif">Helvetica</option>
-    <option value="Verdana, sans-serif">Verdana</option>
-    <option value="Tahoma, sans-serif">Tahoma</option>
-    <option value="Times New Roman, serif">Times New Roman</option>
-    <option value="Georgia, serif">Georgia</option>
-    <option value="Palatino Linotype, Book Antiqua, Palatino, serif">Palatino</option>
-    <option value="Courier New, Courier, monospace">Courier New</option>
-    <option value="Lucida Console, Monaco, monospace">Lucida Console</option>
-</select>
-
-/* 基本風格 */
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-
-header {
+header, footer {
     text-align: center;
-    padding: 20px 0;
-    background-color: #333;
-    color: #fff;
+    padding: 20px;
+    background-color: #f1f1f1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1, footer p {
+    margin: 0;
 }
 
 main {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 section {
@@ -43,61 +31,98 @@ section {
 }
 
 h2 {
-    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    color: #666;
+}
+
+#photo-section {
+    text-align: center;
+}
+
+#photo-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+#details-section p {
+    margin: 10px 0;
 }
 
 form {
-    background-color: #fff;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form label {
+    color: #666;
+}
+
+form input[type="text"],
+form input[type="date"],
+form input[type="time"],
+form input[type="file"],
+form textarea,
+form select {
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
+form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-input[type="text"],
-input[type="date"],
-input[type="time"],
-textarea,
-select {
-    width: calc(100% - 16px); /* 调整宽度以适应边框 */
-    padding: 8px;
+form button:hover {
+    background-color: #45a049;
+}
+
+#messages {
+    margin-top: 20px;
+}
+
+.message {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px; /* 统一字体大小 */
+}
+
+#music-selection, #font-selection {
+    margin-bottom: 20px;
+}
+
+select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+#promo-video {
+    text-align: center;
+}
+
+#promo-video video {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+h2 {
+    font-family: 'Georgia, serif';
 }
 
 textarea {
-    min-height: 100px; /* 固定文本框高度 */
-}
-
-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease; /* 添加过渡效果 */
-}
-
-button:hover {
-    background-color: #555;
-}
-
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #333;
-    color: #fff;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    resize: vertical;
 }
