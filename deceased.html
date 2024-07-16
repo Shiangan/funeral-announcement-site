@@ -3,34 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>祥安生命有限公司－往生者資料</title>
+    <title>祥安生命有限公司－訃聞</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>往生者資料</h1>
+        <h1>訃聞</h1>
     </header>
 
     <main>
-        <section id="deceased-details">
-            <h2>往生者詳細資料</h2>
-            <div id="details">
-                <!-- 這裡將由 JavaScript 動態生成用戶填寫的往生者資料 -->
+        <!-- 往生者訃聞內容 -->
+        <section id="obituary-content">
+            <div id="photo-section">
+                <img id="deceased-photo" src="#" alt="往生者照片">
+            </div>
+            <div id="details-section">
+                <h2 id="deceased-name"></h2>
+                <p>生平介紹：</p>
+                <p id="life-story-text"></p>
+                <p>出生日期：<span id="birth-date-text"></span></p>
+                <p>死亡日期：<span id="death-date-text"></span></p>
+                <p>牌位安置地點：<span id="funeral-space-text"></span></p>
+                <p>出殯日期：<span id="funeral-date-text"></span></p>
+                <p>出殯地點：<span id="funeral-location-text"></span></p>
+                <p>家奠禮時間：<span id="family-service-time-text"></span></p>
+                <p>公奠禮時間：<span id="public-service-time-text"></span></p>
             </div>
         </section>
 
-        <section id="funeral-details">
-            <h2>出殯安排</h2>
-            <div id="funeral-info">
-                <!-- 這裡將由 JavaScript 動態生成用戶填寫的出殯安排資訊 -->
+        <!-- 留言區 -->
+        <section id="messages-section">
+            <h2>留言區</h2>
+            <div id="messages">
+                <!-- 留言會顯示在這裡 -->
             </div>
+            <form id="message-form">
+                <label for="message-input">留言：</label>
+                <textarea id="message-input" rows="4" required></textarea>
+                <button type="submit">發送留言</button>
+            </form>
         </section>
 
-        <section id="life-story">
-            <h2>生平介紹</h2>
-            <div id="story">
-                <!-- 這裡將由 JavaScript 動態生成用戶填寫的生平介紹 -->
-            </div>
+        <!-- 訂購花籃 -->
+        <section id="flower-orders-section">
+            <h2>訂購花籃</h2>
+            <form id="flower-order-form">
+                <label for="sender-name">訂購人姓名：</label>
+                <input type="text" id="sender-name" required>
+                
+                <label for="recipient-name">收件人姓名：</label>
+                <input type="text" id="recipient-name" required>
+                
+                <label for="recipient-address">收件人地址：</label>
+                <input type="text" id="recipient-address" required>
+                
+                <label for="invoice">是否需要發票：</label>
+                <select id="invoice" required>
+                    <option value="no">否</option>
+                    <option value="yes">是</option>
+                </select>
+                
+                <label for="flower-basket-message">花籃留言：</label>
+                <textarea id="flower-basket-message" rows="4" required></textarea>
+                
+                <button type="submit">訂購花籃</button>
+            </form>
         </section>
     </main>
 
@@ -38,6 +75,7 @@
         <p>&copy; 2024 祥安生命有限公司. 版权所有.</p>
     </footer>
 
+    <audio id="background-music" src="" preload="auto" loop></audio> <!-- 背景音樂 -->
     <script src="script.js"></script>
 </body>
 </html>
