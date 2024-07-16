@@ -1,44 +1,69 @@
-// 獲取URL中的查詢參數
-const urlParams = new URLSearchParams(window.location.search);
-
-// 檢查查詢參數中是否有從index.html傳遞過來的資料
-if (urlParams.has('name') && urlParams.has('birth-date') && urlParams.has('death-date')) {
-    // 獲取填寫的資料
+document.addEventListener('DOMContentLoaded', function() {
+    // 從 URL 參數中獲取資料
+    const urlParams = new URLSearchParams(window.location.search);
     const name = urlParams.get('name');
     const birthDate = urlParams.get('birth-date');
     const deathDate = urlParams.get('death-date');
-    const funeralSpace = urlParams.has('funeral-space') ? urlParams.get('funeral-space') : '';
+    const funeralSpace = urlParams.get('funeral-space');
     const funeralDate = urlParams.get('funeral-date');
     const funeralLocation = urlParams.get('funeral-location');
+    const otherFuneralLocation = urlParams.get('other-funeral-location');
     const familyServiceTime = urlParams.get('family-service-time');
     const publicServiceTime = urlParams.get('public-service-time');
-    const lifeStory = urlParams.has('life-story') ? urlParams.get('life-story') : '';
+    const lifeStory = urlParams.get('life-story');
+    const musicChoice = urlParams.get('music-choice');
 
-    // 更新往生者詳細資料區域
-    const deceasedDetails = `
-        <p><strong>姓名:</strong> ${name}</p>
-        <p><strong>出生日期:</strong> ${birthDate}</p>
-        <p><strong>逝世日期:</strong> ${deathDate}</p>
-    `;
-    document.getElementById('details').innerHTML = deceasedDetails;
+    // 填充訃聞內容
+    document.getElementById('deceased-name').textContent = name;
+    document.getElementById('birth-date-text').textContent = birthDate;
+    document.getElementById('death-date-text').textContent = deathDate;
+    document.getElementById('funeral-space-text').textContent = funeralSpace;
+    document.getElementById('funeral-date-text').textContent = funeralDate;
+    document.getElementById('funeral-location-text').textContent = funeralLocation === '其他' ? otherFuneralLocation : funeralLocation;
+    document.getElementById('family-service-time-text').textContent = familyServiceTime;
+    document.getElementById('public-service-time-text').textContent = publicServiceTime;
+    document.getElementById('life-story-text').textContent = lifeStory;
 
-    // 更新出殯安排區域
-    const funeralDetails = `
-        <p><strong>牌位安置地點:</strong> ${funeralSpace}</p>
-        <p><strong>出殯日期:</strong> ${funeralDate}</p>
-        <p><strong>出殯地點:</strong> ${funeralLocation === '其他' ? urlParams.get('other-funeral-location') : funeralLocation}</p>
-        <p><strong>家奠禮時間:</strong> ${familyServiceTime}</p>
-        <p><strong>公奠禮時間:</strong> ${publicServiceTime}</p>
-    `;
-    document.getElementById('funeral-info').innerHTML = funeralDetails;
+    // 設置背景音樂
+    const backgroundMusic = document.getElementById('background-music');
+    backgroundMusic.src = musicChoice;
+    backgroundMusic.play();
 
-    // 更新生平介紹區域
-    const lifeStoryContent = `
-        <p>${lifeStory}</p>
-    `;
-    document.getElementById('story').innerHTML = lifeStoryContent;
-} else {
-    // 如果沒有填寫資料，可以顯示提示或導向回首頁等操作
-    alert('沒有找到有效的往生者資料。請填寫資料後再試一次。');
-    window.location.href = 'index.html';
-}
+    // 處理照片上傳
+    const photoUpload = urlParams.get('photo');
+    if (photoUpload) {
+        document.getElementById('deceased-photo').src = photoUpload;
+    }
+
+    // 留言表單提交
+    document.getElementById('message-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const message = document.getElementById('message-input').value.trim();
+        if (message === '') return;
+
+        const messagesDiv = document.getElementById('messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message';
+        messageDiv.textContent = message;
+        messagesDiv.appendChild(messageDiv);
+
+        document.getElementById('message-form').reset(); // 清空留言表單
+    });
+
+    // 花籃訂購表單提交
+    document.getElementById('flower-order-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const senderName = document.getElementById('sender-name').value.trim();
+        const recipientName = document.getElementById('recipient-name').value.trim();
+        const recipientAddress = document.getElementById('recipient-address').value.trim();
+        const invoice = document.getElementById('invoice').value;
+        const flowerBasketMessage = document.getElementById('flower-basket-message').value.trim();
+
+        // 顯示訂購信息（這裡只是模擬顯示）
+        alert(`訂購人姓名: ${senderName}\n收件人姓名: ${recipientName}\n收件人地址: ${recipientAddress}\n是否需要發票: ${invoice}\n花籃留言: ${flowerBasketMessage}`);
+
+        // 清空訂購表單
+        document.getElementById('flower-order-form').reset();
+    });
+});
