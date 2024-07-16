@@ -3,60 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>祥安生命有限公司－雲端訃聞生成</title>
+    <title>祥安生命有限公司－訃聞詳情</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>雲端訃聞生成</h1>
+        <h1>訃聞詳情</h1>
     </header>
 
     <main>
-        <!-- 宣傳影片 -->
-        <section id="promo-video">
-            <video autoplay muted loop controls>
-                <source src="宣傳.mp4" type="video/mp4">
-                您的瀏覽器不支持視頻播放。
-            </video>
-        </section>
-
-        <!-- 選擇背景音樂 -->
-        <section id="music-selection">
-            <h2>選擇背景音樂</h2>
-            <select id="music-choice" required>
-                <option value="audio/music1.mp3">音樂1</option>
-                <option value="audio/music2.mp3">音樂2</option>
-                <option value="audio/music3.mp3">音樂3</option>
-                <option value="audio/music4.mp3">音樂4</option>
-                <option value="audio/music5.mp3">音樂5</option>
-            </select>
-        </section>
-
-        <!-- 選擇字體 -->
-        <section id="font-selection">
-            <label for="font-choice">選擇字體:</label>
-            <select id="font-choice" onchange="changeFont(this.value)">
-                <option value="Arial, sans-serif">Arial</option>
-                <option value="Helvetica, sans-serif">Helvetica</option>
-                <option value="Verdana, sans-serif">Verdana</option>
-                <option value="Tahoma, sans-serif">Tahoma</option>
-                <option value="Times New Roman, serif">Times New Roman</option>
-                <option value="Georgia, serif">Georgia</option>
-                <option value="Palatino Linotype, Book Antiqua, Palatino, serif">Palatino</option>
-                <option value="Courier New, Courier, monospace">Courier New</option>
-                <option value="Lucida Console, Monaco, monospace">Lucida Console</option>
-            </select>
-        </section>
-
-        <!-- 往生者資料表單 -->
+        <!-- 往生者資訊 -->
         <section id="deceased-info">
-            <h2>往生者資料</h2>
-            <form id="deceased-form" action="deceased.html" method="GET">
-                <label for="name">姓名:</label>
-                <input type="text" id="name" name="name" required>
+            <img id="deceased-photo" alt="追思照片">
+            <h2 id="deceased-name"></h2>
+            <p>出生日期: <span id="birth-date-text"></span></p>
+            <p>死亡日期: <span id="death-date-text"></span></p>
+            <p>牌位安置地點: <span id="funeral-space-text"></span></p>
+            <p>出殯日期: <span id="funeral-date-text"></span></p>
+            <p>出殯地點: <span id="funeral-location-text"></span></p>
+            <p>家奠禮時間: <span id="family-service-time-text"></span></p>
+            <p>公奠禮時間: <span id="public-service-time-text"></span></p>
+            <p>生平介紹: <span id="life-story-text"></span></p>
+        </section>
 
-                <label for="photo">追思照片:</label>
-                <input type="file" id="photo" name="photo" accept="image/*" required>
+        <!-- 留言區 -->
+        <section id="messages-section">
+            <h2>留言區</h2>
+            <div id="messages"></div>
+            <form id="message-form">
+                <label for="message-input">您的留言:</label>
+                <textarea id="message-input" required></textarea>
+                <button type="submit">提交留言</button>
+            </form>
+        </section>
 
-                <label for="birth-date">出生日期:</label>
-                <input type="​⬤
+        <!-- 花籃訂購區 -->
+        <section id="flower-order-section">
+            <h2>訂購花籃</h2>
+            <form id="flower-order-form">
+                <label for="sender-name">訂購人姓名:</label>
+                <input type="text" id="sender-name" required>
+                <label for="recipient-name">收件人姓名:</label>
+                <input type="text" id="recipient-name" required>
+                <label for="recipient-address">收件人地址:</label>
+                <input type="text" id="recipient-address" required>
+                <label for="invoice">是否需要發票:</label>
+                <select id="invoice">
+                    <option value="是">是</option>
+                    <option value="否">否</option>
+                </select>
+                <label for="flower-basket-message">花籃留言:</label>
+                <textarea id="flower-basket-message" required></textarea>
+                <button type="submit">訂購花籃</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 祥安生命有限公司. 版权所有.</p>
+    </footer>
+
+    <audio id="background-music" loop></audio>
+    <script src="script.js"></script>
+</body>
+</html>
