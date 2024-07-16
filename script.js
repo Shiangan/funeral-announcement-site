@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const publicServiceTime = urlParams.get('public-service-time');
     const lifeStory = urlParams.get('life-story');
     const musicChoice = urlParams.get('music-choice');
+    const fontChoice = urlParams.get('font-choice') || 'Arial, sans-serif';
 
     // 填充訃聞內容
     document.getElementById('deceased-name').textContent = name;
@@ -34,6 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (photoUpload) {
         document.getElementById('deceased-photo').src = photoUpload;
     }
+
+    // 設置字體
+    changeFont(fontChoice);
 
     // 留言表單提交
     document.getElementById('message-form').addEventListener('submit', function(event) {
@@ -66,4 +70,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // 清空訂購表單
         document.getElementById('flower-order-form').reset();
     });
+
+    // 字體選擇變更
+    document.getElementById('font-choice').addEventListener('change', function() {
+        const selectedFont = this.value;
+        changeFont(selectedFont);
+    });
+
+    function changeFont(font) {
+        document.body.style.fontFamily = font;
+    }
 });
