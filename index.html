@@ -1,69 +1,189 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>祥安生命有限公司－訃聞詳情</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Funeral Announcement</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+    <script>
+        function initMap() {
+            var address = "{{ data['ceremony_address'] }}";
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ 'address': address }, function(results, status) {
+                if (status === 'OK') {
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 15,
+                        center: results[0].geometry.location
+                    });
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #f0f8ff, #e6e6fa);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+        #logo {
+            width: 50px;
+            height: 50px;
+            float: left;
+            margin-left: 20px;
+        }
+        h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input, textarea, button {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        button {
+            background: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #555;
+        }
+        #map {
+            height: 400px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 20px;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>訃聞詳情</h1>
-    </header>
-
-    <main>
-        <!-- 往生者資訊 -->
-        <section id="deceased-info">
-            <img id="deceased-photo" alt="追思照片">
-            <h2 id="deceased-name"></h2>
-            <p>出生日期: <span id="birth-date-text"></span></p>
-            <p>死亡日期: <span id="death-date-text"></span></p>
-            <p>牌位安置地點: <span id="funeral-space-text"></span></p>
-            <p>出殯日期: <span id="funeral-date-text"></span></p>
-            <p>出殯地點: <span id="funeral-location-text"></span></p>
-            <p>家奠禮時間: <span id="family-service-time-text"></span></p>
-            <p>公奠禮時間: <span id="public-service-time-text"></span></p>
-            <p>生平介紹: <span id="life-story-text"></span></p>
-        </section>
-
-        <!-- 留言區 -->
-        <section id="messages-section">
-            <h2>留言區</h2>
-            <div id="messages"></div>
-            <form id="message-form">
-                <label for="message-input">您的留言:</label>
-                <textarea id="message-input" required></textarea>
-                <button type="submit">提交留言</button>
-            </form>
-        </section>
-
-        <!-- 花籃訂購區 -->
-        <section id="flower-order-section">
-            <h2>訂購花籃</h2>
-            <form id="flower-order-form">
-                <label for="sender-name">訂購人姓名:</label>
-                <input type="text" id="sender-name" required>
-                <label for="recipient-name">收件人姓名:</label>
-                <input type="text" id="recipient-name" required>
-                <label for="recipient-address">收件人地址:</label>
-                <input type="text" id="recipient-address" required>
-                <label for="invoice">是否需要發票:</label>
-                <select id="invoice">
-                    <option value="是">是</option>
-                    <option value="否">否</option>
-                </select>
-                <label for="flower-basket-message">花籃留言:</label>
-                <textarea id="flower-basket-message" required></textarea>
-                <button type="submit">訂購花籃</button>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 祥安生命有限公司. 版权所有.</p>
-    </footer>
-
-    <audio id="background-music" loop></audio>
-    <script src="script.js"></script>
-</body>
-</html>
+<body onload="initMap()">
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funeral Announcement</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+    <script>
+        function initMap() {
+            var address = "{{ data['ceremony_address'] }}";
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ 'address': address }, function(results, status) {
+                if (status === 'OK') {
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 15,
+                        center: results[0].geometry.location
+                    });
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #f0f8ff, #e6e6fa);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+        #logo {
+            width: 50px;
+            height: 50px;
+            float: left;
+            margin-left: 20px;
+        }
+        h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input, textarea, button {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        button {
+            background: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #555;
+        }
+        #map {
+            height: 400px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body onload="initMap()">
+   
