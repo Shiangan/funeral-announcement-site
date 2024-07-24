@@ -1,189 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>Funeral Announcement</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
-    <script>
-        function initMap() {
-            var address = "{{ data['ceremony_address'] }}";
-            var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({ 'address': address }, function(results, status) {
-                if (status === 'OK') {
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 15,
-                        center: results[0].geometry.location
-                    });
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: results[0].geometry.location
-                    });
-                } else {
-                    alert('Geocode was not successful for the following reason: ' + status);
-                }
-            });
-        }
-    </script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom right, #f0f8ff, #e6e6fa);
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1em 0;
-            text-align: center;
-        }
-        #logo {
-            width: 50px;
-            height: 50px;
-            float: left;
-            margin-left: 20px;
-        }
-        h1 {
-            font-size: 2em;
-            margin: 0;
-        }
-        section {
-            margin: 20px;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            margin-top: 10px;
-        }
-        input, textarea, button {
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1em;
-        }
-        button {
-            background: #333;
-            color: #fff;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #555;
-        }
-        #map {
-            height: 400px;
-            width: 100%;
-            margin-top: 20px;
-        }
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1em 0;
-            margin-top: 20px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>祥安生命 - 訃聞公告</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body onload="initMap()">
-   <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Funeral Announcement</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
-    <script>
-        function initMap() {
-            var address = "{{ data['ceremony_address'] }}";
-            var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({ 'address': address }, function(results, status) {
-                if (status === 'OK') {
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 15,
-                        center: results[0].geometry.location
-                    });
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: results[0].geometry.location
-                    });
-                } else {
-                    alert('Geocode was not successful for the following reason: ' + status);
-                }
-            });
-        }
-    </script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom right, #f0f8ff, #e6e6fa);
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1em 0;
-            text-align: center;
-        }
-        #logo {
-            width: 50px;
-            height: 50px;
-            float: left;
-            margin-left: 20px;
-        }
-        h1 {
-            font-size: 2em;
-            margin: 0;
-        }
-        section {
-            margin: 20px;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            margin-top: 10px;
-        }
-        input, textarea, button {
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1em;
-        }
-        button {
-            background: #333;
-            color: #fff;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #555;
-        }
-        #map {
-            height: 400px;
-            width: 100%;
-            margin-top: 20px;
-        }
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1em 0;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body onload="initMap()">
-   
+<body>
+    <header>
+        <img src="logo.jpg" alt="Logo" id="logo">
+        <h1>祥安生命禮儀公司</h1>
+        <nav>
+            <a href="announcement.html">提交公告</a>
+            <a href="tributes.html">追思留言</a>
+            <a href="photos.html">追思照片</a>
+            <a href="contact.html">联系我们</a>
+        </nav>
+    </header>
+    <main>
+        <section id="welcome">
+            <h2>欢迎来到祥安生命</h2>
+            <p>我们提供专业的讣闻公告服务，为您和您的亲人提供温暖的告别方式。</p>
+        </section>
+        <section id="features">
+            <div class="feature">
+                <h3>提交公告</h3>
+                <p><a href="announcement.html">点击这里提交讣闻公告</a></p>
+            </div>
+            <div class="feature">
+                <h3>追思留言</h3>
+                <p><a href="tributes.html">点击这里留下追思留言</a></p>
+            </div>
+            <div class="feature">
+                <h3>追思照片</h3>
+                <p><a href="photos.html">点击这里上传追思照片</a></p>
+            </div>
+            <div class="feature">
+                <h3>联系我们</h3>
+                <p><a href="contact.html">点击这里联系我们</a></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 祥安生命禮儀公司</p>
+    </footer>
+</body>
+</html>
