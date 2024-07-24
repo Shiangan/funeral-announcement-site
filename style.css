@@ -1,128 +1,81 @@
+/* 通用样式 */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #f8f9fa, #e9ecef);
-    color: #333;
     margin: 0;
     padding: 0;
+    color: #333;
+    background: #f9f9f9;
 }
 
-header, footer {
-    text-align: center;
+header {
+    background: #004d40;
+    color: #fff;
     padding: 20px;
-    background-color: #f1f1f1;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-header h1, footer p {
-    margin: 0;
+header img {
+    max-width: 150px;
+    height: auto;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
 }
 
 main {
-    max-width: 800px;
-    margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
 }
 
 section {
     margin-bottom: 20px;
 }
 
+h1, h2 {
+    margin: 0;
+}
+
+h1 {
+    font-size: 2em;
+}
+
 h2 {
-    border-bottom: 1px solid #ccc;
+    font-size: 1.5em;
+    border-bottom: 2px solid #004d40;
     padding-bottom: 10px;
-    color: #666;
 }
 
-#photo-section {
+footer {
+    background: #004d40;
+    color: #fff;
     text-align: center;
-}
-
-#photo-section img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-#details-section p {
-    margin: 10px 0;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-form label {
-    color: #666;
-}
-
-form input[type="text"],
-form input[type="date"],
-form input[type="time"],
-form input[type="file"],
-form textarea,
-form select {
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
 }
 
-form button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
+button {
+    background: #004d40;
+    color: #fff;
     border: none;
-    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1em;
 }
 
-form button:hover {
-    background-color: #45a049;
+button:hover {
+    background: #00332a;
 }
 
-#messages {
-    margin-top: 20px;
-}
-
-.message {
-    background-color: #f1f1f1;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-}
-
-#music-selection, #font-selection {
-    margin-bottom: 20px;
-}
-
-select {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+form input, form textarea {
     width: 100%;
-}
-
-#promo-video {
-    text-align: center;
-}
-
-#promo-video video {
-    width: 100%;
-    max-width: 600px;
-    border-radius: 10px;
-}
-
-h2 {
-    font-family: 'Georgia, serif';
-}
-
-textarea {
-    resize: vertical;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
