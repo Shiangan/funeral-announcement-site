@@ -1,59 +1,126 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 从本地存储获取訃聞数据
-    const obituaryData = JSON.parse(localStorage.getItem('obituaryData'));
-    if (obituaryData) {
-        document.getElementById('obituary-name').textContent = `逝者姓名：${obituaryData.name}`;
-        document.getElementById('obituary-birth-date').textContent = `出生日期：${obituaryData.birthDate}`;
-        document.getElementById('obituary-death-date').textContent = `死亡日期：${obituaryData.deathDate}`;
-        document.getElementById('obituary-death-time').textContent = `死亡時間：${obituaryData.deathTime}`;
-        document.getElementById('obituary-place-name').textContent = `牌位安靈地點：${obituaryData.placeName}`;
-        document.getElementById('obituary-funeral-date').textContent = `出殯日期：${obituaryData.funeralDate}`;
-        document.getElementById('obituary-funeral-location').textContent = `出殯地點：${obituaryData.funeralLocation}`;
-        document.getElementById('obituary-hall').textContent = `禮廳：${obituaryData.hall}`;
-        const obituaryPhoto = document.getElementById('obituary-photo');
-        obituaryPhoto.src = obituaryData.photo;
-        obituaryPhoto.style.opacity = 0;
-        obituaryPhoto.onload = () => {
-            obituaryPhoto.style.transition = 'opacity 1s';
-            obituaryPhoto.style.opacity = 1;
-        };
+// 等待文档加载完成
+document.addEventListener('DOMContentLoaded', function() {
+
+    // 初始化 Google Maps
+    if (document.getElementById('map')) {
+        const map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 25.0330, lng: 121.5654 }, // 默认位置
+            zoom: 15
+        });
+
+        const geocoder = new google.maps.Geocoder();
+        const address = document.getElementById('ceremony_address') ? document.getElementById('ceremony_address').value : '';
+        if (address) {
+            geocoder.geocode({ 'address': address }, function(results, status) {
+                if (status === 'OK') {
+                    map.setCenter(results[0].geometry.location);
+                    new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    console.error('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
     }
 
-    document.getElementById('share-line').addEventListener('click', () => {
-        alert('分享到Line');
-    });
+    // 提交公告表单
+    const announcementForm = document.getElementById('announcement-form');
+    if (announcementForm) {
+        announcementForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(announcementForm);
+            fetch('/submit-announcement', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    window.location.href = "/announcement/" + data.announcement_id;
+                } else {
+                    console.error('公告提交失败:', data.message);
+                }
+            })
+            .catch(error => console.error('提交失败:', error));
+        });
+    }
 
-    document.getElementById('share-facebook').addEventListener('click', () => {
-        alert('分享到Facebook');
-    });
+    // 提交追思留言表单
+    const tributeForm = document.getElementById('tribute-form');
+    if (tributeForm) {
+        tributeForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(tributeForm);
+            fetch('/leave-tribute', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    const tributesDiv = document.getElementById('tributes');
+                    const p = document.createElement('p');
+                    p.innerHTML = `<strong>${data.name}</strong>: ${data.message}`;
+                    tributesDiv.appendChild(p);
+                } else {
+                    console.error('留言提交失败:', data.message);
+                }
+            })
+            .catch(error => console.error('提交失败:', error));
+        });
+    }
 
-    document.getElementById('share-sms').addEventListener('click', () => {
-        alert('分享簡訊');
-    });
+    // 提交照片上传表单
+    const photoUploadForm = document.getElementById('photo-upload-form');
+    if (photoUploadForm) {
+        photoUploadForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(photoUploadForm);
+            fetch('/upload-photo', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    const photosDiv = document.getElementById('photos');
+                    const img = document.createElement('img');
+                    img.src = data.filename;
+                    img.alt = '追思照片';
+                    img.style.width = '100px';
+                    img.style.height = '100px';
+                    photosDiv.appendChild(img);
+                } else {
+                    console.error('照片上传失败:', data.message);
+                }
+            })
+            .catch(error => console.error('上传失败:', error));
+        });
+    }
 
-    document.getElementById('submit-tribute').addEventListener('click', () => {
-        const message = document.getElementById('tribute-message').value;
-        if (message.trim()) {
-            const tributeList = document.getElementById('tribute-list');
-            const newTribute = document.createElement('div');
-            newTribute.textContent = message;
-            tributeList.appendChild(newTribute);
-            document.getElementById('tribute-message').value = '';
-        }
-    });
+    // 提交联系表单
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(contactForm);
+            fetch('/contact', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('感谢您的留言，我们会尽快与您联系。');
+                    contactForm.reset();
+                } else {
+                    console.error('留言提交失败:', data.message);
+                }
+            })
+            .catch(error => console.error('提交失败:', error));
+        });
+    }
 
-    const flowerForm = document.getElementById('flower-form');
-    flowerForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const formData = new FormData(flowerForm);
-        const orderDetails = {
-            flowerStyle: formData.get('flower-style'),
-            invoice: formData.get('invoice'),
-            contactName: formData.get('contact-name'),
-            recipientName: formData.get('recipient-name'),
-            recipientAddress: formData.get('recipient-address')
-        };
-        console.log(orderDetails);
-        flowerForm.reset();
-    });
 });
