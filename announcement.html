@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funeral Announcement</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+    <script>
+        function initMap() {
+            var address = "{{ data['ceremony_address'] }}";
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ 'address': address }, function(results, status) {
+                if (status === 'OK') {
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 15,
+                        center: results[0].geometry.location
+                    });
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+    </script>
+</head>
+<body onload="initMap()">
+    <header>
+        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" id="logo">
+        <h1>祥安生命禮儀公司</h1>
+    </header>
+    <section>
+        <h2>訃聞公告</h2>
+        <form id="announcement-form" action="/submit-announcement" method="post">
+            <label for="deceased_name">姓名：</label>
+            <input type="text" id="deceased_name" name="deceased_name" required>
+            <label for="birthdate">出生日期：</label>
+            <input type="date" id="birthdate" name="birthdate" required>
+            <label for="deathdate">逝世日期：</label>
+            <input type="date" id="deathdate" name="deathdate" required>
+            <label for="age">享年：</label>
+            <input type="number" id="age" name="age" required>
+            <label for="story">生平：</label>
+            <textarea id="story" name="story" required></textarea>
+            <label for="ceremony_address">儀式地址：</label>
+            <input type="text" id="ceremony_address" name="ceremony_address" required>
+            <label for="funeral_date">公奠日期：</label>
+            <input type="date" id="funeral_date" name="funeral_date" required>
+            <label for="funeral_time">公奠時間：</label>
+            <input type="time" id="funeral_time" name="funeral_time" required>
+            <button type="submit">提交</button>
+        </form>
+        <div id="map" style="height: 400px; width: 100%;"></div>
+    </section>
+    <section>
+        <h2>追思留言區</h2>
+        <form id="tribute-form">
+            <label for="tribute_name">姓名：</label>
+            <input type="text" id="tribute_name" name="tribute_name" required>
+            <label for="tribute_message">留言：</label>
+            <textarea id="tribute_message" name="tribute_message" required></textarea>
+            <button type="submit">提交</button>
+        </form>
+        <div id="tributes">
+            {% for tribute in tributes %}
+                <p><strong>{{ tribute.name }}</strong>: {{ tribute.message }}</p>
+            {% endfor %}
+        </div>
+    </section>
+    <section>
+        <h2>追思照片</h2>
+        <form id="photo-upload-form" enctype="multipart/form-data">
+            <label for="photo_upload">上傳照片：</label>
+            <input type="file" id="photo_upload" name="photo_upload" required>
+            <button type="submit">上傳</button>
+        </form>
+        <div id="photos">
+            {% for photo in photos %}
+                <img src="{{ url_for('static', filename=photo.filename.split('/')[-1]) }}" alt="追思照片" style="width: 100px; height: 100px;">
+            {% endfor %}
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 祥安生命禮儀公司</p>
+    </footer>
+    <script>
+        document.getElementById('tribute-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            fetch('/leave-tribute', {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    var tributesDiv = document.getElementById('tributes');
+                    var p = document.createElement('p');
+                    p.innerHTML = '<strong>' + data.name + '</strong>: ' + data.message;
+                    tributesDiv.appendChild(p);
+                }
+            });
+        });
+
+        document.getElementById('photo-upload-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            fetch('/upload-photo', {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    var photosDiv = document.getElementById('photos');
+                    var img = document.createElement('img');
+                    img.src = data.filename;
+                    img.alt = '追思照片';
+                    img.style.width = '100px';
+                    img.style.height = '100px';
+                    photosDiv.appendChild(img);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
