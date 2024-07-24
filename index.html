@@ -3,104 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>祥安生命 - 云端讣闻公告</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY" async defer></script>
+    <title>祥安生命 - 訃聞公告</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <img src="logo.jpg" alt="祥安生命" id="logo">
-        <h1>祥安生命礼仪公司</h1>
-        <nav>
-            <a href="#announcement">讣闻公告</a>
-            <a href="#tributes">追思留言</a>
-            <a href="#photos">追思照片</a>
-            <a href="#flowers">花篮订购</a>
-        </nav>
+        <img src="logo.jpg" alt="Logo" id="logo">
+        <h1>祥安生命禮儀公司</h1>
     </header>
-
-    <section id="announcement">
-        <h2>讣闻公告</h2>
-        <form id="announcement-form">
-            <label for="deceased_name">姓名：</label>
-            <input type="text" id="deceased_name" name="deceased_name" required>
-            
-            <label for="birthdate">出生日期：</label>
-            <input type="date" id="birthdate" name="birthdate" required>
-            
-            <label for="deathdate">逝世日期：</label>
-            <input type="date" id="deathdate" name="deathdate" required>
-            
-            <label for="age">享年：</label>
-            <input type="number" id="age" name="age" required>
-            
-            <label for="story">生平：</label>
-            <textarea id="story" name="story" required></textarea>
-            
-            <label for="ceremony_address">仪式地址：</label>
-            <input type="text" id="ceremony_address" name="ceremony_address" required>
-            
-            <label for="funeral_date">公奠日期：</label>
-            <input type="date" id="funeral_date" name="funeral_date" required>
-            
-            <label for="funeral_time">公奠时间：</label>
-            <input type="time" id="funeral_time" name="funeral_time" required>
-            
-            <button type="submit">提交</button>
-        </form>
-        <div id="map"></div>
-    </section>
-
-    <section id="tributes">
-        <h2>追思留言</h2>
-        <form id="tribute-form">
-            <label for="tribute_name">姓名：</label>
-            <input type="text" id="tribute_name" name="tribute_name" required>
-            
-            <label for="tribute_message">留言：</label>
-            <textarea id="tribute_message" name="tribute_message" required></textarea>
-            
-            <button type="submit">提交</button>
-        </form>
-        <div id="tribute-list"></div>
-    </section>
-
-    <section id="photos">
-        <h2>追思照片</h2>
-        <form id="photo-upload-form" enctype="multipart/form-data">
-            <label for="photo_upload">上传照片：</label>
-            <input type="file" id="photo_upload" name="photo_upload" required>
-            <button type="submit">上传</button>
-        </form>
-        <div id="photo-gallery"></div>
-    </section>
-
-    <section id="flowers">
-        <h2>花篮订购</h2>
-        <form id="flower-order-form">
-            <!-- Flower ordering options -->
-            <label for="flower_type">花篮类型：</label>
-            <select id="flower_type" name="flower_type" required>
-                <option value="A">花篮A</option>
-                <option value="B">花篮B</option>
-                <!-- More options -->
-            </select>
-            
-            <label for="quantity">数量：</label>
-            <input type="number" id="quantity" name="quantity" required>
-            
-            <label for="invoice">需要发票：</label>
-            <input type="checkbox" id="invoice" name="invoice">
-            
-            <button type="submit">确认订单</button>
-        </form>
-        <div id="order-summary"></div>
-    </section>
-
+    <main>
+        <section id="announcement">
+            <h2>訃聞公告</h2>
+            <div id="announcement-details">
+                <p><strong>姓名：</strong><span id="deceased_name">[姓名]</span></p>
+                <p><strong>出生日期：</strong><span id="birthdate">[出生日期]</span></p>
+                <p><strong>逝世日期：</strong><span id="deathdate">[逝世日期]</span></p>
+                <p><strong>享年：</strong><span id="age">[享年]</span></p>
+                <p><strong>生平：</strong><span id="story">[生平]</span></p>
+                <p><strong>儀式地址：</strong><span id="ceremony_address">[儀式地址]</span></p>
+                <p><strong>公奠日期：</strong><span id="funeral_date">[公奠日期]</span></p>
+                <p><strong>公奠時間：</strong><span id="funeral_time">[公奠時間]</span></p>
+            </div>
+            <div id="map"></div>
+        </section>
+        <section id="tributes">
+            <h2>追思留言區</h2>
+            <form id="tribute-form">
+                <label for="tribute_name">姓名：</label>
+                <input type="text" id="tribute_name" name="tribute_name" required>
+                <label for="tribute_message">留言：</label>
+                <textarea id="tribute_message" name="tribute_message" required></textarea>
+                <button type="submit">提交</button>
+            </form>
+            <div id="tribute-list"></div>
+        </section>
+        <section id="photos">
+            <h2>追思照片</h2>
+            <form id="photo-upload-form" enctype="multipart/form-data">
+                <label for="photo_upload">上傳照片：</label>
+                <input type="file" id="photo_upload" name="photo_upload" required>
+                <button type="submit">上傳</button>
+            </form>
+            <div id="photo-gallery"></div>
+        </section>
+    </main>
     <footer>
-        <p>&copy; 2024 祥安生命礼仪公司</p>
+        <p>&copy; 2024 祥安生命禮儀公司</p>
     </footer>
-
-    <script src="scripts.js"></script>
 </body>
 </html>
