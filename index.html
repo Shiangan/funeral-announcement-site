@@ -1,55 +1,1507 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-Hant-TW">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>祥安生命 - 訃聞公告</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="cgpt">
+
+    <meta name="distribution" content="Taiwan">
+    <meta name="description" content="生命電子訃聞">
+    <meta name="robots" content="all">
+    <!--<meta name="revisit-after" content="7 days">-->
+    <meta name="keywords" content="金麟生命電子訃聞">
+
+    <meta property="og:url"           content="https://gk-cloud-obituary.com/%E6%95%85%E9%BB%83%E7%8E%87%E8%BC%9D%E8%80%81%E5%85%88%E7%94%9F2024-08-04" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="故 黃率輝 老先生-雲端追思訃聞" />
+    <meta property="og:description"   content="點選此處連結開啟雲端訃聞" />
+    <meta property="og:image"         content="https://gk-cloud-obituary.com/images/jinlin/jinlinlineshow.jpg" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- 圖標fontawesome -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.0/css/all.css'>
+
+    <link href="https://gk-cloud-obituary.com/css/app.css" rel="stylesheet">
+    <link href="https://gk-cloud-obituary.com/css/base.css?v=2024-07-30 04:27:03" rel="stylesheet">
+    <link href="https://gk-cloud-obituary.com/css/color.css?v=2024-07-30 04:27:03" rel="stylesheet">
+    <link href="https://gk-cloud-obituary.com/css/jinlin_read.css?v=2024-07-30 04:27:03" rel="stylesheet">
+    <link href="https://gk-cloud-obituary.com/css/layout_bg.css?v=2024-07-30 04:27:03" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://gk-cloud-obituary.com/slick/slick.css"/>
+
+    <link rel="stylesheet" type="text/css" href="https://gk-cloud-obituary.com/slick/slick-theme.css"/>
+    <link rel="shortcut icon" href="https://gk-cloud-obituary.com/images/logo/logo.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="https://gk-cloud-obituary.com/images/logo/logo.ico" />
+    <link rel="icon" sizes="128x128" href="https://gk-cloud-obituary.com/images/logo/logo128.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="128x128" href="https://gk-cloud-obituary.com/images/logo/logo128.ico">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <link href="https://gk-cloud-obituary.com/fancybox/jquery.fancybox.min.css" rel="stylesheet" />
+    <script src="https://gk-cloud-obituary.com/fancybox/jquery.fancybox.min.js"></script>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="xOY4WEQ18NxFjhkBD1gFGP7cMS6xk7rD7QZ9Jc2S">
+
+
+    <!-- Scripts -->
+
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet"/>
+
+    <title>故 黃率輝 老先生-電子訃聞</title>
 </head>
-<body>
-    <header>
-        <img src="logo.jpg" alt="Logo" id="logo">
-        <h1>祥安生命禮儀公司</h1>
-    </header>
-    <main>
-        <section id="announcement">
-            <h2>訃聞公告</h2>
-            <div id="announcement-details">
-                <p><strong>姓名：</strong><span id="deceased_name">[姓名]</span></p>
-                <p><strong>出生日期：</strong><span id="birthdate">[出生日期]</span></p>
-                <p><strong>逝世日期：</strong><span id="deathdate">[逝世日期]</span></p>
-                <p><strong>享年：</strong><span id="age">[享年]</span></p>
-                <p><strong>生平：</strong><span id="story">[生平]</span></p>
-                <p><strong>儀式地址：</strong><span id="ceremony_address">[儀式地址]</span></p>
-                <p><strong>公奠日期：</strong><span id="funeral_date">[公奠日期]</span></p>
-                <p><strong>公奠時間：</strong><span id="funeral_time">[公奠時間]</span></p>
+    <style type="text/css">
+body {
+-moz-user-select : none;
+-webkit-user-select: none;
+}
+</style>
+
+<body id="forread">
+
+        <style>
+                    #lay1-BG[data-bg="KR001"], #testbg[data-bg="KR001"] {
+            background-image: url('https://gk-cloud-obituary.com/upload/bg/453a2ee5302f34796748f4f016716279.png');
+        }
+
+
+                    #lay1-BG[data-bg="KR002"], #testbg[data-bg="KR002"] {
+            background-image: url('https://gk-cloud-obituary.com/upload/bg/綠色蓮花_電腦-1920x1080.png');
+        }
+
+
+                    #lay1-BG[data-bg="KR003"], #testbg[data-bg="KR003"] {
+            background-image: url('https://gk-cloud-obituary.com/upload/bg/西式-鳥_電腦-1920x1080.png');
+        }
+
+
+                    #lay1-BG[data-bg="KR005"], #testbg[data-bg="KR005"] {
+            background-image: url('https://gk-cloud-obituary.com/upload/bg/簡單背景(綠)_電腦-1920x1080.jpg');
+        }
+
+
+                    #lay1-BG[data-bg="KR006"], #testbg[data-bg="KR006"] {
+            background-image: url('https://gk-cloud-obituary.com/upload/bg/西式-渲染藍_電腦-1920x1080.jpg');
+        }
+
+
+                    #lay1-BG[data-bg="CG005"], #testbg[data-bg="CG005"] {
+            background-image: url('https://gk-cloud-obituary.com/upload/bg/20230505_金麟_訃聞背景-20.png');
+        }
+
+
+                    #lay1-BG[data-bg="KR007"], #testbg[data-bg="KR007"] {
+            background-image: url('https://gk-cloud-obituary.com/upload/bg/黃色背景_電腦-1920x1080.jpg');
+        }
+
+
+                @media  screen and (max-width: 540px) {
+                                        #lay1-BG[data-bg="KR001"], #testbg[data-bg="KR001"] {
+                background-image: url('https://gk-cloud-obituary.com/upload/bg/sm/c442b016120fdd952c893943b2771f2c.png');
+            }
+
+                                    #lay1-BG[data-bg="KR002"], #testbg[data-bg="KR002"] {
+                background-image: url('https://gk-cloud-obituary.com/upload/bg/sm/綠色蓮花_手機板-400x720.png');
+            }
+
+                                    #lay1-BG[data-bg="KR003"], #testbg[data-bg="KR003"] {
+                background-image: url('https://gk-cloud-obituary.com/upload/bg/sm/西式-鳥_手機板-400x720.png');
+            }
+
+                                    #lay1-BG[data-bg="KR005"], #testbg[data-bg="KR005"] {
+                background-image: url('https://gk-cloud-obituary.com/upload/bg/sm/簡單背景(綠)_手機板-400x720.jpg');
+            }
+
+                                    #lay1-BG[data-bg="KR006"], #testbg[data-bg="KR006"] {
+                background-image: url('https://gk-cloud-obituary.com/upload/bg/sm/西式-渲染藍_手機板-400x720.jpg');
+            }
+
+                                    #lay1-BG[data-bg="CG005"], #testbg[data-bg="CG005"] {
+                background-image: url('https://gk-cloud-obituary.com/upload/bg/sm/20230505_金麟_訃聞背景-18.png');
+            }
+
+                                    #lay1-BG[data-bg="KR007"], #testbg[data-bg="KR007"] {
+                background-image: url('https://gk-cloud-obituary.com/upload/bg/sm/黃色背景_手機板-400x720.jpg');
+            }
+
+        
+
+        }
+
+        @media  screen and (min-width: 768px)and(max-width: 1024px) {
+                                        #lay1-BG[data-bg="KR001"], #testbg[data-bg="KR001"] {
+                background-image: url('https://gk-cloud-obituary.com/upload/bg/md/7ccdb6490ef74fc0fdf70fff2955611a.png');
+
+            }
+
+                                            #lay1-BG[data-bg="KR002"], #testbg[data-bg="KR002"] {
+                background-image: url('https://gk-cloud-obituary.com/upload/bg/md/綠色蓮花_平板-768x1024.png');
+
+            }
+
+                                            #lay1-BG[data-bg="KR003"], #testbg[data-bg="KR003"] {
+                background-image: url('https://gk-cloud-obituary.com/upload/bg/md/西式-鳥_平板-768x1024.png');
+
+            }
+
+                                            #lay1-BG[data-bg="KR005"], #testbg[data-bg="KR005"] {
+                background-image: url('https://gk-cloud-obituary.com/upload/bg/md/簡單背景(綠)_平板-768x1024.jpg');
+
+            }
+
+                                            #lay1-BG[data-bg="KR006"], #testbg[data-bg="KR006"] {
+                background-image: url('https://gk-cloud-obituary.com/upload/bg/md/西式-渲染藍_平板-768x1024.jpg');
+
+            }
+
+                                            #lay1-BG[data-bg="CG005"], #testbg[data-bg="CG005"] {
+                background-image: url('https://gk-cloud-obituary.com/upload/bg/md/20230505_金麟_訃聞背景-19.png');
+
+            }
+
+                                            #lay1-BG[data-bg="KR007"], #testbg[data-bg="KR007"] {
+                background-image: url('https://gk-cloud-obituary.com/upload/bg/md/黃色背景_平板-768x1024.jpg');
+
+            }
+
+                
+
+
+        }
+
+    </style>
+
+    <div class="position-fixed lay1-BG" id="lay1-BG" data-bg="CG005"></div>
+    <div class="position-fixed lay1-border" id="lay1-border" data-bgborder=""></div>
+    
+    <div class="position-fixed lay1new-cart smicon d-flex justify-content-center align-items-center" id="lay1new-cart"
+         data-toggle="modal" data-target="#buyModal" onclick="ajaxtocarts()">
+        <span class="font-weight-bold" id="add_cart_count">
+            0
+        </span>
+    </div>
+    
+    <div class="position-fixed smicon" id="BackTop"></div>
+    
+    <div class="position-fixed smicon" id="lay1new-share"
+         onclick="showlink('#lay1new-share','#lay1new-share_box')"></div>
+    <div class="position-fixed justify-content-center align-items-center" data-showlink="0" id="lay1new-share_box">
+        <a target="_blank"
+           href="https://social-plugins.line.me/lineit/share?url=https://gk-cloud-obituary.com/%E6%95%85%E9%BB%83%E7%8E%87%E8%BC%9D%E8%80%81%E5%85%88%E7%94%9F2024-08-04?openExternalBrowser=1">
+            <div id="lay1new-share_line"></div>
+        </a>
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gk-cloud-obituary.com/%E6%95%85%E9%BB%83%E7%8E%87%E8%BC%9D%E8%80%81%E5%85%88%E7%94%9F2024-08-04?openExternalBrowser=1&amp;src=sdkpreparse"
+           class="fb-xfbml-parse-ignore">
+            <div id="lay1new-share_fb"></div>
+        </a>
+    </div>
+    <script async defer crossorigin="anonymous"
+            src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v12.0&appId=2562798504045563&autoLogAppEvents=1"
+            nonce="Dz5nUl6I"></script>
+    <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async defer></script>
+    
+    
+    <a href="https://www.gold-kirin.com.tw/" target="_blank" class="position-fixed smicon" id="gojinlin"></a>
+
+    
+            <div class="lay1new_audiomp3_box smicon position-fixed" style="">
+            <div class="lay1new_audiomp3 smicon music-control paused" id="audiomusic_btn">
+
             </div>
-            <div id="map"></div>
-        </section>
-        <section id="tributes">
-            <h2>追思留言區</h2>
-            <form id="tribute-form">
-                <label for="tribute_name">姓名：</label>
-                <input type="text" id="tribute_name" name="tribute_name" required>
-                <label for="tribute_message">留言：</label>
-                <textarea id="tribute_message" name="tribute_message" required></textarea>
-                <button type="submit">提交</button>
-            </form>
-            <div id="tribute-list"></div>
-        </section>
-        <section id="photos">
-            <h2>追思照片</h2>
-            <form id="photo-upload-form" enctype="multipart/form-data">
-                <label for="photo_upload">上傳照片：</label>
-                <input type="file" id="photo_upload" name="photo_upload" required>
-                <button type="submit">上傳</button>
-            </form>
-            <div id="photo-gallery"></div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 祥安生命禮儀公司</p>
-    </footer>
+        </div>
+    
+    <div class="container" id="font-family" data-font=""
+         data-borderstyle=""><!-- fontFamilyclass塞這裡換字型 Ex:font-familyDFK -->
+
+        <div class="row mx-0" style="height: auto">
+            <div class="col-12 pt-5  text-center" id="lay1nameBG" data-bgtitle="CG005"
+                 data-bgborder="none" style="border-radius: 10px 0 0 0;">
+
+            </div>
+            <div class="col-12 col-lg-5 h-25 mb-3 mb-lg-5 p-0 text-center position-relative">
+                <div class="lay1-headborder">
+                    <img
+                        src="https://gk-cloud-obituary.com/upload/client/ZZ20240723aLcQ/headimg/IMG_1596 - 邱建銘.jpeg"
+                        alt="" style="">
+                </div>
+
+            </div>
+            <div class="col-12 col-lg-7 textgray d-lg-flex flex-column justify-content-center">
+                <p class="px-lg-5 h1 font-weight-bold text-center text-lg-left mb-3">故 黃率輝 老先生</p>
+                <p class="px-lg-5 font-weight-bold lineheight17 invitecontent mb-lg-3 mb-5">於西元2024年07月22日辭世，享壽68歲
+                    <br class="d-none d-xl-block"><span
+                        class="d-xl-none">，</span>謹擇於西元2024年08月04日
+                    舉行告別式</p>
+
+                <p class="px-lg-5 my-lg-4 h2 font-weight-bold text-center text-lg-left invite"><span>敬邀您參與追思奠禮</span>
+                </p>
+
+
+            </div>
+
+            
+
+                        
+            
+                        <div class="col-12 h-25 px-4 px-md-5 py-5 my-5 font-weight-bold text-justify formalcontent"
+                 style="border-radius: 10px;font-size: 1rem">
+                <div class="column1-lg">
+                    我們親愛的家人 黃率輝 老先生，<br />
+已於民國 113年 7月 22 日辭世，前往下一趟旅程。 <br />
+<br />
+將惋惜與不捨轉成祝福，將無盡的哀思獻給天上的 父親   。<br />
+<br />
+離別不是結束，感念 父親，讓我們彼此有緣在此生此時相聚。 <br />
+爾後將永存於我們的心裡，就像不曾離開過。 <br />
+<br />
+因 父親 而牽起的緣分，也讓我們互相珍惜，一起延續下去。
+                </div>
+                                    <div class="d-flex mt-4 mb-0 column1-lg justify-content-end"><div>全體孝眷一同</div></div>
+                            </div>
+                        
+
+        </div>
+        
+                
+
+        
+        <div class="row mx-0  mb-5" style="height: auto;border-radius: 10px">
+            <div
+                class="col-12 order-1 order-lg-0 mt-5 mt-lg-0">
+                <div
+                    class="row mt-5 mt-lg-0 position-relative"
+                    style="">
+                    
+                    <div class="col-auto  mx-md-auto px-0">
+                        <div class="h3 d-inline-block font-weight-bold parttitle">儀式流程</div>
+
+                    </div>
+                    <div class="h5 text-center textwhite yellow10 py-2 px-3 rounded position-absolute d-lg-none"
+                         style="cursor: pointer;right: 0;bottom: 0;white-space: nowrap"
+                         onclick="openwindow_calendar();"><i class="far fa-calendar"></i> 加入行事曆
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-lg-8 col-xl-6 h-25  pt-3  px-0 order-2 order-lg-1">
+
+                <div class="mb-3 textgray fontsize_1rem lineheight17">
+                    如欲參與，請家屬與親友提早準備，如該場告別式有開啟直播連結也可透過上方『點我去直播間』進行線上參與
+                </div>
+
+
+                                    <div class="px-3 row d-flex align-items-start flex-nowrap">
+                        <div
+                            class="col-3 col-md-3 px-3 px-md-4 mb-1  white0_5 border_brown9 d-inline-block rounded title_locate_hall">
+                            地點
+                        </div>
+                        <div
+                            class="col-9 px-3   d-inline-block title_locate_text">臺北市立第二殯儀館-至善3廳</div>
+                    </div>
+                                                    <div class="px-3 row d-flex align-items-start flex-nowrap mt-1">
+                        <div
+                            class="col-3 col-md-3 px-3 px-md-4 mb-1  white0_5 border_brown9 d-inline-block rounded title_locate_hall">
+                            日期
+                        </div>
+                                                <div
+                            class="col-9 px-3   d-inline-block title_locate_text">2024年08月04日 星期日</div>
+                    </div>
+                
+                <table
+                    class="lay1-table "
+                    style="width: 100%">
+                    <div
+                        class="row  mt-3 ">
+                        <div class="col-4">
+                            <div class="brown07 textwhite text-center py-1 rounded fontsize_1rem">時間</div>
+                        </div>
+                        <div class="col-8 pl-3">
+                            <div class="brown07 textwhite text-center py-1 rounded fontsize_1rem">流程</div>
+                        </div>
+                    </div>
+                    
+                                                                        <tr class="row flowrow">
+                                <td class="col-4">
+                                    <div class=" text-center py-1 rounded flowtime">06:30</div>
+                                </td>
+                                <td class="col-8 pl-3">
+                                    <div class=" text-center py-1 px-2 rounded flowcontent">家屬集合</div>
+                                </td>
+                            </tr>
+                            
+                            
+                            
+                            
+                                                    <tr class="row flowrow">
+                                <td class="col-4">
+                                    <div class=" text-center py-1 rounded flowtime">07:30</div>
+                                </td>
+                                <td class="col-8 pl-3">
+                                    <div class=" text-center py-1 px-2 rounded flowcontent">家奠禮</div>
+                                </td>
+                            </tr>
+                            
+                            
+                            
+                            
+                                                    <tr class="row flowrow">
+                                <td class="col-4">
+                                    <div class=" text-center py-1 rounded flowtime">隨即</div>
+                                </td>
+                                <td class="col-8 pl-3">
+                                    <div class=" text-center py-1 px-2 rounded flowcontent">公奠禮</div>
+                                </td>
+                            </tr>
+                            
+                            
+                            
+                            
+                                                            </table>
+
+
+                                    <div
+                        class="col-12 p-0 mt-3 d-none  d-lg-block">
+
+                        <script>
+                            function openwindow_calendar() {
+                                testurl = "https://www.google.com/calendar/render?action=TEMPLATE&text=2024-08-04故 黃率輝 老先生的告別式&dates=20240804/20240805&ctz=Asia/Taipei&details=參加告別式&location=臺北市大安區辛亥路3段330號&trp=false&sf=false&sprop=&sprop=name:";
+                                window.open(testurl, "calendar", "width=750,height=800");
+                            }
+                        </script>
+                        <div class="h5  text-center textwhite yellow10 py-3 rounded d-none d-lg-block"
+                             style="cursor: pointer"
+                             onclick="openwindow_calendar();"><i class="far fa-calendar"></i> 加入行事曆
+                        </div>
+                    </div>
+                            </div>
+            
+                            <div
+                    class="col-12 col-lg-4 col-xl-6 h-25 mb-5 pt-3 pb-lg-5 pl-md-5 pr-md-0 text-center  order-0 order-lg-2">
+
+                    
+                    <div id="carouselcard" class="carousel  slide"
+                         data-interval="3000">
+                        <ol class="carousel-indicators  mybar" style="margin-right: 0">
+
+                                                            <li data-target="#carouselcard" data-slide-to="0" class="active"
+                                    style="background-image: url('https://gk-cloud-obituary.com/upload/client/ZZ20240723aLcQ/cardimg/黃率輝訃聞0723-國道白-曲.jpg反_0.jpg')"></li>
+                            
+                                                            <li data-target="#carouselcard" data-slide-to="1"
+                                    style="background-image: url('https://gk-cloud-obituary.com/upload/client/ZZ20240723aLcQ/cardimg/黃率輝訃聞0723-國道白-改.jpg')"></li>
+                            
+
+                        </ol>
+                        <div class="carousel-inner rounded  Modal_carousel1450 obituaryimg_carousel">
+
+
+                                                            <div class="carousel-item active h-100">
+                                    <a href="https://gk-cloud-obituary.com/upload/client/ZZ20240723aLcQ/cardimg/黃率輝訃聞0723-國道白-曲.jpg反_0.jpg" data-fancybox="lightbox"
+                                       data-caption="訃聞訃告">
+                                        <img src="https://gk-cloud-obituary.com/upload/client/ZZ20240723aLcQ/cardimg/黃率輝訃聞0723-國道白-曲.jpg反_0.jpg" class="  " alt=""
+                                             style=" width: 100%;
+height: 100%;object-fit: contain">
+                                    </a>
+                                </div>
+                            
+                                                            <div class="carousel-item h-100">
+                                    <a href="https://gk-cloud-obituary.com/upload/client/ZZ20240723aLcQ/cardimg/黃率輝訃聞0723-國道白-改.jpg" data-fancybox="lightbox"
+                                       data-caption="訃聞訃告">
+                                        <img src="https://gk-cloud-obituary.com/upload/client/ZZ20240723aLcQ/cardimg/黃率輝訃聞0723-國道白-改.jpg" class=" " alt=""
+                                             style=" width: 100%;
+height: 100%;object-fit: contain">
+                                    </a>
+
+                                </div>
+                            
+
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselcard" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselcard" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    
+                </div>
+                        
+        </div>
+        
+
+
+        
+                    
+            <div class="row mt-5 justify-content-center position-relative">
+
+                
+                
+                <div class="col-12 col-md-auto mx-md-auto ">
+                    <div class="h2 d-inline-block font-weight-bold parttitle">致贈花禮</div>
+                </div>
+                
+                <div class="col-12  mt-3">
+
+                    <p class="font-weight-bolder textgray fontsize_1rem lineheight17 text-justify">
+                        奠禮會場佈置為求整齊及莊嚴，將規劃統一致贈花禮，造成不便、尚祈見諒！（告別式前三天將會關閉線上致贈）</p>
+
+                </div>
+                <div class="col-12  ">
+
+                                            <div
+                            class="btn font-weight-bolder product_class_btn product_class_btn_2"
+                            onclick="filter_product('.product_class_parent_2','.product_class_btn_2')">花籃</div>
+                                            <div
+                            class="btn font-weight-bolder product_class_btn product_class_btn_29"
+                            onclick="filter_product('.product_class_parent_29','.product_class_btn_29')">租用蘭花</div>
+                                    </div>
+            </div>
+            
+
+            <div class="row mx-0">
+                <!---->
+                <div class=" col-12 mx-auto px-0 mb-5" id="product_scroll">
+
+                                            <div
+                            class="lay1-product mx-0 lay1new-product position-relative p-1 p-md-2 product_class_parent product_class_parent_2">
+                            <div class="w-100 position-relative">
+
+                                <div class="lay1new-product_img"
+                                     style="background-image:url(https://gk-cloud-obituary.com/upload/goods/d37f3d0de2b938b61ee430e7f44a4a47.jpg);"></div>
+                                <a href="https://gk-cloud-obituary.com/upload/goods/d37f3d0de2b938b61ee430e7f44a4a47.jpg" data-fancybox="goodslightbox"
+                                   data-caption="羅馬柱花籃/對"
+                                   data-height="560" data-width="560"><span class="lay1-product_lable"><i
+                                            class="fas fa-search"></i></span>
+                                </a>
+                            </div>
+                            <div
+                                class="pt-2 font-weight-bold lay1-product_title text-center textgray">羅馬柱花籃/對</div>
+                            <div>
+                                <div class="mb-md-0 d-flex justify-content-center" style="">
+                                    <span class="h5 font-weight-bold textbrown07 my-2">$2500</span>
+                                </div>
+
+
+                                                                    
+                                    <div
+                                        class=" product_mui-numbox   mb-1 mb-md-0 d-flex justify-content-between align-items-center">
+                                        <button class="product_minus" type="button"
+                                                onclick="product_opera('I001_F337_2', false,'productcount_');">-
+                                        </button>
+                                        <input class="product_numbox" type="number"
+                                               id="productcount_I001_F337_2"
+                                               value="1" min="1" name="productcount_I001_F337_2">
+                                        <button class="product_minus plus" type="button"
+                                                onclick="product_opera('I001_F337_2', true,'productcount_');">+
+                                        </button>
+
+                                    </div>
+
+                                    
+                                    <span class="brown07 brown06-h buyiconnew d-block" data-clicked="0"
+                                          onclick="addcart('告別式','I001_F337_2','羅馬柱花籃/對','2500','#productcount_I001_F337_2','https://gk-cloud-obituary.com/upload/goods/d37f3d0de2b938b61ee430e7f44a4a47.jpg',this)">致 贈</span>
+
+                            
+                        </div>
+                        </div>
+                                            <div
+                            class="lay1-product mx-0 lay1new-product position-relative p-1 p-md-2 product_class_parent product_class_parent_2">
+                            <div class="w-100 position-relative">
+
+                                <div class="lay1new-product_img"
+                                     style="background-image:url(https://gk-cloud-obituary.com/upload/goods/6f8e8993694b29b361851b2d23fcb440.jpg);"></div>
+                                <a href="https://gk-cloud-obituary.com/upload/goods/6f8e8993694b29b361851b2d23fcb440.jpg" data-fancybox="goodslightbox"
+                                   data-caption="藝術羅馬柱花籃/對"
+                                   data-height="560" data-width="560"><span class="lay1-product_lable"><i
+                                            class="fas fa-search"></i></span>
+                                </a>
+                            </div>
+                            <div
+                                class="pt-2 font-weight-bold lay1-product_title text-center textgray">藝術羅馬柱花籃/對</div>
+                            <div>
+                                <div class="mb-md-0 d-flex justify-content-center" style="">
+                                    <span class="h5 font-weight-bold textbrown07 my-2">$3500</span>
+                                </div>
+
+
+                                                                    
+                                    <div
+                                        class=" product_mui-numbox   mb-1 mb-md-0 d-flex justify-content-between align-items-center">
+                                        <button class="product_minus" type="button"
+                                                onclick="product_opera('I001_F338_2', false,'productcount_');">-
+                                        </button>
+                                        <input class="product_numbox" type="number"
+                                               id="productcount_I001_F338_2"
+                                               value="1" min="1" name="productcount_I001_F338_2">
+                                        <button class="product_minus plus" type="button"
+                                                onclick="product_opera('I001_F338_2', true,'productcount_');">+
+                                        </button>
+
+                                    </div>
+
+                                    
+                                    <span class="brown07 brown06-h buyiconnew d-block" data-clicked="0"
+                                          onclick="addcart('告別式','I001_F338_2','藝術羅馬柱花籃/對','3500','#productcount_I001_F338_2','https://gk-cloud-obituary.com/upload/goods/6f8e8993694b29b361851b2d23fcb440.jpg',this)">致 贈</span>
+
+                            
+                        </div>
+                        </div>
+                                            <div
+                            class="lay1-product mx-0 lay1new-product position-relative p-1 p-md-2 product_class_parent product_class_parent_2">
+                            <div class="w-100 position-relative">
+
+                                <div class="lay1new-product_img"
+                                     style="background-image:url(https://gk-cloud-obituary.com/upload/goods/baa640a0b8b4851a9649f620f8aacb99.jpg);"></div>
+                                <a href="https://gk-cloud-obituary.com/upload/goods/baa640a0b8b4851a9649f620f8aacb99.jpg" data-fancybox="goodslightbox"
+                                   data-caption="藝術冠軍杯花籃/對"
+                                   data-height="560" data-width="560"><span class="lay1-product_lable"><i
+                                            class="fas fa-search"></i></span>
+                                </a>
+                            </div>
+                            <div
+                                class="pt-2 font-weight-bold lay1-product_title text-center textgray">藝術冠軍杯花籃/對</div>
+                            <div>
+                                <div class="mb-md-0 d-flex justify-content-center" style="">
+                                    <span class="h5 font-weight-bold textbrown07 my-2">$7500</span>
+                                </div>
+
+
+                                                                    
+                                    <div
+                                        class=" product_mui-numbox   mb-1 mb-md-0 d-flex justify-content-between align-items-center">
+                                        <button class="product_minus" type="button"
+                                                onclick="product_opera('I001_F341_2', false,'productcount_');">-
+                                        </button>
+                                        <input class="product_numbox" type="number"
+                                               id="productcount_I001_F341_2"
+                                               value="1" min="1" name="productcount_I001_F341_2">
+                                        <button class="product_minus plus" type="button"
+                                                onclick="product_opera('I001_F341_2', true,'productcount_');">+
+                                        </button>
+
+                                    </div>
+
+                                    
+                                    <span class="brown07 brown06-h buyiconnew d-block" data-clicked="0"
+                                          onclick="addcart('告別式','I001_F341_2','藝術冠軍杯花籃/對','7500','#productcount_I001_F341_2','https://gk-cloud-obituary.com/upload/goods/baa640a0b8b4851a9649f620f8aacb99.jpg',this)">致 贈</span>
+
+                            
+                        </div>
+                        </div>
+                                            <div
+                            class="lay1-product mx-0 lay1new-product position-relative p-1 p-md-2 product_class_parent product_class_parent_29">
+                            <div class="w-100 position-relative">
+
+                                <div class="lay1new-product_img"
+                                     style="background-image:url(https://gk-cloud-obituary.com/upload/goods/b4a6d29b75d6e299c5414c6709ed4a52.jpg);"></div>
+                                <a href="https://gk-cloud-obituary.com/upload/goods/b4a6d29b75d6e299c5414c6709ed4a52.jpg" data-fancybox="goodslightbox"
+                                   data-caption="白色蘭花/對"
+                                   data-height="560" data-width="560"><span class="lay1-product_lable"><i
+                                            class="fas fa-search"></i></span>
+                                </a>
+                            </div>
+                            <div
+                                class="pt-2 font-weight-bold lay1-product_title text-center textgray">白色蘭花/對</div>
+                            <div>
+                                <div class="mb-md-0 d-flex justify-content-center" style="">
+                                    <span class="h5 font-weight-bold textbrown07 my-2">$2500</span>
+                                </div>
+
+
+                                                                    
+                                    <div
+                                        class=" product_mui-numbox   mb-1 mb-md-0 d-flex justify-content-between align-items-center">
+                                        <button class="product_minus" type="button"
+                                                onclick="product_opera('I001_F344', false,'productcount_');">-
+                                        </button>
+                                        <input class="product_numbox" type="number"
+                                               id="productcount_I001_F344"
+                                               value="1" min="1" name="productcount_I001_F344">
+                                        <button class="product_minus plus" type="button"
+                                                onclick="product_opera('I001_F344', true,'productcount_');">+
+                                        </button>
+
+                                    </div>
+
+                                    
+                                    <span class="brown07 brown06-h buyiconnew d-block" data-clicked="0"
+                                          onclick="addcart('告別式','I001_F344','白色蘭花/對','2500','#productcount_I001_F344','https://gk-cloud-obituary.com/upload/goods/b4a6d29b75d6e299c5414c6709ed4a52.jpg',this)">致 贈</span>
+
+                            
+                        </div>
+                        </div>
+                                            <div
+                            class="lay1-product mx-0 lay1new-product position-relative p-1 p-md-2 product_class_parent product_class_parent_29">
+                            <div class="w-100 position-relative">
+
+                                <div class="lay1new-product_img"
+                                     style="background-image:url(https://gk-cloud-obituary.com/upload/goods/c7535bcc4c0763ce75b4c58705741a4a.jpg);"></div>
+                                <a href="https://gk-cloud-obituary.com/upload/goods/c7535bcc4c0763ce75b4c58705741a4a.jpg" data-fancybox="goodslightbox"
+                                   data-caption="粉色蘭花/對"
+                                   data-height="560" data-width="560"><span class="lay1-product_lable"><i
+                                            class="fas fa-search"></i></span>
+                                </a>
+                            </div>
+                            <div
+                                class="pt-2 font-weight-bold lay1-product_title text-center textgray">粉色蘭花/對</div>
+                            <div>
+                                <div class="mb-md-0 d-flex justify-content-center" style="">
+                                    <span class="h5 font-weight-bold textbrown07 my-2">$3000</span>
+                                </div>
+
+
+                                                                    
+                                    <div
+                                        class=" product_mui-numbox   mb-1 mb-md-0 d-flex justify-content-between align-items-center">
+                                        <button class="product_minus" type="button"
+                                                onclick="product_opera('I001_F347', false,'productcount_');">-
+                                        </button>
+                                        <input class="product_numbox" type="number"
+                                               id="productcount_I001_F347"
+                                               value="1" min="1" name="productcount_I001_F347">
+                                        <button class="product_minus plus" type="button"
+                                                onclick="product_opera('I001_F347', true,'productcount_');">+
+                                        </button>
+
+                                    </div>
+
+                                    
+                                    <span class="brown07 brown06-h buyiconnew d-block" data-clicked="0"
+                                          onclick="addcart('告別式','I001_F347','粉色蘭花/對','3000','#productcount_I001_F347','https://gk-cloud-obituary.com/upload/goods/c7535bcc4c0763ce75b4c58705741a4a.jpg',this)">致 贈</span>
+
+                            
+                        </div>
+                        </div>
+                                            <div
+                            class="lay1-product mx-0 lay1new-product position-relative p-1 p-md-2 product_class_parent product_class_parent_29">
+                            <div class="w-100 position-relative">
+
+                                <div class="lay1new-product_img"
+                                     style="background-image:url(https://gk-cloud-obituary.com/upload/goods/e2b587bd3c2d4bbe8875d9c524361910.jpg);"></div>
+                                <a href="https://gk-cloud-obituary.com/upload/goods/e2b587bd3c2d4bbe8875d9c524361910.jpg" data-fancybox="goodslightbox"
+                                   data-caption="帝王圓球蘭花/對"
+                                   data-height="560" data-width="560"><span class="lay1-product_lable"><i
+                                            class="fas fa-search"></i></span>
+                                </a>
+                            </div>
+                            <div
+                                class="pt-2 font-weight-bold lay1-product_title text-center textgray">帝王圓球蘭花/對</div>
+                            <div>
+                                <div class="mb-md-0 d-flex justify-content-center" style="">
+                                    <span class="h5 font-weight-bold textbrown07 my-2">$6500</span>
+                                </div>
+
+
+                                                                    
+                                    <div
+                                        class=" product_mui-numbox   mb-1 mb-md-0 d-flex justify-content-between align-items-center">
+                                        <button class="product_minus" type="button"
+                                                onclick="product_opera('I001_F350', false,'productcount_');">-
+                                        </button>
+                                        <input class="product_numbox" type="number"
+                                               id="productcount_I001_F350"
+                                               value="1" min="1" name="productcount_I001_F350">
+                                        <button class="product_minus plus" type="button"
+                                                onclick="product_opera('I001_F350', true,'productcount_');">+
+                                        </button>
+
+                                    </div>
+
+                                    
+                                    <span class="brown07 brown06-h buyiconnew d-block" data-clicked="0"
+                                          onclick="addcart('告別式','I001_F350','帝王圓球蘭花/對','6500','#productcount_I001_F350','https://gk-cloud-obituary.com/upload/goods/e2b587bd3c2d4bbe8875d9c524361910.jpg',this)">致 贈</span>
+
+                            
+                        </div>
+                        </div>
+                    
+                </div>
+
+            </div>
+
+        
+        
+
+        
+        
+        
+
+        
+                
+
+
+        
+                
+        
+                    <div class="row pb-5 lay1-bordermap">
+
+                <div class="col-12">
+                    <div class="row mb-3" style="">
+                        
+                        <div class="col-auto  mx-md-auto">
+                            <div class="h3 d-inline-block font-weight-bold parttitle">位置資訊</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 px-0">
+                    <div class="row mx-0">
+                        <div class="col-12  col-md-7 text-center  d-flex  rounded"
+                             style="word-break: break-all">
+
+                            <div class="text-left pr-md-5 pb-4  h5  w-100"
+                                 style="justify-content: space-between">
+                                <div class="mb-3">
+                                    <span class="btn font-weight-bolder py-2 changeaddr show" data-addrarea="addrarea1"
+                                          id="addrbtn1">奠禮會場</span>
+                                                                            <span class="btn font-weight-bolder py-2 changeaddr" data-addrarea="addrarea2"
+                                              id="addrbtn2">靈堂地點</span>
+                                    
+                                </div>
+                                <div id="addrarea1" class="addrarea1 addrarea show">
+                                    <p class="h3 font-weight-bold">臺北市立第二殯儀館</p>
+                                    <p class="h6 mb-4">地址：臺北市大安區辛亥路3段330號</p>
+
+                                    <div class="mb-0">
+                                        
+                                            <p class="mb-0 px-3 py-2 traffic_info_border font-weight-bold textgray"
+                                               style="cursor: pointer"
+                                               data-toggle="collapse" href="#area1_traffic_info" role="button"
+                                               onclick="traffic_info_togo('.area1_traffic_info_btn')">
+                                                交通資訊 <i class="fas fa-chevron-down area1_traffic_info_btn"></i>
+                                            </p>
+                                            <div class="collapse" id="area1_traffic_info">
+                                                <div
+                                                    class="mt-2 text-justify traffic_info_border card card-body fontsize_1rem lineheight15  ">
+                                                    <p>(1)公車：237、294、295、298、611、673、綠11、棕12、棕22等至「第二殯儀館」站
+(2)捷運松山新店線公館站→673、綠11、棕12、棕22、免費懷恩專車S31→ 　第二殯儀館
+(3)捷運文湖線六張犁站→611、免費懷恩專車S32→ 第二殯儀館
+(4)捷運文湖線辛亥站→673、棕12、棕22、611、237、294、295、298 → 　第二殯儀館<br></p>
+                                                </div>
+                                            </div>
+
+                                                                            </div>
+
+                                                                        <div class="mb-0 mt-3 d-none d-md-block">
+                                            <p class="mb-0 px-3 py-3 h5 family_info_border font-weight-bold"
+                                               style="cursor: pointer"
+                                               data-toggle="collapse" href="#family_info" role="button"
+                                               onclick="traffic_info_togo('.family_info_btn')">
+                                                家屬資訊 <i class="fas fa-chevron-down family_info_btn"></i>
+                                            </p>
+                                            <div class="collapse" id="family_info">
+                                                <div
+                                                    class="mt-2 text-justify traffic_info_border card card-body fontsize_1rem lineheight15 d-block ">
+                                                    郭麗華 <a href="tel:+886-0985295488">0985295488</a>
+                                                    <br>
+                                                    筑君 <a href="tel:+886-0954086949">0954086949</a>
+                                                    <br>
+                                                     <a href="tel:+886-"></a>
+                                                    <br>
+                                                     <a href="tel:+886-"></a>
+                                                </div>
+                                            </div>
+                                    </div>
+                                                                    </div>
+
+
+                                                                    <div id="addrarea2" class="addrarea2 addrarea">
+
+                                        <p class="h3 font-weight-bold">台北市立第二殯儀館-G1-09</p>
+                                        <p class="h6 mb-4">
+                                            地址：臺北市大安區辛亥路3段330號
+                                        </p>
+                                        <p class="h6 mb-4"></p>
+                                        <div class="mb-0">
+                                                                                            <p class="mb-0 px-3 py-2 traffic_info_border font-weight-bold textgray"
+                                                   style="cursor: pointer"
+                                                   data-toggle="collapse" href="#area2_traffic_info" role="button"
+                                                   onclick="traffic_info_togo('.area2_traffic_info_btn')">
+                                                    交通資訊 <i class="fas fa-chevron-down area2_traffic_info_btn"></i>
+                                                </p>
+                                                <div class="collapse" id="area2_traffic_info">
+                                                    <div
+                                                        class="mt-2 text-justify traffic_info_border card card-body fontsize_1rem lineheight15  ">
+                                                        <p>(1)公車：237、294、295、298、611、673、綠11、棕12、棕22等至「第二殯儀館」站 (2)捷運松山新店線公館站→673、綠11、棕12、棕22、免費懷恩專車S31→ 　第二殯儀館 (3)捷運文湖線六張犁站→611、免費懷恩專車S32→ 第二殯儀館 (4)捷運文湖線辛亥站→673、棕12、棕22、611、237、294、295、298 → 　第二殯儀館<br></p>
+                                                    </div>
+                                                </div>
+                                                                                    </div>
+                                                                                    <div class="mb-0 mt-3 d-none d-md-block">
+                                                <p class="mb-0 px-3 py-3 h5 family_info_border font-weight-bold"
+                                                   style="cursor: pointer"
+                                                   data-toggle="collapse" href="#family_info1" role="button"
+                                                   onclick="traffic_info_togo('.family_info_btn')">
+                                                    家屬資訊 <i class="fas fa-chevron-down family_info_btn"></i>
+                                                </p>
+                                                <div class="collapse" id="family_info1">
+                                                    <div
+                                                        class="mt-2 text-justify traffic_info_border card card-body fontsize_1rem lineheight15 d-block ">
+                                                        郭麗華 <a href="tel:+886-0985295488">0985295488</a>
+                                                        <br>
+                                                        筑君 <a href="tel:+886-0954086949">0954086949</a>
+                                                        <br>
+                                                         <a href="tel:+886-"></a>
+                                                        <br>
+                                                         <a href="tel:+886-"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                
+                                    </div>
+                                
+                            </div>
+
+                        </div>
+                        <div class="col-12 mx-auto col-md-5 d-flex align-items-center">
+                            <div id="mapbox" class=" addrarea1 addrarea show">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.60393376075!2d121.54955577537582!3d25.01357077782964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aa3b88e7c081%3A0x6546dcd4d5434547!2zMTA25Y-w5YyX5biC5aSn5a6J5Y2A6L6b5Lql6Lev5LiJ5q61MzMw6Jmf!5e0!3m2!1szh-TW!2stw!4v1719543950840!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=臺北市大安區辛亥路3段330號"
+                                   class="noa mt-2 "
+                                   target="_blank" style="font-size: 1.4rem">
+                                    <div class="mt-3 mb-0 text-center navigate_btn"><img
+                                            src="https://gk-cloud-obituary.com/images/jinlin/icon/location-arrow.png" alt=""
+                                            style="height: 26px;"> 連結導航
+                                    </div>
+                                </a>
+                                                                    <div class="mb-0 mt-3 d-md-none">
+                                        <p class="mb-0 px-3 py-3 h5 family_info_border font-weight-bold"
+                                           style="cursor: pointer"
+                                           data-toggle="collapse" href="#family_info2" role="button"
+                                           onclick="traffic_info_togo('.family_info_btn')">
+                                            家屬資訊 <i class="fas fa-chevron-down family_info_btn"></i>
+                                        </p>
+                                        <div class="collapse" id="family_info2">
+                                            <div
+                                                class="mt-2 text-justify traffic_info_border card card-body fontsize_1rem lineheight15 d-block ">
+                                                郭麗華 <a href="tel:+886-0985295488">0985295488</a>
+                                                <br>
+                                                筑君 <a href="tel:+886-0954086949">0954086949</a>
+                                                <br>
+                                                 <a href="tel:+886-"></a>
+                                                <br>
+                                                 <a href="tel:+886-"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                            </div>
+
+
+
+
+                            <div id="mapbox" class=" addrarea2 addrarea">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5113.156898581856!2d121.54949046610915!3d25.01547320928829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aa3b0390f463%3A0x9082f68f52193107!2z5Y-w5YyX5biC56uL56ys5LqM5q6v5YSA6aSo!5e0!3m2!1szh-TW!2stw!4v1693294062421!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=台北市立第二殯儀館-G1-09"
+                                   class="noa mt-2 "
+                                   target="_blank" style="font-size: 1.4rem">
+                                    <div class="mt-3 mb-0 text-center navigate_btn"><img
+                                            src="https://gk-cloud-obituary.com/images/jinlin/icon/location-arrow.png" alt=""
+                                            style="height: 26px;"> 連結導航
+                                    </div>
+                                </a>
+                                                                    <div class="mb-0 mt-3 d-md-none">
+                                        <p class="mb-0 px-3 py-3 h5 family_info_border font-weight-bold"
+                                           style="cursor: pointer"
+                                           data-toggle="collapse" href="#family_info3" role="button"
+                                           onclick="traffic_info_togo('.family_info_btn')">
+                                            家屬資訊 <i class="fas fa-chevron-down family_info_btn"></i>
+                                        </p>
+                                        <div class="collapse" id="family_info3">
+                                            <div
+                                                class="mt-2 text-justify traffic_info_border card card-body fontsize_1rem lineheight15 d-block ">
+                                                郭麗華 <a href="tel:+886-0985295488">0985295488</a>
+                                                <br>
+                                                筑君 <a href="tel:+886-0954086949">0954086949</a>
+                                                <br>
+                                                 <a href="tel:+886-"></a>
+                                                <br>
+                                                 <a href="tel:+886-"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+                
+        
+                        
+    </div>
+
+    <script>
+                // 音樂
+        var audio = new Audio();
+        // audio.autoplay = true;
+
+        audio.src = "data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKpIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzUAVFNTRQAAAA8AAANMYXZmNTcuODMuMTAwAAAAAAAAAAAAAAD/80DEAAAAA0gAAAAATEFNRTMuMTAwVVVVVVVVVVVVVUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQsRbAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQMSkAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV";
+
+        // later on when you actually want to play a sound at any point without user interaction
+        audio.src = "https://gk-cloud-obituary.com/upload/music/Camhanaich 卡馬納赫.mp3";
+        
+            audio.loop = true
+        
+
+        if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iOS|iPad|WebOS|Windows Phone|Phone)/i))) {
+
+            audio.autoplay = true;
+
+        }
+        // audio.src = "data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKpIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzUAVFNTRQAAAA8AAANMYXZmNTcuODMuMTAwAAAAAAAAAAAAAAD/80DEAAAAA0gAAAAATEFNRTMuMTAwVVVVVVVVVVVVVUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQsRbAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQMSkAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV";
+
+        // later on when you actually want to play a sound at any point without user interaction
+        audio.src = "https://gk-cloud-obituary.com/upload/music/Camhanaich 卡馬納赫.mp3";
+        
+        // audio.loop=true
+        $('.music-control').click(function (e) {
+            e.preventDefault()
+            $(this).toggleClass('paused')
+            if ($(this).hasClass('paused')) {
+                audio.pause()
+                $(this).removeClass('play')
+            } else {
+                audio.play()
+                $(this).addClass('play')
+            }
+        })
+        if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iOS|iPad|WebOS|Windows Phone|Phone)/i))) {
+
+            let playAttempt = setInterval(() => {
+                audio
+                    .play()
+                    .then(() => {
+                        $('.music-control')
+                            .removeClass('paused')
+                            .addClass('play')
+                        clearInterval(playAttempt);
+                    })
+                    .catch((error) => {
+                        console.log("Unable to play the video, User has not interacted yet.");
+                    });
+            }, 1000);
+        }
+
+
+
+                            function filter_product(class_parent_id, btn) {
+                if (class_parent_id == 'all') {
+                    $('.product_class_parent').show();
+                    $('.product_class_btn').removeClass('show');
+                    $(btn).addClass('show');
+                } else {
+                    $('.product_class_parent').hide();
+                    $(class_parent_id).show();
+                    $('.product_class_btn').removeClass('show');
+                    $(btn).addClass('show');
+                }
+
+            }
+
+                                                filter_product('.product_class_parent_2', '.product_class_btn_2')
+                                                                
+                    function filter_product_mourninghall(class_parent_id, btn) {
+                if (class_parent_id == 'all') {
+                    $('.product_class_parent_mourninghall').show();
+                    $('.product_class_btn_mourninghall').removeClass('show');
+                    $(btn).addClass('show');
+                } else {
+                    $('.product_class_parent_mourninghall').hide();
+                    $(class_parent_id).show();
+                    $('.product_class_btn_mourninghall').removeClass('show');
+                    $(btn).addClass('show');
+                }
+            }
+
+                    
+                $('.changeaddr').click(function (e) {
+            e.preventDefault()
+            $(".addrarea").removeClass('show')
+            $(".changeaddr").removeClass('show')
+            $(this).addClass('show')
+            let addrarea = $(this).attr('data-addrarea')
+
+            $("." + addrarea).addClass('show')
+
+        });
+
+        function traffic_info_togo(btn) {
+
+            if ($(btn).hasClass('up')) {
+                $(btn).removeClass('up')
+            } else {
+                $(btn).addClass('up')
+
+            }
+        }
+
+                $(function () {
+            //counter mode
+            let counter_mode = localStorage.getItem("counter_mode");
+            if(counter_mode==="true") {
+                $(".counter-mode-only").show();
+            }
+
+            $('.lay3lick').slick({
+                // autoplay:true,
+                dots: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                centerPadding: '100px',
+                slidesToShow: 3,
+                responsive: [
+                    {
+                        breakpoint: 991,
+                        settings: {
+                            arrows: false,
+                            centerPadding: '200px',
+                            slidesToShow: 2
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            centerPadding: '100px',
+                            slidesToShow: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: false,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+
+            $('.lifeslick').slick({
+                // autoplay:true,
+                dots: true,
+                slidesToShow: 3,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                infinite: true,
+                responsive: [
+                    {
+                        breakpoint: 1200,
+                        settings: {
+                            arrows: false,
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 991,
+                        settings: {
+                            arrows: false,
+                            slidesToShow: 2
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            slidesToShow: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: false,
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+        });
+
+        function showlink($id, $target) {
+            let showlinkdata = $($target).attr('data-showlink');
+            if (showlinkdata === '0') {
+                $($target).attr('data-showlink', '1')
+            } else {
+                $($target).attr('data-showlink', '0')
+            }
+        }
+
+        function alertconnect(id) {
+            $(id).removeClass('d-none').addClass('d-flex');
+        }
+
+    </script>
+
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade " id="buyModal" tabindex="-1" role="dialog" aria-labelledby="buyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document" >
+        <div class="modal-content">
+
+
+
+
+
+            <div class="modal-body" id="cartsmodal-body">
+                <div class="modal-header p-0 pb-3">
+    <h4 class="modal-title" id="buyModalLabel">購物車-你購買的產品如下</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+</div>
+<div class="container" style="position: relative; ">
+
+    <div class="row p-2 " id="buymodalrow">
+                    <div class="col-12 text-center textbrown06 h1">購物車內沒有商品</div>
+        
+    </div>
+
+
+</div>
+
+
+<script>
+
+</script>
+                <div class="modal-footer">
+
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</div>
+
+<div class="h-100 w-100 position-fixed d-none justify-content-center align-items-center " style="top: 0;right: 0;z-index: 999;" id="add_carttextinfo">
+    <div class="shadow text-center bg-white" style="padding: 2rem 2rem">
+        <img src="https://gk-cloud-obituary.com/images/jinlin/icon/addcart.png" class="w-50" alt="">
+        <div class="mt-4 mb-0 h4 font-weight-bold textgray">已加入購物車</div>
+    </div>
+</div>
+<div class="h-100 w-100 position-fixed d-none justify-content-center align-items-center " style="top: 0;right: 0;z-index: 999;" id="cantbuyalert">
+    <div class="shadow bg-white" style="padding: 1rem 1rem 2rem 2rem">
+        <button type="button" class="close" onclick="closealert('#cantbuyalert')">&times;</button>
+        <div class=" mb-0 font-weight-bold textgray pt-3 pr-3 h5">
+
+            致贈專線：<br><a href="tel:+886-3-4631159">03-4631159</a> 分機11<br><br>
+            服務時間：<br>週一至週五 08：30-17：30
+           </div>
+    </div>
+</div>
+<script>
+    let cartsjson= {};
+
+    function addcart(gtype,gid,name,price,numid,imgpath,obj=undefined){
+        // console.log(obj) html的元素
+        // if (gid in cartsjson)
+        // {
+        //     cartsjson[gid]['Data'].num+=1;
+        // }
+        // else
+        // {
+
+        let addnum=$(numid).val();
+        if(isNaN(parseInt(addnum))){
+            addnum=1
+        }
+        var addcartobj = {
+            gid:gid,
+            Data:
+                {
+                    gtype: gtype,
+                    name: name,
+                    price: price,
+                    num: addnum,
+                    imgpath: imgpath
+                }
+        };
+        cartsjson[gid]=addcartobj;
+        $(obj).attr('data-clicked',1);
+
+        // }
+        sessionStorage.setItem('cartsjson',JSON.stringify(cartsjson));
+        // cartsjson.push(addcartobj)
+
+        ajaxto(addcartobj,gid)
+        // console.log(JSON.stringify(cartsjson))
+        // console.log(Object.keys(cartsjson))=== allgid
+    }
+    function ajaxto(cartsjson,gid) {
+        $.ajax({
+
+            method: 'POST',
+            url: 'ZZ20240723aLcQ/ajax_addcartsjson',
+            data: {
+                "_token": "xOY4WEQ18NxFjhkBD1gFGP7cMS6xk7rD7QZ9Jc2S",
+                "cartsjson": cartsjson,
+                'gid':gid,
+            },
+            success: function( data ) {
+                // console.log(id)
+                
+                
+                
+                
+
+                // $('#testcontent').html(JSON.stringify(id));
+                // $( ".modal-body" ).load(window.location.href + " .modal-body" );
+
+                $("#lay1new-cart").addClass("cartalert")
+                window.setTimeout(function(){$("#lay1new-cart").removeClass("cartalert");}, 1500);
+
+                $('#heartshine').show(0);
+                $('#heartshine').delay(100000).hide(0);
+                $('#add_cart_oneinfo').fadeIn(100);
+                $('#add_cart_oneinfo').delay(1000).fadeOut(300);
+
+                $('#add_carttextinfo').removeClass('d-none').addClass('d-flex');
+                setTimeout(function(){
+                    $('#add_carttextinfo').removeClass('d-flex').addClass('d-none');
+                }, 1200);
+                $("#add_cart_count").text(data)
+
+                // console.log(JSON.stringify(data))
+
+
+            }
+        });
+    }
+    function ajaxtocarts() {
+        $.ajax({
+
+            method: 'POST',
+            url: 'ZZ20240723aLcQ/ajax_callcartsjson',
+            data: {
+                "_token": "xOY4WEQ18NxFjhkBD1gFGP7cMS6xk7rD7QZ9Jc2S",
+
+            },
+            success: function( data ) {
+                $('#cartsmodal-body').html(data.html);
+            }
+        });
+    }
+    function ajax_deletegid(gid) {
+
+        $.ajax({
+
+            method: 'POST',
+            url: 'ZZ20240723aLcQ/ajax_deletegid',
+            data: {
+                "_token": "xOY4WEQ18NxFjhkBD1gFGP7cMS6xk7rD7QZ9Jc2S",
+                'gid':gid,
+            },
+            success: function( data ) {
+
+                let deleteprice=$('#'+gid+'_all_price').text();
+                $('.colfor'+gid).remove();
+                let total_price=$('#total_price').text();
+                $('#total_price').html(total_price-deleteprice);
+                if ((total_price-deleteprice)==0){
+                    let htmltext='<div class="col-12 text-center textbrown06 h1">購物車內沒有商品</div>'
+                    $('#buymodalrow').html(htmltext)
+                }
+                $("#add_cart_count").text(data)
+
+            }
+        });
+    }
+    function ajaxto_step1() {
+        let form=$('#carts_editform').serializeArray();
+        let FormObject = {};
+        $.each(form,
+            function(i, v) {
+                FormObject[v.name] = v.value;
+            });
+        $.ajax({
+            method: 'POST',
+            url: 'ZZ20240723aLcQ/ajax_tostep1',
+            data: {
+                "_token": "xOY4WEQ18NxFjhkBD1gFGP7cMS6xk7rD7QZ9Jc2S",
+                "form":FormObject,
+            },
+            success: function( data ) {
+                $('#cartsmodal-body').html(data.html);
+                $('#codenum').val('ZZ20240723aLcQ')
+                $('#buyModal').animate({ scrollTop: 0 }, 333);
+            }
+        });
+    }
+    //換成另開頁
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    function closealert(id) {
+        $(id).removeClass('d-flex').addClass('d-none');
+    }
+    // $(function (){
+    // let ua = navigator.userAgent;
+    // let iOS = /iPad|iPhone|iPod/.test(ua);
+    // let focusinput = document.getElementsByTagName('input');
+    //
+    // focusinput.addEventListener('focus', () => {
+    //
+    //     setTimeout(() => {
+    //         if (iOS) {
+    //             if (!/OS 11_[0-3]\D/.test(ua)) {
+    //                 document.body.scrollTop = document.body.scrollHeight;
+    //             }
+    //         } else {
+    //             focusinput.scrollIntoView(false);
+    //
+    //         }
+    //     }, 300);
+    // });
+    // })
+</script>
+<div class="container-fluid " style="background: #fdf4da;z-index: -2;">
+        <!-- Footer -->
+        <footer class="page-footer font-small blue pt-4" id="footerPage">
+            <!-- Footer Links -->
+<div class="container-fluid text-center text-md-left " style="color:#756d54">
+
+    <!-- Grid row -->
+    <div class=" container p-0" style="display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+ ">
+
+
+        <div class="offset-md-1 col-md-4  mb-3 py-2 text-center" style="display: inline-grid ;align-content: center;justify-content: center;">
+            <img src="https://gk-cloud-obituary.com/images/logo_md.png"  class="img-fluid" style="max-height:9rem ;justify-self: center;">
+            <p class="mt-4 mb-0 d-none d-md-block">花禮專線 03-4631159&ensp;分機11</p>
+            <p class="my-1 d-none d-md-block">服務時間 週一到週五 08：30~17：30</p>
+
+
+        </div>
+<div class="clearfix w-100 d-md-none pb-3 mt-0 d-flex align-items-center justify-content-center">
+    <span style="border-radius: 50px;width: 8px;height: 8px;border: solid 1px #BB8A4D;display: inline-block;margin: 0 4px"></span>
+    <span style="width: 70%;height: 0;border-top: solid 0.1px #BB8A4D80;display: inline-block"></span>
+    <span style="border-radius: 50px;width: 8px;height: 8px;border: solid 1px #BB8A4D;display: inline-block;margin: 0 4px"></span>
+</div>
+
+
+        <!-- Grid column foreach這個代入頁面-->
+        <div class=" col-md-1 mb-md-0 mb-3 d-none d-md-block">
+
+            <!-- Links -->
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class=" col-md-6  col-12 mb-md-0 mb-0 align-content-center px-0" >
+            <div class="row align-items-center" >
+                <div class="col-4 col-md-5 text-right p-0">
+                    <img src="https://gk-cloud-obituary.com/upload/user/A13-00057.png" alt="" class="img-fluid rounded-circle img-thumbnail footer-bighead">
+
+                </div>
+                <div class="col-8 col-md-7 ">
+                    <p class="my-0 d-md-none d-block textgray footer_directorinfo">花禮專線 <a href="tel:+886-3-4631159">03-4631159</a>分機11</p>
+                    <p class="my-0 mb-3 d-md-none d-block textgray footer_directorinfo">服務時間 週一到週五 08:30~17:30</p>
+
+
+                    <p class="my-0 textgray footer_directorinfo">禮儀承辦：邱建銘<br>喪禮諮詢：<a href='tel:+886-0909656868'>0909656868</a></p>
+
+                </div>
+
+            </div>
+
+
+    <div class="row mb-4 mb-md-5">
+        <p class="my-0 offset-4 offset-md-5 col-7 text-left">
+            <a href="https://www.gold-kirin.com.tw/" target="_blank" class="footergo" id="footergojinlin"></a>
+            <a href="https://www.facebook.com/goldkirintw/" target="_blank" class="footergo" id="footergofb"></a>
+            <a href="https://page.line.me/573mydls?openQrModal=true" target="_blank" class="footergo" id="footergoline"></a>
+        </p>
+    </div>
+
+        </div>
+        <!-- Grid column -->
+
+
+
+    </div>
+    <!-- Grid row -->
+
+</div>
+<!-- Footer Links -->
+
+<!-- Copyright -->
+
+
+<!-- Copyright -->
+
+
+        </footer>
+        <!-- Footer -->
+</div>
+
+<div class="container-fluid " style="background:#FFFFFF;z-index: -2;">
+    <div class="footer-copyright text-center py-3  small" style="color: #c59d62; "> 2024 &copy;
+        <span> Gold Kirin All Rights Reserved.</span>
+    </div>
+</div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+<script type="text/javascript" src="https://gk-cloud-obituary.com/slick/slick.min.js"></script>
+
 </body>
+<script src="https://gk-cloud-obituary.com/js/main.js?v=2024-07-30 04:27:03">
+
+</script>
+<script>
+document.oncontextmenu = new Function("return false");
+oncontextmenu="return false;"
+</script>
 </html>
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="2eedca968f54fa52598c88fb-|49" defer></script>
